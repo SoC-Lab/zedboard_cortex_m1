@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# invert_singleValue
+# invert_singleValue, invert_singleValue, top
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -167,6 +167,7 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set UART_RX [ create_bd_port -dir I UART_RX ]
   set led [ create_bd_port -dir O -from 7 -to 0 led ]
   set reset_0 [ create_bd_port -dir I -type rst reset_0 ]
   set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
@@ -272,6 +273,17 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    } elseif { $invert_singleValue_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: invert_singleValue_1, and set properties
+  set block_name invert_singleValue
+  set block_cell_name invert_singleValue_1
+  if { [catch {set invert_singleValue_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $invert_singleValue_1 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -671,6 +683,17 @@ proc create_root_design { parentCell } {
    CONFIG.preset {ZedBoard} \
  ] $processing_system7_0
 
+  # Create instance: top_0, and set properties
+  set block_name top
+  set block_cell_name top_0
+  if { [catch {set top_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $top_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
   set_property -dict [ list \
@@ -682,8 +705,12 @@ proc create_root_design { parentCell } {
   # Create instance: xlconcat_1, and set properties
   set xlconcat_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_1 ]
   set_property -dict [ list \
-   CONFIG.IN0_WIDTH {4} \
-   CONFIG.IN1_WIDTH {4} \
+   CONFIG.IN0_WIDTH {1} \
+   CONFIG.IN1_WIDTH {1} \
+   CONFIG.IN2_WIDTH {1} \
+   CONFIG.IN3_WIDTH {1} \
+   CONFIG.IN4_WIDTH {4} \
+   CONFIG.NUM_PORTS {5} \
  ] $xlconcat_1
 
   # Create instance: xlconstant_0, and set properties
@@ -702,14 +729,9 @@ proc create_root_design { parentCell } {
   # Create instance: xlconstant_2, and set properties
   set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
   set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
+   CONFIG.CONST_VAL {1} \
+   CONFIG.CONST_WIDTH {1} \
  ] $xlconstant_2
-
-  # Create instance: xlconstant_3, and set properties
-  set xlconstant_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_3 ]
-  set_property -dict [ list \
-   CONFIG.CONST_WIDTH {4} \
- ] $xlconstant_3
 
   # Create interface connections
   connect_bd_intf_net -intf_net Cortex_M1_0_CM1_AXI3 [get_bd_intf_pins Cortex_M1_0/CM1_AXI3] [get_bd_intf_pins axi_interconnect_0/S00_AXI]
@@ -721,18 +743,23 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
 
   # Create port connections
+  connect_bd_net -net UART_RX [get_bd_ports UART_RX] [get_bd_pins top_0/UART_RX_EXT] [get_bd_pins xlconcat_1/In2]
   connect_bd_net -net axi_bram_ctrl_0_s_axi_arready [get_bd_pins axi_bram_ctrl_0/s_axi_arready] [get_bd_pins ila_0/probe1]
-  connect_bd_net -net axi_gpio_2_gpio_io_o [get_bd_pins axi_gpio_2/gpio_io_o] [get_bd_pins xlconcat_1/In1]
+  connect_bd_net -net axi_gpio_2_gpio_io_o [get_bd_pins axi_gpio_2/gpio_io_o] [get_bd_pins xlconcat_1/In4]
   connect_bd_net -net axi_uartlite_0_interrupt [get_bd_pins axi_uartlite_0/interrupt] [get_bd_pins xlconcat_0/In0]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports sys_clock] [get_bd_pins Cortex_M1_0/HCLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins ila_0/clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+  connect_bd_net -net axi_uartlite_0_tx [get_bd_pins axi_uartlite_0/tx] [get_bd_pins invert_singleValue_1/i_signal] [get_bd_pins top_0/UART_TX_INT]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports sys_clock] [get_bd_pins Cortex_M1_0/HCLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins ila_0/clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins top_0/CLK]
+  connect_bd_net -net invert_singleValue_1_o_signal [get_bd_pins invert_singleValue_1/o_signal] [get_bd_pins xlconcat_1/In0]
   connect_bd_net -net reset_0_1 [get_bd_pins Cortex_M1_0/DBGRESETn] [get_bd_pins Cortex_M1_0/SYSRESETn] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins ila_0/probe0] [get_bd_pins invert_singleValue_0/o_signal]
-  connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins invert_singleValue_0/i_signal]
+  connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins invert_singleValue_0/i_signal] [get_bd_pins top_0/RST]
+  connect_bd_net -net top_0_RECFG [get_bd_pins top_0/RECFG] [get_bd_pins xlconcat_1/In3]
+  connect_bd_net -net top_0_UART_RX_INT [get_bd_pins axi_uartlite_0/rx] [get_bd_pins top_0/UART_RX_INT]
+  connect_bd_net -net top_0_UART_TX_EXT [get_bd_pins top_0/UART_TX_EXT] [get_bd_pins xlconcat_1/In1]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins Cortex_M1_0/IRQ] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconcat_1_dout [get_bd_ports led] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins xlconcat_0/In1] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins Cortex_M1_0/CFGITCMEN] [get_bd_pins xlconstant_1/dout]
-  connect_bd_net -net xlconstant_2_dout [get_bd_pins axi_uartlite_0/rx] [get_bd_pins xlconstant_2/dout]
-  connect_bd_net -net xlconstant_3_dout [get_bd_pins xlconcat_1/In0] [get_bd_pins xlconstant_3/dout]
+  connect_bd_net -net xlconstant_2_dout [get_bd_pins top_0/EN] [get_bd_pins xlconstant_2/dout]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0xC0000000 [get_bd_addr_spaces Cortex_M1_0/CM1_AXI3] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0

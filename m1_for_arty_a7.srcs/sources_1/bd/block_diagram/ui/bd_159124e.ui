@@ -3,45 +3,52 @@
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
 preplace port DDR -pg 1 -y 950 -defaultsOSRD
+preplace port UART_RX -pg 1 -y 760 -defaultsOSRD
 preplace port sys_clock -pg 1 -y 400 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y 970 -defaultsOSRD
 preplace port reset_0 -pg 1 -y 200 -defaultsOSRD
 preplace portBus led -pg 1 -y 760 -defaultsOSRD
 preplace inst Cortex_M1_0 -pg 1 -lvl 2 -y 370 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 4 -y 860 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 4 -y 900 -defaultsOSRD
 preplace inst invert_singleValue_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
 preplace inst xlconstant_1 -pg 1 -lvl 1 -y 340 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 4 -y 660 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 5 -y 420 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 4 -y 760 -defaultsOSRD
-preplace inst xlconcat_1 -pg 1 -lvl 5 -y 760 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 5 -y 240 -defaultsOSRD
-preplace inst axi_gpio_2 -pg 1 -lvl 4 -y 540 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 4 -y 100 -defaultsOSRD
+preplace inst invert_singleValue_1 -pg 1 -lvl 5 -y 700 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 6 -y 600 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 6 -y 420 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 6 -y 760 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 6 -y 240 -defaultsOSRD
+preplace inst axi_gpio_2 -pg 1 -lvl 4 -y 560 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 4 -y 80 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 4 -y 400 -defaultsOSRD
 preplace inst axi_interconnect_0 -pg 1 -lvl 3 -y 510 -defaultsOSRD
-preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -y 250 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 4 -y 1040 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 4 2 1430J 950 NJ
-preplace netloc axi_bram_ctrl_0_s_axi_arready 1 3 1 1000
+preplace inst top_0 -pg 1 -lvl 7 -y 590 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -y 230 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 4 -y 1080 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 4 4 1400J 950 NJ 950 NJ 950 NJ
+preplace netloc top_0_UART_TX_EXT 1 5 3 1690J 880 NJ 880 2220
+preplace netloc axi_bram_ctrl_0_s_axi_arready 1 3 1 970
 preplace netloc xlconstant_1_dout 1 1 1 NJ
-preplace netloc xlconstant_2_dout 1 4 1 1420
-preplace netloc axi_uartlite_0_interrupt 1 4 1 1440
-preplace netloc Cortex_M1_0_CM1_AXI3 1 2 1 640
-preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 1420
-preplace netloc axi_interconnect_0_M02_AXI 1 3 1 970
-preplace netloc xlconcat_1_dout 1 5 1 NJ
-preplace netloc axi_gpio_2_gpio_io_o 1 4 1 1430
-preplace netloc xlconstant_0_dout 1 4 1 1440
-preplace netloc xlconcat_0_dout 1 1 5 250 20 NJ 20 NJ 20 NJ 20 1680
-preplace netloc processing_system7_0_FIXED_IO 1 4 2 1440 970 NJ
-preplace netloc clk_wiz_0_clk_out1 1 0 4 0J 280 230 190 650 190 950
-preplace netloc axi_interconnect_0_M00_AXI 1 3 1 980
-preplace netloc axi_interconnect_0_M01_AXI 1 3 1 960
-preplace netloc reset_0_1 1 1 3 240 200 630 200 990
-preplace netloc reset_0_2 1 0 1 NJ
-preplace netloc xlconstant_3_dout 1 4 1 1450J
-levelinfo -pg 1 -20 120 440 800 1210 1580 1710 -top -280 -bot 1220
+preplace netloc top_0_RECFG 1 5 3 1700 870 NJ 870 2210
+preplace netloc UART_RX 1 0 7 N 760 N 760 N 760 N 760 N 760 1680 860 1900
+preplace netloc xlconstant_2_dout 1 6 1 1910
+preplace netloc axi_uartlite_0_interrupt 1 4 2 1410 410 N
+preplace netloc Cortex_M1_0_CM1_AXI3 1 2 1 600
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 2 1420 240 N
+preplace netloc axi_interconnect_0_M02_AXI 1 3 1 940
+preplace netloc xlconcat_1_dout 1 6 2 NJ 760 N
+preplace netloc axi_gpio_2_gpio_io_o 1 4 2 N 570 1670
+preplace netloc axi_uartlite_0_tx 1 4 3 1400J 640 1700J 660 1910
+preplace netloc xlconstant_0_dout 1 4 2 1420 430 N
+preplace netloc xlconcat_0_dout 1 1 6 220 0 NJ 0 NJ 0 NJ 0 N 0 1900
+preplace netloc processing_system7_0_FIXED_IO 1 4 4 1420 970 NJ 970 NJ 970 NJ
+preplace netloc clk_wiz_0_clk_out1 1 0 7 -30J 280 210 200 610 200 920 640 1390 540 N 540 1900
+preplace netloc axi_interconnect_0_M00_AXI 1 3 1 950
+preplace netloc top_0_UART_RX_INT 1 4 4 1420J 350 NJ 350 NJ 350 2210
+preplace netloc axi_interconnect_0_M01_AXI 1 3 1 930
+preplace netloc reset_0_1 1 1 3 200 190 620 190 960
+preplace netloc invert_singleValue_1_o_signal 1 5 1 1660
+preplace netloc reset_0_2 1 0 7 -30J -10 N -10 N -10 N -10 N -10 N -10 1910
+levelinfo -pg 1 -50 90 410 770 1180 1550 1800 2060 2250 -top -280 -bot 1360
 ",
 }
 {

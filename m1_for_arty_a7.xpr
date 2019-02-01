@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/Andreas/Desktop/m1_for_arty_a7/m1_for_arty_a7.xpr">
+<Project Version="7" Minor="38" Path="D:/Projects/zedboard_cortex_m1/m1_for_arty_a7.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="83835a1b28184581aa1390a0595f6a16"/>
@@ -64,6 +64,38 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/VHDL_Custom/Invert_SingleValue/invert_singleValue.vhd"/>
           <Attr Name="ImportTime" Val="1540199722"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_error.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_error.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_timeout.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_timeout.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/uart_rx.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/uart_rx.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/top.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/top.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

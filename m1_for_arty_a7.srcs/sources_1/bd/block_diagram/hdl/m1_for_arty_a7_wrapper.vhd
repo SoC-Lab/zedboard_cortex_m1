@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
---Date        : Sat Jan 26 15:40:18 2019
+--Date        : Fri Feb  1 16:53:42 2019
 --Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
 --Command     : generate_target m1_for_arty_a7_wrapper.bd
 --Design      : m1_for_arty_a7_wrapper
@@ -34,6 +34,7 @@ entity m1_for_arty_a7_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
+    UART_RX : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 7 downto 0 );
     reset_0 : in STD_LOGIC;
     sys_clock : in STD_LOGIC
@@ -66,7 +67,8 @@ architecture STRUCTURE of m1_for_arty_a7_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     sys_clock : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    reset_0 : in STD_LOGIC
+    reset_0 : in STD_LOGIC;
+    UART_RX : in STD_LOGIC
   );
   end component m1_for_arty_a7;
 begin
@@ -93,6 +95,7 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
+      UART_RX => UART_RX,
       led(7 downto 0) => led(7 downto 0),
       reset_0 => reset_0,
       sys_clock => sys_clock
