@@ -57,8 +57,8 @@
 #include "systemc.h"
 class m1_for_arty_a7_xlconstant_0_0 : public sc_module {
   public:
-xlconstant_v1_1_5<29,0> mod;
-  sc_out< sc_bv<29> > dout;
+xlconstant_v1_1_5<4,5> mod;
+  sc_out< sc_bv<4> > dout;
 m1_for_arty_a7_xlconstant_0_0 (sc_core::sc_module_name name) :sc_module(name), mod("mod") {
     mod.dout(dout);
   }

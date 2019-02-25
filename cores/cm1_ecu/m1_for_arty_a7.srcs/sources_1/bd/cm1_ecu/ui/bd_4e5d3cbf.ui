@@ -1,0 +1,61 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port UART_RX -pg 1 -y 540 -defaultsOSRD
+preplace port TIMER_CLOCK -pg 1 -y 930 -defaultsOSRD
+preplace port SYS_CLOCK -pg 1 -y 580 -defaultsOSRD
+preplace port RESET_INTERCONNECT -pg 1 -y 640 -defaultsOSRD
+preplace port I2C_SDA_TX -pg 1 -y 140 -defaultsOSRD
+preplace port I2C_SDA_RX -pg 1 -y 240 -defaultsOSRD
+preplace port UART_TX -pg 1 -y 640 -defaultsOSRD
+preplace port THROTTLE -pg 1 -y 280 -defaultsOSRD
+preplace port RESET_PERIPHERAL -pg 1 -y 560 -defaultsOSRD
+preplace port I2C_SCL -pg 1 -y 80 -defaultsOSRD
+preplace port RESET_TIMER -pg 1 -y 910 -defaultsOSRD
+preplace portBus ENGINE -pg 1 -y 240 -defaultsOSRD
+preplace portBus DEBUG -pg 1 -y 340 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 7 -y 240 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 6 -y 120 -defaultsOSRD
+preplace inst Cortex_M1_0 -pg 1 -lvl 4 -y 730 -defaultsOSRD
+preplace inst xlslice_1 -pg 1 -lvl 7 -y 340 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -y 470 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 3 -y 700 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 1 -y 340 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 3 -y 440 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 6 -y 810 -defaultsOSRD
+preplace inst xlconcat_2 -pg 1 -lvl 2 -y 330 -defaultsOSRD
+preplace inst axi_gpio_2 -pg 1 -lvl 6 -y 320 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 6 -y 630 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 5 -y 640 -defaultsOSRD
+preplace netloc xlconstant_1_dout 1 3 1 NJ
+preplace netloc xlslice_1_Dout 1 7 1 NJ
+preplace netloc xlconstant_2_dout 1 1 1 NJ
+preplace netloc axi_uartlite_0_interrupt 1 2 5 380 340 NJ 340 NJ 340 1290J 410 1620
+preplace netloc axi_iic_0_sda_o 1 6 2 NJ 140 NJ
+preplace netloc axi_iic_0_iic2intc_irpt 1 2 5 390 350 NJ 350 NJ 350 1270J 420 1630
+preplace netloc Cortex_M1_0_CM1_AXI3 1 4 1 950
+preplace netloc reset_peripherial_1 1 0 5 NJ 560 NJ 560 NJ 560 NJ 560 NJ
+preplace netloc axi_interconnect_0_M02_AXI 1 5 1 1260
+preplace netloc axi_iic_0_scl_o 1 6 2 1640 80 NJ
+preplace netloc axi_gpio_2_gpio_io_o 1 6 1 1640
+preplace netloc axi_uartlite_0_tx 1 6 2 NJ 640 NJ
+preplace netloc THROTTLE_1 1 0 2 NJ 280 180J
+preplace netloc xlconstant_0_dout 1 2 1 NJ
+preplace netloc xlconcat_0_dout 1 3 1 630
+preplace netloc M04_ACLK_1 1 0 6 NJ 930 NJ 930 NJ 930 NJ 930 950 840 NJ
+preplace netloc clk_wiz_0_clk_out1 1 0 6 NJ 580 NJ 580 NJ 580 640 550 960 450 1300
+preplace netloc I2C_SDA_RX_1 1 0 7 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 1620
+preplace netloc axi_interconnect_0_M00_AXI 1 5 1 N
+preplace netloc axi_interconnect_0_M01_AXI 1 5 1 1280
+preplace netloc M04_ARESETN_1 1 0 6 NJ 910 NJ 910 NJ 910 NJ 910 960 860 NJ
+preplace netloc xlconcat_2_dout 1 2 5 NJ 330 NJ 330 NJ 330 1320J 400 1620
+preplace netloc reset_0_1 1 0 6 NJ 640 NJ 640 NJ 640 640 900 940 460 1310
+preplace netloc UART_RX_1 1 0 7 NJ 540 NJ 540 NJ 540 640J 440 NJ 440 NJ 440 1600
+preplace netloc axi_interconnect_0_M03_AXI 1 5 1 1290
+preplace netloc xlslice_0_Dout 1 7 1 NJ
+preplace netloc axi_timer_0_interrupt 1 2 5 400 530 620J 430 NJ 430 NJ 430 1610
+levelinfo -pg 1 0 100 280 510 790 1110 1460 1740 1860 -top 0 -bot 950
+"
+}
+

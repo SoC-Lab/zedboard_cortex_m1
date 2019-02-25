@@ -57,11 +57,11 @@ module m1_for_arty_a7_xlconstant_0_0 (
   dout
 );
 
-output wire [28 : 0] dout;
+output wire [3 : 0] dout;
 
   xlconstant_v1_1_5_xlconstant #(
-    .CONST_WIDTH(29),
-    .CONST_VAL('H00000000)
+    .CONST_WIDTH(4),
+    .CONST_VAL('H5)
   ) inst (
     .dout(dout)
   );

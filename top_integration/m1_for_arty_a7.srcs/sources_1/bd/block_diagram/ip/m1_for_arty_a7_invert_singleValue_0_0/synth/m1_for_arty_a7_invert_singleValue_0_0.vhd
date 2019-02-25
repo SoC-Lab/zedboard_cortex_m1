@@ -70,11 +70,11 @@ ARCHITECTURE m1_for_arty_a7_invert_singleValue_0_0_arch OF m1_for_arty_a7_invert
     );
   END COMPONENT invert_singleValue;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "invert_singleValue,Vivado 2018.3";
+  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "invert_singleValue,Vivado 2018.2";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_invert_singleValue_0_0_arch : ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_0,invert_singleValue,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_0,invert_singleValue,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=invert_singleValue,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_0,invert_singleValue,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=invert_singleValue,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "module_ref";
 BEGIN
