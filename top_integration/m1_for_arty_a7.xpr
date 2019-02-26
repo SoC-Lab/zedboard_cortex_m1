@@ -42,13 +42,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="178"/>
-    <Option Name="WTModelSimExportSim" Val="178"/>
-    <Option Name="WTQuestaExportSim" Val="178"/>
-    <Option Name="WTIesExportSim" Val="178"/>
-    <Option Name="WTVcsExportSim" Val="178"/>
-    <Option Name="WTRivieraExportSim" Val="178"/>
-    <Option Name="WTActivehdlExportSim" Val="178"/>
+    <Option Name="WTXSimExportSim" Val="179"/>
+    <Option Name="WTModelSimExportSim" Val="179"/>
+    <Option Name="WTQuestaExportSim" Val="179"/>
+    <Option Name="WTIesExportSim" Val="179"/>
+    <Option Name="WTVcsExportSim" Val="179"/>
+    <Option Name="WTRivieraExportSim" Val="179"/>
+    <Option Name="WTActivehdlExportSim" Val="179"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -149,18 +149,6 @@
           <Attr Name="ImportTime" Val="1547398153"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/imports/testbench/wave_files/wave_no_daplink.do">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/testbench/wave_files/wave_no_daplink.do"/>
-          <Attr Name="ImportTime" Val="1537515978"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/imports/testbench/wave_files/wave_daplink.do">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/testbench/wave_files/wave_daplink.do"/>
-          <Attr Name="ImportTime" Val="1538059254"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sim_1/imports/testbench/wave_files/wave_daplink.wcfg">

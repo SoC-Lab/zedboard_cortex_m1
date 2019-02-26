@@ -59,11 +59,11 @@ module m1_for_arty_a7_xlslice_0_1 (
 );
 
 input wire [31 : 0] Din;
-output wire [7 : 0] Dout;
+output wire [5 : 0] Dout;
 
   xlslice_v1_0_1_xlslice #(
     .DIN_WIDTH(32),
-    .DIN_FROM(7),
+    .DIN_FROM(5),
     .DIN_TO(0)
   ) inst (
     .Din(Din),
