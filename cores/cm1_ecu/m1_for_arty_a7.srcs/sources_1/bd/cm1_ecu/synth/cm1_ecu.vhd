@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Feb 25 17:58:42 2019
---Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
+--Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+--Date        : Tue Feb 26 14:00:47 2019
+--Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
 --Command     : generate_target cm1_ecu.bd
 --Design      : cm1_ecu
 --Purpose     : IP block netlist
@@ -1625,8 +1625,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity cm1_ecu is
   port (
-    DEBUG : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    ENGINE : out STD_LOGIC_VECTOR ( 0 to 0 );
+    DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
     I2C_SCL : out STD_LOGIC;
     I2C_SDA_RX : in STD_LOGIC;
     I2C_SDA_TX : out STD_LOGIC;
@@ -1634,13 +1634,12 @@ entity cm1_ecu is
     RESET_PERIPHERAL : in STD_LOGIC;
     RESET_TIMER : in STD_LOGIC;
     SYS_CLOCK : in STD_LOGIC;
-    THROTTLE : in STD_LOGIC;
     TIMER_CLOCK : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
     UART_TX : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of cm1_ecu : entity is "cm1_ecu,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cm1_ecu,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=21,numReposBlks=15,numNonXlnxBlks=1,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of cm1_ecu : entity is "cm1_ecu,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cm1_ecu,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=11,numNonXlnxBlks=1,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of cm1_ecu : entity is "cm1_ecu.hwdef";
 end cm1_ecu;
@@ -1724,9 +1723,7 @@ architecture STRUCTURE of cm1_ecu is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    gpio_io_i : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    gpio_io_o : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    gpio_io_t : out STD_LOGIC_VECTOR ( 4 downto 0 )
+    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component cm1_ecu_axi_gpio_2_0;
   component cm1_ecu_axi_iic_0_0 is
@@ -1825,13 +1822,6 @@ architecture STRUCTURE of cm1_ecu is
     dout : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component cm1_ecu_xlconcat_0_0;
-  component cm1_ecu_xlconcat_2_0 is
-  port (
-    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    In1 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    dout : out STD_LOGIC_VECTOR ( 4 downto 0 )
-  );
-  end component cm1_ecu_xlconcat_2_0;
   component cm1_ecu_xlconstant_0_0 is
   port (
     dout : out STD_LOGIC_VECTOR ( 28 downto 0 )
@@ -1842,23 +1832,6 @@ architecture STRUCTURE of cm1_ecu is
     dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component cm1_ecu_xlconstant_1_0;
-  component cm1_ecu_xlconstant_2_0 is
-  port (
-    dout : out STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  end component cm1_ecu_xlconstant_2_0;
-  component cm1_ecu_xlslice_0_0 is
-  port (
-    Din : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component cm1_ecu_xlslice_0_0;
-  component cm1_ecu_xlslice_1_0 is
-  port (
-    Din : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    Dout : out STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  end component cm1_ecu_xlslice_1_0;
   signal Cortex_M1_0_CM1_AXI3_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1893,9 +1866,8 @@ architecture STRUCTURE of cm1_ecu is
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal M04_ARESETN_1 : STD_LOGIC;
-  signal THROTTLE_1 : STD_LOGIC;
   signal UART_RX_1 : STD_LOGIC;
-  signal axi_gpio_2_gpio_io_o : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal axi_gpio_2_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_iic_0_iic2intc_irpt : STD_LOGIC;
   signal axi_iic_0_scl_o : STD_LOGIC;
   signal axi_iic_0_sda_o : STD_LOGIC;
@@ -1974,12 +1946,8 @@ architecture STRUCTURE of cm1_ecu is
   signal reset_0_1 : STD_LOGIC;
   signal reset_peripherial_1 : STD_LOGIC;
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal xlconcat_2_dout : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 28 downto 0 );
   signal xlconstant_1_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal xlconstant_2_dout : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_Cortex_M1_0_DBGRESTARTED_UNCONNECTED : STD_LOGIC;
   signal NLW_Cortex_M1_0_HALTED_UNCONNECTED : STD_LOGIC;
   signal NLW_Cortex_M1_0_JTAGNSW_UNCONNECTED : STD_LOGIC;
@@ -1990,7 +1958,6 @@ architecture STRUCTURE of cm1_ecu is
   signal NLW_Cortex_M1_0_nTDOEN_UNCONNECTED : STD_LOGIC;
   signal NLW_Cortex_M1_0_ARUSER_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_Cortex_M1_0_AWUSER_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_axi_gpio_2_gpio_io_t_UNCONNECTED : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal NLW_axi_iic_0_scl_t_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_iic_0_sda_t_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_iic_0_gpo_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2010,14 +1977,12 @@ architecture STRUCTURE of cm1_ecu is
   attribute X_INTERFACE_INFO of TIMER_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.TIMER_CLOCK CLK";
   attribute X_INTERFACE_PARAMETER of TIMER_CLOCK : signal is "XIL_INTERFACENAME CLK.TIMER_CLOCK, ASSOCIATED_RESET RESET_TIMER, CLK_DOMAIN cm1_ecu_TIMER_CLOCK, FREQ_HZ 8000000, INSERT_VIP 0, PHASE 0.000";
 begin
-  DEBUG(3 downto 0) <= xlslice_1_Dout(3 downto 0);
-  ENGINE(0) <= xlslice_0_Dout(0);
+  DOUT(31 downto 0) <= axi_gpio_2_gpio_io_o(31 downto 0);
   I2C_SCL <= axi_iic_0_scl_o;
   I2C_SDA_RX_1 <= I2C_SDA_RX;
   I2C_SDA_TX <= axi_iic_0_sda_o;
   M04_ACLK_1 <= TIMER_CLOCK;
   M04_ARESETN_1 <= RESET_TIMER;
-  THROTTLE_1 <= THROTTLE;
   UART_RX_1 <= UART_RX;
   UART_TX <= axi_uartlite_0_tx;
   clk_wiz_0_clk_out1 <= SYS_CLOCK;
@@ -2081,9 +2046,7 @@ Cortex_M1_0: component cm1_ecu_Cortex_M1_0_0
     );
 axi_gpio_2: component cm1_ecu_axi_gpio_2_0
      port map (
-      gpio_io_i(4 downto 0) => xlconcat_2_dout(4 downto 0),
-      gpio_io_o(4 downto 0) => axi_gpio_2_gpio_io_o(4 downto 0),
-      gpio_io_t(4 downto 0) => NLW_axi_gpio_2_gpio_io_t_UNCONNECTED(4 downto 0),
+      gpio_io_o(31 downto 0) => axi_gpio_2_gpio_io_o(31 downto 0),
       s_axi_aclk => clk_wiz_0_clk_out1,
       s_axi_araddr(8 downto 0) => axi_interconnect_0_M01_AXI_ARADDR(8 downto 0),
       s_axi_aresetn => reset_0_1,
@@ -2310,12 +2273,6 @@ xlconcat_0: component cm1_ecu_xlconcat_0_0
       In3(28 downto 0) => xlconstant_0_dout(28 downto 0),
       dout(31 downto 0) => xlconcat_0_dout(31 downto 0)
     );
-xlconcat_2: component cm1_ecu_xlconcat_2_0
-     port map (
-      In0(0) => THROTTLE_1,
-      In1(3 downto 0) => xlconstant_2_dout(3 downto 0),
-      dout(4 downto 0) => xlconcat_2_dout(4 downto 0)
-    );
 xlconstant_0: component cm1_ecu_xlconstant_0_0
      port map (
       dout(28 downto 0) => xlconstant_0_dout(28 downto 0)
@@ -2323,19 +2280,5 @@ xlconstant_0: component cm1_ecu_xlconstant_0_0
 xlconstant_1: component cm1_ecu_xlconstant_1_0
      port map (
       dout(1 downto 0) => xlconstant_1_dout(1 downto 0)
-    );
-xlconstant_2: component cm1_ecu_xlconstant_2_0
-     port map (
-      dout(3 downto 0) => xlconstant_2_dout(3 downto 0)
-    );
-xlslice_0: component cm1_ecu_xlslice_0_0
-     port map (
-      Din(4 downto 0) => axi_gpio_2_gpio_io_o(4 downto 0),
-      Dout(0) => xlslice_0_Dout(0)
-    );
-xlslice_1: component cm1_ecu_xlslice_1_0
-     port map (
-      Din(4 downto 0) => axi_gpio_2_gpio_io_o(4 downto 0),
-      Dout(3 downto 0) => xlslice_1_Dout(3 downto 0)
     );
 end STRUCTURE;

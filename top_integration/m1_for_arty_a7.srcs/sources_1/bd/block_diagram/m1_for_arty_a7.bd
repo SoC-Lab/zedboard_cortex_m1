@@ -1,24 +1,27 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xFD77C7EAA4F9A8F2",
+      "boundary_crc": "0x67859E8A9340534F",
       "device": "xc7z020clg484-1",
       "name": "m1_for_arty_a7",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2018.3",
       "validated": "true"
     },
     "design_tree": {
       "invert_singleValue_0": "",
       "processing_system7_0": "",
-      "top_0": "",
       "clk_wiz_0": "",
       "proc_sys_reset_0": "",
       "proc_sys_reset_1": "",
       "xlconstant_2": "",
-      "cm1_ecu_0": "",
-      "xlconcat_0": "",
-      "xlconstant_0": ""
+      "top_0": "",
+      "xlconcat_1": "",
+      "xlconstant_1": "",
+      "xlslice_0": "",
+      "xlslice_1": "",
+      "xlconstant_3": "",
+      "cm1_ecu_wrapper_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -152,6 +155,11 @@
       "ENGINE": {
         "direction": "O",
         "left": "0",
+        "right": "0"
+      },
+      "SW": {
+        "direction": "I",
+        "left": "7",
         "right": "0"
       }
     },
@@ -971,6 +979,68 @@
           }
         }
       },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "m1_for_arty_a7_clk_wiz_0_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "100"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "218.754"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "8.000"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "125"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "2"
+          },
+          "USE_RESET": {
+            "value": "true"
+          }
+        }
+      },
+      "proc_sys_reset_0": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "m1_for_arty_a7_proc_sys_reset_0_0"
+      },
+      "proc_sys_reset_1": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "m1_for_arty_a7_proc_sys_reset_0_1"
+      },
+      "xlconstant_2": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "m1_for_arty_a7_xlconstant_0_1",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "1"
+          },
+          "CONST_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
       "top_0": {
         "vlnv": "xilinx.com:module_ref:top:1.0",
         "xci_name": "m1_for_arty_a7_top_0_0",
@@ -1034,108 +1104,77 @@
           }
         }
       },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "xci_name": "m1_for_arty_a7_clk_wiz_0_0",
-        "parameters": {
-          "CLKOUT1_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "100"
-          },
-          "CLKOUT2_JITTER": {
-            "value": "218.754"
-          },
-          "CLKOUT2_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "8.000"
-          },
-          "CLKOUT2_USED": {
-            "value": "true"
-          },
-          "CLK_IN1_BOARD_INTERFACE": {
-            "value": "sys_clock"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "10.000"
-          },
-          "MMCM_CLKOUT1_DIVIDE": {
-            "value": "125"
-          },
-          "MMCM_DIVCLK_DIVIDE": {
-            "value": "1"
-          },
-          "NUM_OUT_CLKS": {
-            "value": "2"
-          },
-          "USE_RESET": {
-            "value": "true"
-          }
-        }
-      },
-      "proc_sys_reset_0": {
-        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
-        "xci_name": "m1_for_arty_a7_proc_sys_reset_0_0"
-      },
-      "proc_sys_reset_1": {
-        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
-        "xci_name": "m1_for_arty_a7_proc_sys_reset_0_1"
-      },
-      "xlconstant_2": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "m1_for_arty_a7_xlconstant_0_1",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "1"
-          },
-          "CONST_WIDTH": {
-            "value": "1"
-          }
-        }
-      },
-      "cm1_ecu_0": {
-        "vlnv": "user.org:user:cm1_ecu:1.0",
-        "xci_name": "m1_for_arty_a7_cm1_ecu_0_0"
-      },
-      "xlconcat_0": {
+      "xlconcat_1": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
-        "xci_name": "m1_for_arty_a7_xlconcat_0_0",
+        "xci_name": "m1_for_arty_a7_xlconcat_1_0",
         "parameters": {
           "IN0_WIDTH": {
-            "value": "4"
+            "value": "8"
           },
           "IN1_WIDTH": {
+            "value": "8"
+          },
+          "IN2_WIDTH": {
+            "value": "1"
+          },
+          "IN3_WIDTH": {
+            "value": "15"
+          },
+          "NUM_PORTS": {
             "value": "4"
           }
         }
       },
-      "xlconstant_0": {
+      "xlconstant_1": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "m1_for_arty_a7_xlconstant_0_0",
+        "xci_name": "m1_for_arty_a7_xlconstant_1_0",
         "parameters": {
-          "CONST_VAL": {
-            "value": "5"
-          },
           "CONST_WIDTH": {
-            "value": "4"
+            "value": "8"
           }
         }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "m1_for_arty_a7_xlslice_0_0"
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "m1_for_arty_a7_xlslice_0_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "7"
+          },
+          "DOUT_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlconstant_3": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "m1_for_arty_a7_xlconstant_1_1",
+        "parameters": {
+          "CONST_WIDTH": {
+            "value": "15"
+          }
+        }
+      },
+      "cm1_ecu_wrapper_0": {
+        "vlnv": "xilinx.com:user:cm1_ecu_wrapper:1.0",
+        "xci_name": "m1_for_arty_a7_cm1_ecu_wrapper_0_1"
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       }
     },
@@ -1144,16 +1183,16 @@
         "ports": [
           "clk_wiz_0/clk_out1",
           "processing_system7_0/M_AXI_GP0_ACLK",
-          "top_0/CLK",
           "proc_sys_reset_1/slowest_sync_clk",
-          "cm1_ecu_0/SYS_CLOCK"
+          "top_0/CLK",
+          "cm1_ecu_wrapper_0/SYS_CLOCK"
         ]
       },
       "reset_0_1": {
         "ports": [
           "proc_sys_reset_1/peripheral_aresetn",
           "top_0/RST",
-          "cm1_ecu_0/RESET_TIMER"
+          "cm1_ecu_wrapper_0/RESET_TIMER"
         ]
       },
       "reset_0_2": {
@@ -1179,7 +1218,7 @@
         "ports": [
           "clk_wiz_0/clk_out2",
           "proc_sys_reset_0/slowest_sync_clk",
-          "cm1_ecu_0/TIMER_CLOCK"
+          "cm1_ecu_wrapper_0/TIMER_CLOCK"
         ]
       },
       "sys_clock_1": {
@@ -1208,76 +1247,95 @@
           "UART_TX"
         ]
       },
-      "proc_sys_reset_0_peripheral_aresetn": {
+      "cm1_ecu_wrapper_0_DOUT": {
         "ports": [
-          "proc_sys_reset_0/peripheral_aresetn",
-          "cm1_ecu_0/RESET_PERIPHERAL"
+          "cm1_ecu_wrapper_0/DOUT",
+          "xlslice_0/Din",
+          "xlslice_1/Din"
         ]
       },
-      "proc_sys_reset_0_interconnect_aresetn": {
+      "xlslice_0_Dout": {
         "ports": [
-          "proc_sys_reset_0/interconnect_aresetn",
-          "cm1_ecu_0/RESET_INTERCONNECT"
-        ]
-      },
-      "cm1_ecu_0_ENGINE": {
-        "ports": [
-          "cm1_ecu_0/ENGINE",
+          "xlslice_0/Dout",
           "ENGINE"
         ]
       },
-      "cm1_ecu_0_I2C_SCL": {
+      "xlconstant_1_dout": {
         "ports": [
-          "cm1_ecu_0/I2C_SCL",
-          "I2C_SCL"
-        ]
-      },
-      "cm1_ecu_0_I2C_SDA_TX": {
-        "ports": [
-          "cm1_ecu_0/I2C_SDA_TX",
-          "I2C_SDA_TX"
-        ]
-      },
-      "cm1_ecu_0_UART_TX": {
-        "ports": [
-          "cm1_ecu_0/UART_TX",
-          "top_0/UART_TX_INT"
-        ]
-      },
-      "cm1_ecu_0_DEBUG": {
-        "ports": [
-          "cm1_ecu_0/DEBUG",
-          "xlconcat_0/In0"
-        ]
-      },
-      "xlconstant_0_dout": {
-        "ports": [
-          "xlconstant_0/dout",
-          "xlconcat_0/In1"
-        ]
-      },
-      "xlconcat_0_dout": {
-        "ports": [
-          "xlconcat_0/dout",
-          "led"
-        ]
-      },
-      "I2C_SDA_RX_1": {
-        "ports": [
-          "I2C_SDA_RX",
-          "cm1_ecu_0/I2C_SDA_RX"
+          "xlconstant_1/dout",
+          "xlconcat_1/In0"
         ]
       },
       "THROTTLE_1": {
         "ports": [
           "THROTTLE",
-          "cm1_ecu_0/THROTTLE"
+          "xlconcat_1/In2"
+        ]
+      },
+      "SW_1": {
+        "ports": [
+          "SW",
+          "xlconcat_1/In1"
+        ]
+      },
+      "xlconstant_3_dout": {
+        "ports": [
+          "xlconstant_3/dout",
+          "xlconcat_1/In3"
+        ]
+      },
+      "xlconcat_1_dout": {
+        "ports": [
+          "xlconcat_1/dout",
+          "cm1_ecu_wrapper_0/DIN"
+        ]
+      },
+      "I2C_SDA_RX_1": {
+        "ports": [
+          "I2C_SDA_RX",
+          "cm1_ecu_wrapper_0/I2C_SDA_RX"
+        ]
+      },
+      "proc_sys_reset_0_interconnect_aresetn": {
+        "ports": [
+          "proc_sys_reset_0/interconnect_aresetn",
+          "cm1_ecu_wrapper_0/RESET_INTERCONNECT"
+        ]
+      },
+      "proc_sys_reset_0_peripheral_aresetn": {
+        "ports": [
+          "proc_sys_reset_0/peripheral_aresetn",
+          "cm1_ecu_wrapper_0/RESET_PERIPHERAL"
         ]
       },
       "top_0_UART_RX_INT": {
         "ports": [
           "top_0/UART_RX_INT",
-          "cm1_ecu_0/UART_RX"
+          "cm1_ecu_wrapper_0/UART_RX"
+        ]
+      },
+      "cm1_ecu_wrapper_0_UART_TX": {
+        "ports": [
+          "cm1_ecu_wrapper_0/UART_TX",
+          "top_0/UART_TX_INT"
+        ]
+      },
+      "cm1_ecu_wrapper_0_I2C_SDA_TX": {
+        "ports": [
+          "cm1_ecu_wrapper_0/I2C_SDA_TX",
+          "I2C_SDA_TX"
+        ]
+      },
+      "cm1_ecu_wrapper_0_I2C_SCL": {
+        "ports": [
+          "cm1_ecu_wrapper_0/I2C_SCL",
+          "I2C_SCL"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "led"
         ]
       }
     },

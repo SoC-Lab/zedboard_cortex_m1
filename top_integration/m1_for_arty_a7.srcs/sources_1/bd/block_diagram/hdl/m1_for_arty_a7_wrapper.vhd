@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Feb 25 18:08:52 2019
---Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
+--Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+--Date        : Tue Feb 26 15:52:52 2019
+--Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
 --Command     : generate_target m1_for_arty_a7_wrapper.bd
 --Design      : m1_for_arty_a7_wrapper
 --Purpose     : IP block netlist
@@ -38,6 +38,7 @@ entity m1_for_arty_a7_wrapper is
     I2C_SCL : out STD_LOGIC;
     I2C_SDA_RX : in STD_LOGIC;
     I2C_SDA_TX : out STD_LOGIC;
+    SW : in STD_LOGIC_VECTOR ( 7 downto 0 );
     THROTTLE : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
     UART_TX : out STD_LOGIC;
@@ -50,6 +51,16 @@ end m1_for_arty_a7_wrapper;
 architecture STRUCTURE of m1_for_arty_a7_wrapper is
   component m1_for_arty_a7 is
   port (
+    reset_0 : in STD_LOGIC;
+    UART_RX : in STD_LOGIC;
+    sys_clock : in STD_LOGIC;
+    UART_TX : out STD_LOGIC;
+    I2C_SDA_RX : in STD_LOGIC;
+    THROTTLE : in STD_LOGIC;
+    led : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    I2C_SDA_TX : out STD_LOGIC;
+    I2C_SCL : out STD_LOGIC;
+    ENGINE : out STD_LOGIC_VECTOR ( 0 to 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -71,16 +82,7 @@ architecture STRUCTURE of m1_for_arty_a7_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    reset_0 : in STD_LOGIC;
-    UART_RX : in STD_LOGIC;
-    sys_clock : in STD_LOGIC;
-    UART_TX : out STD_LOGIC;
-    I2C_SDA_RX : in STD_LOGIC;
-    THROTTLE : in STD_LOGIC;
-    led : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    I2C_SDA_TX : out STD_LOGIC;
-    I2C_SCL : out STD_LOGIC;
-    ENGINE : out STD_LOGIC_VECTOR ( 0 to 0 )
+    SW : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component m1_for_arty_a7;
 begin
@@ -111,6 +113,7 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       I2C_SCL => I2C_SCL,
       I2C_SDA_RX => I2C_SDA_RX,
       I2C_SDA_TX => I2C_SDA_TX,
+      SW(7 downto 0) => SW(7 downto 0),
       THROTTLE => THROTTLE,
       UART_RX => UART_RX,
       UART_TX => UART_TX,
