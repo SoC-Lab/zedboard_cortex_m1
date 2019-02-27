@@ -1669,7 +1669,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DTCM_SIZE</spirit:name>
         <spirit:displayName>Dtcm Size</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DTCM_SIZE" spirit:bitStringLength="4">&quot;0111&quot;</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DTCM_SIZE" spirit:bitStringLength="4">&quot;0110&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SMALL_DEBUG</spirit:name>
@@ -1791,7 +1791,7 @@
     <spirit:parameter>
       <spirit:name>DTCM_SIZE</spirit:name>
       <spirit:displayName>DTCM Size</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.DTCM_SIZE" spirit:choiceRef="choice_pairs_16cd7b55" spirit:bitStringLength="4">&quot;0111&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.DTCM_SIZE" spirit:choiceRef="choice_pairs_16cd7b55" spirit:bitStringLength="4">&quot;0110&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SMALL_DEBUG</spirit:name>
