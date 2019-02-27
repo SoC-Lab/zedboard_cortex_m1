@@ -28,7 +28,6 @@ set_property PACKAGE_PIN W12 [get_ports I2C_SDA_TX]
 set_property PACKAGE_PIN W11 [get_ports I2C_SDA_RX]
 set_property PACKAGE_PIN V10 [get_ports I2C_SCL]
 
-
 set_property IOSTANDARD LVCMOS33 [get_ports {led[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {led[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {led[2]}]
