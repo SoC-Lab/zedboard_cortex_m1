@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Tue Feb 26 17:18:22 2019
---Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
+--Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+--Date        : Wed Feb 27 10:35:38 2019
+--Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
 --Purpose     : IP block netlist
@@ -167,18 +167,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_xlconstant_0_1;
-  component m1_for_arty_a7_top_0_0 is
-  port (
-    CLK : in STD_LOGIC;
-    RST : in STD_LOGIC;
-    EN : in STD_LOGIC;
-    UART_RX_EXT : in STD_LOGIC;
-    UART_TX_EXT : out STD_LOGIC;
-    UART_RX_INT : out STD_LOGIC;
-    UART_TX_INT : in STD_LOGIC;
-    RECFG : out STD_LOGIC_VECTOR ( 1 downto 0 )
-  );
-  end component m1_for_arty_a7_top_0_0;
   component m1_for_arty_a7_xlconcat_1_0 is
   port (
     In0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -210,12 +198,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     dout : out STD_LOGIC_VECTOR ( 14 downto 0 )
   );
   end component m1_for_arty_a7_xlconstant_1_1;
-  component m1_for_arty_a7_invert_singleValue_0_0 is
-  port (
-    i_signal : in STD_LOGIC;
-    o_signal : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_invert_singleValue_0_0;
   component m1_for_arty_a7_xlslice_1_0 is
   port (
     Din : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -284,6 +266,24 @@ architecture STRUCTURE of m1_for_arty_a7 is
     UART_TX : out STD_LOGIC
   );
   end component m1_for_arty_a7_cm1_throttle_wrapper_0_0;
+  component m1_for_arty_a7_invert_singleValue_0_0 is
+  port (
+    i_signal : in STD_LOGIC;
+    o_signal : out STD_LOGIC
+  );
+  end component m1_for_arty_a7_invert_singleValue_0_0;
+  component m1_for_arty_a7_top_0_0 is
+  port (
+    CLK : in STD_LOGIC;
+    RST : in STD_LOGIC;
+    EN : in STD_LOGIC;
+    UART_RX_EXT : in STD_LOGIC;
+    UART_TX_EXT : out STD_LOGIC;
+    UART_RX_INT : out STD_LOGIC;
+    UART_TX_INT : in STD_LOGIC;
+    RECFG : out STD_LOGIC_VECTOR ( 1 downto 0 )
+  );
+  end component m1_for_arty_a7_top_0_0;
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
