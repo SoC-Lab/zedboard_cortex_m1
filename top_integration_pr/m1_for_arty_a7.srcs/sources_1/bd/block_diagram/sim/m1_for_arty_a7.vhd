@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Wed Feb 27 13:11:50 2019
+--Date        : Wed Feb 27 16:18:31 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
@@ -226,38 +226,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_xlslice_2_0;
-  component m1_for_arty_a7_cm1_engine_wrapper_0_0 is
-  port (
-    DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    I2C_SCL : out STD_LOGIC;
-    I2C_SDA_RX : in STD_LOGIC;
-    I2C_SDA_TX : out STD_LOGIC;
-    RESET_INTERCONNECT : in STD_LOGIC;
-    RESET_PERIPHERAL : in STD_LOGIC;
-    RESET_TIMER : in STD_LOGIC;
-    SYS_CLOCK : in STD_LOGIC;
-    TIMER_CLOCK : in STD_LOGIC;
-    UART_RX : in STD_LOGIC;
-    UART_TX : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_cm1_engine_wrapper_0_0;
-  component m1_for_arty_a7_cm1_throttle_wrapper_0_0 is
-  port (
-    DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    I2C_SCL : out STD_LOGIC;
-    I2C_SDA_RX : in STD_LOGIC;
-    I2C_SDA_TX : out STD_LOGIC;
-    RESET_INTERCONNECT : in STD_LOGIC;
-    RESET_PERIPHERAL : in STD_LOGIC;
-    RESET_TIMER : in STD_LOGIC;
-    SYS_CLOCK : in STD_LOGIC;
-    TIMER_CLOCK : in STD_LOGIC;
-    UART_RX : in STD_LOGIC;
-    UART_TX : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_cm1_throttle_wrapper_0_0;
   component m1_for_arty_a7_top_0_0 is
   port (
     CLK : in STD_LOGIC;
@@ -276,7 +244,16 @@ architecture STRUCTURE of m1_for_arty_a7 is
     Res : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_util_vector_logic_0_0;
-  signal I2C_SDA_RX_1 : STD_LOGIC;
+  component m1_for_arty_a7_xlconstant_0_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component m1_for_arty_a7_xlconstant_0_0;
+  component m1_for_arty_a7_xlconstant_0_2 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component m1_for_arty_a7_xlconstant_0_2;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal THROTTLE_1 : STD_LOGIC;
@@ -284,8 +261,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
   signal cm1_ecu_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal cm1_engine_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal cm1_throttle_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal proc_sys_reset_0_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
@@ -317,19 +292,15 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_1_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlconcat_2_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlconstant_1_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal xlconstant_2_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconstant_3_dout : STD_LOGIC_VECTOR ( 14 downto 0 );
+  signal xlconstant_4_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_3_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_cm1_engine_wrapper_0_I2C_SCL_UNCONNECTED : STD_LOGIC;
-  signal NLW_cm1_engine_wrapper_0_I2C_SDA_TX_UNCONNECTED : STD_LOGIC;
-  signal NLW_cm1_engine_wrapper_0_UART_TX_UNCONNECTED : STD_LOGIC;
-  signal NLW_cm1_throttle_wrapper_0_I2C_SCL_UNCONNECTED : STD_LOGIC;
-  signal NLW_cm1_throttle_wrapper_0_I2C_SDA_TX_UNCONNECTED : STD_LOGIC;
-  signal NLW_cm1_throttle_wrapper_0_UART_TX_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_0_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_0_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -413,7 +384,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
   attribute X_INTERFACE_PARAMETER of int_RESET_TIMER : signal is "XIL_INTERFACENAME RST.INT_RESET_TIMER, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   ENGINE(0) <= xlslice_0_Dout(0);
-  I2C_SDA_RX_1 <= I2C_SDA_RX;
   SW_1(7 downto 0) <= SW(7 downto 0);
   THROTTLE_1 <= THROTTLE;
   UART_RX_1 <= UART_RX;
@@ -438,36 +408,6 @@ clk_wiz_0: component m1_for_arty_a7_clk_wiz_0_0
       clk_out2 => M04_ACLK_1,
       locked => clk_wiz_0_locked,
       reset => reset_0_2
-    );
-cm1_engine_wrapper_0: component m1_for_arty_a7_cm1_engine_wrapper_0_0
-     port map (
-      DIN(31 downto 0) => xlconcat_1_dout(31 downto 0),
-      DOUT(31 downto 0) => cm1_engine_wrapper_0_DOUT(31 downto 0),
-      I2C_SCL => NLW_cm1_engine_wrapper_0_I2C_SCL_UNCONNECTED,
-      I2C_SDA_RX => I2C_SDA_RX_1,
-      I2C_SDA_TX => NLW_cm1_engine_wrapper_0_I2C_SDA_TX_UNCONNECTED,
-      RESET_INTERCONNECT => proc_sys_reset_0_interconnect_aresetn(0),
-      RESET_PERIPHERAL => proc_sys_reset_0_peripheral_aresetn(0),
-      RESET_TIMER => reset_0_1(0),
-      SYS_CLOCK => clk_wiz_0_clk_out1,
-      TIMER_CLOCK => M04_ACLK_1,
-      UART_RX => top_0_UART_RX_INT,
-      UART_TX => NLW_cm1_engine_wrapper_0_UART_TX_UNCONNECTED
-    );
-cm1_throttle_wrapper_0: component m1_for_arty_a7_cm1_throttle_wrapper_0_0
-     port map (
-      DIN(31 downto 0) => xlconcat_1_dout(31 downto 0),
-      DOUT(31 downto 0) => cm1_throttle_wrapper_0_DOUT(31 downto 0),
-      I2C_SCL => NLW_cm1_throttle_wrapper_0_I2C_SCL_UNCONNECTED,
-      I2C_SDA_RX => I2C_SDA_RX_1,
-      I2C_SDA_TX => NLW_cm1_throttle_wrapper_0_I2C_SDA_TX_UNCONNECTED,
-      RESET_INTERCONNECT => proc_sys_reset_0_interconnect_aresetn(0),
-      RESET_PERIPHERAL => proc_sys_reset_0_peripheral_aresetn(0),
-      RESET_TIMER => reset_0_1(0),
-      SYS_CLOCK => clk_wiz_0_clk_out1,
-      TIMER_CLOCK => M04_ACLK_1,
-      UART_RX => top_0_UART_RX_INT,
-      UART_TX => NLW_cm1_throttle_wrapper_0_UART_TX_UNCONNECTED
     );
 proc_sys_reset_0: component m1_for_arty_a7_proc_sys_reset_0_0
      port map (
@@ -597,6 +537,10 @@ xlconcat_2: component m1_for_arty_a7_xlconcat_1_1
       In2(0) => xlslice_3_Dout(0),
       dout(7 downto 0) => xlconcat_2_dout(7 downto 0)
     );
+xlconstant_0: component m1_for_arty_a7_xlconstant_0_0
+     port map (
+      dout(31 downto 0) => xlconstant_0_dout(31 downto 0)
+    );
 xlconstant_1: component m1_for_arty_a7_xlconstant_1_0
      port map (
       dout(7 downto 0) => xlconstant_1_dout(7 downto 0)
@@ -608,6 +552,10 @@ xlconstant_2: component m1_for_arty_a7_xlconstant_0_1
 xlconstant_3: component m1_for_arty_a7_xlconstant_1_1
      port map (
       dout(14 downto 0) => xlconstant_3_dout(14 downto 0)
+    );
+xlconstant_4: component m1_for_arty_a7_xlconstant_0_2
+     port map (
+      dout(31 downto 0) => xlconstant_4_dout(31 downto 0)
     );
 xlslice_0: component m1_for_arty_a7_xlslice_0_0
      port map (
@@ -621,12 +569,12 @@ xlslice_1: component m1_for_arty_a7_xlslice_0_1
     );
 xlslice_2: component m1_for_arty_a7_xlslice_1_0
      port map (
-      Din(31 downto 0) => cm1_engine_wrapper_0_DOUT(31 downto 0),
+      Din(31 downto 0) => xlconstant_4_dout(31 downto 0),
       Dout(0) => xlslice_2_Dout(0)
     );
 xlslice_3: component m1_for_arty_a7_xlslice_2_0
      port map (
-      Din(31 downto 0) => cm1_throttle_wrapper_0_DOUT(31 downto 0),
+      Din(31 downto 0) => xlconstant_0_dout(31 downto 0),
       Dout(0) => xlslice_3_Dout(0)
     );
 end STRUCTURE;

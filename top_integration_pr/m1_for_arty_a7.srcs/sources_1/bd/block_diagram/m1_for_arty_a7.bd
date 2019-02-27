@@ -22,10 +22,10 @@
       "xlslice_2": "",
       "xlconcat_2": "",
       "xlslice_3": "",
-      "cm1_engine_wrapper_0": "",
-      "cm1_throttle_wrapper_0": "",
       "top_0": "",
-      "util_vector_logic_0": ""
+      "util_vector_logic_0": "",
+      "xlconstant_0": "",
+      "xlconstant_4": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1233,14 +1233,6 @@
           }
         }
       },
-      "cm1_engine_wrapper_0": {
-        "vlnv": "xilinx.com:user:cm1_engine_wrapper:1.0",
-        "xci_name": "m1_for_arty_a7_cm1_engine_wrapper_0_0"
-      },
-      "cm1_throttle_wrapper_0": {
-        "vlnv": "xilinx.com:user:cm1_throttle_wrapper:1.0",
-        "xci_name": "m1_for_arty_a7_cm1_throttle_wrapper_0_0"
-      },
       "top_0": {
         "vlnv": "xilinx.com:module_ref:top:1.0",
         "xci_name": "m1_for_arty_a7_top_0_0",
@@ -1315,19 +1307,43 @@
             "value": "1"
           }
         }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "m1_for_arty_a7_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "xlconstant_4": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "m1_for_arty_a7_xlconstant_0_2",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
       }
     },
     "interface_nets": {
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
           "processing_system7_0/DDR"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
         ]
       }
     },
@@ -1337,8 +1353,6 @@
           "clk_wiz_0/clk_out1",
           "processing_system7_0/M_AXI_GP0_ACLK",
           "proc_sys_reset_1/slowest_sync_clk",
-          "cm1_engine_wrapper_0/SYS_CLOCK",
-          "cm1_throttle_wrapper_0/SYS_CLOCK",
           "top_0/CLK",
           "int_SYS_CLOCK"
         ]
@@ -1346,8 +1360,6 @@
       "reset_0_1": {
         "ports": [
           "proc_sys_reset_1/peripheral_aresetn",
-          "cm1_engine_wrapper_0/RESET_TIMER",
-          "cm1_throttle_wrapper_0/RESET_TIMER",
           "top_0/RST",
           "int_RESET_TIMER"
         ]
@@ -1375,8 +1387,6 @@
         "ports": [
           "clk_wiz_0/clk_out2",
           "proc_sys_reset_0/slowest_sync_clk",
-          "cm1_engine_wrapper_0/TIMER_CLOCK",
-          "cm1_throttle_wrapper_0/TIMER_CLOCK",
           "int_TIMER_CLOCK"
         ]
       },
@@ -1439,39 +1449,24 @@
       "xlconcat_1_dout": {
         "ports": [
           "xlconcat_1/dout",
-          "cm1_engine_wrapper_0/DIN",
-          "cm1_throttle_wrapper_0/DIN",
           "int_DIN"
-        ]
-      },
-      "I2C_SDA_RX_1": {
-        "ports": [
-          "I2C_SDA_RX",
-          "cm1_engine_wrapper_0/I2C_SDA_RX",
-          "cm1_throttle_wrapper_0/I2C_SDA_RX"
         ]
       },
       "proc_sys_reset_0_interconnect_aresetn": {
         "ports": [
           "proc_sys_reset_0/interconnect_aresetn",
-          "cm1_engine_wrapper_0/RESET_INTERCONNECT",
-          "cm1_throttle_wrapper_0/RESET_INTERCONNECT",
           "int_RESET_INTERCONNECT"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_0/peripheral_aresetn",
-          "cm1_engine_wrapper_0/RESET_PERIPHERAL",
-          "cm1_throttle_wrapper_0/RESET_PERIPHERAL",
           "int_RESET_PERIPHERAL"
         ]
       },
       "top_0_UART_RX_INT": {
         "ports": [
           "top_0/UART_RX_INT",
-          "cm1_engine_wrapper_0/UART_RX",
-          "cm1_throttle_wrapper_0/UART_RX",
           "int_uart_rx_int"
         ]
       },
@@ -1485,18 +1480,6 @@
         "ports": [
           "xlslice_2/Dout",
           "xlconcat_2/In1"
-        ]
-      },
-      "cm1_engine_wrapper_0_DOUT": {
-        "ports": [
-          "cm1_engine_wrapper_0/DOUT",
-          "xlslice_2/Din"
-        ]
-      },
-      "cm1_throttle_wrapper_0_DOUT": {
-        "ports": [
-          "cm1_throttle_wrapper_0/DOUT",
-          "xlslice_3/Din"
         ]
       },
       "xlslice_3_Dout": {
@@ -1516,6 +1499,18 @@
           "util_vector_logic_0/Res",
           "proc_sys_reset_1/ext_reset_in",
           "proc_sys_reset_0/ext_reset_in"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "xlslice_3/Din"
+        ]
+      },
+      "xlconstant_4_dout": {
+        "ports": [
+          "xlconstant_4/dout",
+          "xlslice_2/Din"
         ]
       }
     },
