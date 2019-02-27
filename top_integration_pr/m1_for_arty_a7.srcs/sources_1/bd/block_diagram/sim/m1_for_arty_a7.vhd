@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Wed Feb 27 10:35:38 2019
+--Date        : Wed Feb 27 13:11:50 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
@@ -42,12 +42,20 @@ entity m1_for_arty_a7 is
     THROTTLE : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
     UART_TX : out STD_LOGIC;
+    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_RESET_INTERCONNECT : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_PERIPHERAL : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_TIMER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_SYS_CLOCK : out STD_LOGIC;
+    int_TIMER_CLOCK : out STD_LOGIC;
+    int_uart_rx_int : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 7 downto 0 );
     reset_0 : in STD_LOGIC;
     sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=18,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of m1_for_arty_a7 : entity is "m1_for_arty_a7.hwdef";
 end m1_for_arty_a7;
@@ -218,22 +226,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_xlslice_2_0;
-  component m1_for_arty_a7_cm1_ecu_wrapper_0_1 is
-  port (
-    DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    I2C_SCL : out STD_LOGIC;
-    I2C_SDA_RX : in STD_LOGIC;
-    I2C_SDA_TX : out STD_LOGIC;
-    RESET_INTERCONNECT : in STD_LOGIC;
-    RESET_PERIPHERAL : in STD_LOGIC;
-    RESET_TIMER : in STD_LOGIC;
-    SYS_CLOCK : in STD_LOGIC;
-    TIMER_CLOCK : in STD_LOGIC;
-    UART_RX : in STD_LOGIC;
-    UART_TX : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_cm1_ecu_wrapper_0_1;
   component m1_for_arty_a7_cm1_engine_wrapper_0_0 is
   port (
     DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -266,12 +258,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     UART_TX : out STD_LOGIC
   );
   end component m1_for_arty_a7_cm1_throttle_wrapper_0_0;
-  component m1_for_arty_a7_invert_singleValue_0_0 is
-  port (
-    i_signal : in STD_LOGIC;
-    o_signal : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_invert_singleValue_0_0;
   component m1_for_arty_a7_top_0_0 is
   port (
     CLK : in STD_LOGIC;
@@ -284,6 +270,12 @@ architecture STRUCTURE of m1_for_arty_a7 is
     RECFG : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component m1_for_arty_a7_top_0_0;
+  component m1_for_arty_a7_util_vector_logic_0_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_0_0;
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -292,12 +284,8 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
   signal cm1_ecu_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal cm1_ecu_wrapper_0_I2C_SCL : STD_LOGIC;
-  signal cm1_ecu_wrapper_0_I2C_SDA_TX : STD_LOGIC;
-  signal cm1_ecu_wrapper_0_UART_TX : STD_LOGIC;
   signal cm1_engine_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal cm1_throttle_wrapper_0_DOUT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal invert_singleValue_0_o_signal : STD_LOGIC;
   signal proc_sys_reset_0_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
@@ -326,6 +314,7 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal sys_clock_1 : STD_LOGIC;
   signal top_0_UART_RX_INT : STD_LOGIC;
   signal top_0_UART_TX_EXT : STD_LOGIC;
+  signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_1_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlconcat_2_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal xlconstant_1_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -400,6 +389,10 @@ architecture STRUCTURE of m1_for_arty_a7 is
   attribute X_INTERFACE_INFO of FIXED_IO_ps_clk : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_porb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
+  attribute X_INTERFACE_INFO of int_SYS_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.INT_SYS_CLOCK CLK";
+  attribute X_INTERFACE_PARAMETER of int_SYS_CLOCK : signal is "XIL_INTERFACENAME CLK.INT_SYS_CLOCK, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of int_TIMER_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.INT_TIMER_CLOCK CLK";
+  attribute X_INTERFACE_PARAMETER of int_TIMER_CLOCK : signal is "XIL_INTERFACENAME CLK.INT_TIMER_CLOCK, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 8000000, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of reset_0 : signal is "xilinx.com:signal:reset:1.0 RST.RESET_0 RST";
   attribute X_INTERFACE_PARAMETER of reset_0 : signal is "XIL_INTERFACENAME RST.RESET_0, INSERT_VIP 0, POLARITY ACTIVE_HIGH";
   attribute X_INTERFACE_INFO of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
@@ -412,18 +405,32 @@ architecture STRUCTURE of m1_for_arty_a7 is
   attribute X_INTERFACE_INFO of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
+  attribute X_INTERFACE_INFO of int_RESET_INTERCONNECT : signal is "xilinx.com:signal:reset:1.0 RST.INT_RESET_INTERCONNECT RST";
+  attribute X_INTERFACE_PARAMETER of int_RESET_INTERCONNECT : signal is "XIL_INTERFACENAME RST.INT_RESET_INTERCONNECT, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of int_RESET_PERIPHERAL : signal is "xilinx.com:signal:reset:1.0 RST.INT_RESET_PERIPHERAL RST";
+  attribute X_INTERFACE_PARAMETER of int_RESET_PERIPHERAL : signal is "XIL_INTERFACENAME RST.INT_RESET_PERIPHERAL, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of int_RESET_TIMER : signal is "xilinx.com:signal:reset:1.0 RST.INT_RESET_TIMER RST";
+  attribute X_INTERFACE_PARAMETER of int_RESET_TIMER : signal is "XIL_INTERFACENAME RST.INT_RESET_TIMER, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   ENGINE(0) <= xlslice_0_Dout(0);
-  I2C_SCL <= cm1_ecu_wrapper_0_I2C_SCL;
   I2C_SDA_RX_1 <= I2C_SDA_RX;
-  I2C_SDA_TX <= cm1_ecu_wrapper_0_I2C_SDA_TX;
   SW_1(7 downto 0) <= SW(7 downto 0);
   THROTTLE_1 <= THROTTLE;
   UART_RX_1 <= UART_RX;
   UART_TX <= top_0_UART_TX_EXT;
+  cm1_ecu_wrapper_0_DOUT(31 downto 0) <= int_DOUT(31 downto 0);
+  int_DIN(31 downto 0) <= xlconcat_1_dout(31 downto 0);
+  int_RESET_INTERCONNECT(0) <= proc_sys_reset_0_interconnect_aresetn(0);
+  int_RESET_PERIPHERAL(0) <= proc_sys_reset_0_peripheral_aresetn(0);
+  int_RESET_TIMER(0) <= reset_0_1(0);
+  int_SYS_CLOCK <= clk_wiz_0_clk_out1;
+  int_TIMER_CLOCK <= M04_ACLK_1;
+  int_uart_rx_int <= top_0_UART_RX_INT;
   led(7 downto 0) <= xlconcat_2_dout(7 downto 0);
   reset_0_2 <= reset_0;
   sys_clock_1 <= sys_clock;
+  I2C_SCL <= 'Z';
+  I2C_SDA_TX <= 'Z';
 clk_wiz_0: component m1_for_arty_a7_clk_wiz_0_0
      port map (
       clk_in1 => sys_clock_1,
@@ -431,21 +438,6 @@ clk_wiz_0: component m1_for_arty_a7_clk_wiz_0_0
       clk_out2 => M04_ACLK_1,
       locked => clk_wiz_0_locked,
       reset => reset_0_2
-    );
-cm1_ecu_wrapper_0: component m1_for_arty_a7_cm1_ecu_wrapper_0_1
-     port map (
-      DIN(31 downto 0) => xlconcat_1_dout(31 downto 0),
-      DOUT(31 downto 0) => cm1_ecu_wrapper_0_DOUT(31 downto 0),
-      I2C_SCL => cm1_ecu_wrapper_0_I2C_SCL,
-      I2C_SDA_RX => I2C_SDA_RX_1,
-      I2C_SDA_TX => cm1_ecu_wrapper_0_I2C_SDA_TX,
-      RESET_INTERCONNECT => proc_sys_reset_0_interconnect_aresetn(0),
-      RESET_PERIPHERAL => proc_sys_reset_0_peripheral_aresetn(0),
-      RESET_TIMER => reset_0_1(0),
-      SYS_CLOCK => clk_wiz_0_clk_out1,
-      TIMER_CLOCK => M04_ACLK_1,
-      UART_RX => top_0_UART_RX_INT,
-      UART_TX => cm1_ecu_wrapper_0_UART_TX
     );
 cm1_engine_wrapper_0: component m1_for_arty_a7_cm1_engine_wrapper_0_0
      port map (
@@ -477,17 +469,12 @@ cm1_throttle_wrapper_0: component m1_for_arty_a7_cm1_throttle_wrapper_0_0
       UART_RX => top_0_UART_RX_INT,
       UART_TX => NLW_cm1_throttle_wrapper_0_UART_TX_UNCONNECTED
     );
-invert_singleValue_0: component m1_for_arty_a7_invert_singleValue_0_0
-     port map (
-      i_signal => reset_0_2,
-      o_signal => invert_singleValue_0_o_signal
-    );
 proc_sys_reset_0: component m1_for_arty_a7_proc_sys_reset_0_0
      port map (
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED(0),
       dcm_locked => clk_wiz_0_locked,
-      ext_reset_in => invert_singleValue_0_o_signal,
+      ext_reset_in => util_vector_logic_0_Res(0),
       interconnect_aresetn(0) => proc_sys_reset_0_interconnect_aresetn(0),
       mb_debug_sys_rst => '0',
       mb_reset => NLW_proc_sys_reset_0_mb_reset_UNCONNECTED,
@@ -500,7 +487,7 @@ proc_sys_reset_1: component m1_for_arty_a7_proc_sys_reset_0_1
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_proc_sys_reset_1_bus_struct_reset_UNCONNECTED(0),
       dcm_locked => clk_wiz_0_locked,
-      ext_reset_in => invert_singleValue_0_o_signal,
+      ext_reset_in => util_vector_logic_0_Res(0),
       interconnect_aresetn(0) => NLW_proc_sys_reset_1_interconnect_aresetn_UNCONNECTED(0),
       mb_debug_sys_rst => '0',
       mb_reset => NLW_proc_sys_reset_1_mb_reset_UNCONNECTED,
@@ -588,7 +575,12 @@ top_0: component m1_for_arty_a7_top_0_0
       UART_RX_EXT => UART_RX_1,
       UART_RX_INT => top_0_UART_RX_INT,
       UART_TX_EXT => top_0_UART_TX_EXT,
-      UART_TX_INT => cm1_ecu_wrapper_0_UART_TX
+      UART_TX_INT => '0'
+    );
+util_vector_logic_0: component m1_for_arty_a7_util_vector_logic_0_0
+     port map (
+      Op1(0) => reset_0_2,
+      Res(0) => util_vector_logic_0_Res(0)
     );
 xlconcat_1: component m1_for_arty_a7_xlconcat_1_0
      port map (

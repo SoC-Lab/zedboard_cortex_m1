@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Wed Feb 27 10:35:38 2019
+--Date        : Wed Feb 27 13:11:50 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7_wrapper.bd
 --Design      : m1_for_arty_a7_wrapper
@@ -42,6 +42,14 @@ entity m1_for_arty_a7_wrapper is
     THROTTLE : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
     UART_TX : out STD_LOGIC;
+    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_RESET_INTERCONNECT : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_PERIPHERAL : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_TIMER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_SYS_CLOCK : out STD_LOGIC;
+    int_TIMER_CLOCK : out STD_LOGIC;
+    int_uart_rx_int : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 7 downto 0 );
     reset_0 : in STD_LOGIC;
     sys_clock : in STD_LOGIC
@@ -82,7 +90,15 @@ architecture STRUCTURE of m1_for_arty_a7_wrapper is
     DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 )
+    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
+    int_RESET_INTERCONNECT : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_PERIPHERAL : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_RESET_TIMER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    int_SYS_CLOCK : out STD_LOGIC;
+    int_TIMER_CLOCK : out STD_LOGIC;
+    int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_uart_rx_int : out STD_LOGIC;
+    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component m1_for_arty_a7;
 begin
@@ -117,6 +133,14 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       THROTTLE => THROTTLE,
       UART_RX => UART_RX,
       UART_TX => UART_TX,
+      int_DIN(31 downto 0) => int_DIN(31 downto 0),
+      int_DOUT(31 downto 0) => int_DOUT(31 downto 0),
+      int_RESET_INTERCONNECT(0) => int_RESET_INTERCONNECT(0),
+      int_RESET_PERIPHERAL(0) => int_RESET_PERIPHERAL(0),
+      int_RESET_TIMER(0) => int_RESET_TIMER(0),
+      int_SYS_CLOCK => int_SYS_CLOCK,
+      int_TIMER_CLOCK => int_TIMER_CLOCK,
+      int_uart_rx_int => int_uart_rx_int,
       led(7 downto 0) => led(7 downto 0),
       reset_0 => reset_0,
       sys_clock => sys_clock
