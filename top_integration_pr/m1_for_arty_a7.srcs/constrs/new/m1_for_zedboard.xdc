@@ -53,13 +53,15 @@ set_property IOSTANDARD LVCMOS33 [get_ports {SW[6]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {SW[7]}]
 
 
-
 set_property PACKAGE_PIN R16 [get_ports btn_d]
 set_property PACKAGE_PIN T18 [get_ports btn_u]
+set_property PACKAGE_PIN R18 [get_ports btn_r]
+set_property PACKAGE_PIN N15 [get_ports btn_l]
 
 set_property IOSTANDARD LVCMOS33 [get_ports btn_u]
 set_property IOSTANDARD LVCMOS33 [get_ports btn_d]
-
+set_property IOSTANDARD LVCMOS33 [get_ports btn_r]
+set_property IOSTANDARD LVCMOS33 [get_ports btn_l]
 
 # --------------------------------------------------
 # Configuration pins

@@ -9,7 +9,7 @@
     <Object name="xc7z020_1" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/child_0_impl_1/glue_top.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/sources/Bitstreams/cortex_i_greybox_partial.bit"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>

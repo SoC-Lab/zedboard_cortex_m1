@@ -47,8 +47,12 @@
 #ifdef ZED
 #define PARTIAL_ECU_ADDR   0x400000
 #define PARTIAL_THROTTLE_ADDR   0x800000
+#define PARTIAL_ENGINE_ADDR   0x120000
+#define PARTIAL_BLANK_ADDR   0x160000
 #define PARTIAL_ECU_BITFILE_LEN 736718 // in number of words
 #define PARTIAL_THROTTLE_BITFILE_LEN 736718 // in number of words
+#define PARTIAL_ENGINE_BITFILE_LEN 736718 // in number of words
+#define PARTIAL_BLANK_BITFILE_LEN 736718 // in number of words
 #endif
 
 #ifdef ZYBO
@@ -135,6 +139,8 @@ int main()
 
 	SD_TransferPartial("ecu.bin", PARTIAL_ECU_ADDR, (PARTIAL_ECU_BITFILE_LEN << 2));
 	SD_TransferPartial("trl.bin", PARTIAL_THROTTLE_ADDR, (PARTIAL_THROTTLE_BITFILE_LEN << 2));
+	SD_TransferPartial("eng.bin", PARTIAL_ENGINE_ADDR, (PARTIAL_ENGINE_BITFILE_LEN << 2));
+	SD_TransferPartial("blk.bin", PARTIAL_BLANK_ADDR, (PARTIAL_BLANK_BITFILE_LEN << 2));
 	xil_printf("Partial Binaries transferred successfully!\r\n");
 
 	// Invalidate and enable Data Cache

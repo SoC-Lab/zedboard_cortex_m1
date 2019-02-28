@@ -812,7 +812,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7859d8eb</spirit:value>
+            <spirit:value>9:c975d3ed</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -869,11 +869,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Feb 28 14:50:52 UTC 2019</spirit:value>
+            <spirit:value>Thu Feb 28 16:48:36 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07d3e6dc</spirit:value>
+            <spirit:value>9:2ee1aa72</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -887,11 +887,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Feb 28 14:50:52 UTC 2019</spirit:value>
+            <spirit:value>Thu Feb 28 16:48:36 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07d3e6dc</spirit:value>
+            <spirit:value>9:2ee1aa72</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -907,11 +907,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Feb 28 14:50:52 UTC 2019</spirit:value>
+            <spirit:value>Thu Feb 28 16:48:36 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:07d3e6dc</spirit:value>
+            <spirit:value>9:2ee1aa72</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -968,11 +968,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Feb 28 14:50:52 UTC 2019</spirit:value>
+            <spirit:value>Thu Feb 28 16:48:36 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:02e40470</spirit:value>
+            <spirit:value>9:067507c8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -988,11 +988,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Feb 28 14:50:52 UTC 2019</spirit:value>
+            <spirit:value>Thu Feb 28 16:48:36 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:02e40470</spirit:value>
+            <spirit:value>9:067507c8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1544,14 +1544,16 @@
       <spirit:enumeration spirit:text="SW then HW">sw/hw</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_pairs_1cf69b88</spirit:name>
+      <spirit:enumeration spirit:text="cortex_ecu">0</spirit:enumeration>
+      <spirit:enumeration spirit:text="cortex_throttle">1</spirit:enumeration>
+      <spirit:enumeration spirit:text="cortex_engine">2</spirit:enumeration>
+      <spirit:enumeration spirit:text="cortex_blank">3</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_pairs_9e0de5d2</spirit:name>
       <spirit:enumeration spirit:text="Block RAM">blockram</spirit:enumeration>
       <spirit:enumeration spirit:text="Distributed RAM">lutram</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_pairs_b70fd57a</spirit:name>
-      <spirit:enumeration spirit:text="cortex_ecu">0</spirit:enumeration>
-      <spirit:enumeration spirit:text="cortex_throttle">1</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_pairs_bb336bc3</spirit:name>
@@ -2147,8 +2149,8 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>ALL_PARAMS</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ALL_PARAMS" spirit:order="1">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7se
-ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ALL_PARAMS" spirit:order="1">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 301989888 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 
+3} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 369098752 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -2232,7 +2234,7 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_VS_POR_RM</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_VS_POR_RM" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_VS_POR_RM" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_VS_SKIP_RM_STARTUP_AFTER_RESET</spirit:name>
@@ -2240,7 +2242,7 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_RM</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_RM" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_RM" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">3</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_NAME</spirit:name>
@@ -2255,7 +2257,7 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_NEW_NAME</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_NEW_NAME" spirit:order="3">cortex_throttle</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_NEW_NAME" spirit:order="3">cortex_blank</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_ID</spirit:name>
@@ -2278,15 +2280,22 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_RESET_REQUIRED</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_REQUIRED" spirit:choiceRef="choice_pairs_f622faa5" spirit:order="4">high</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_REQUIRED" spirit:choiceRef="choice_pairs_f622faa5" spirit:order="4">no</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_RESET_DURATION</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_DURATION" spirit:order="4" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">3</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_DURATION" spirit:order="4" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.GUI_RM_RESET_DURATION">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_BS_ADDRESS_0</spirit:name>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_BS_ADDRESS_0" spirit:order="4" spirit:bitStringLength="32">0x00800000</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_BS_ADDRESS_0" spirit:order="4" spirit:bitStringLength="32">0x16000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_BS_SIZE_0</spirit:name>
@@ -2331,19 +2340,19 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_TRIGGER_0</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_0" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_0" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_TRIGGER_1</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_1" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_1" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_TRIGGER_2</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_2" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_2" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_TRIGGER_3</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_3" spirit:choiceRef="choice_pairs_b70fd57a" spirit:order="2">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_TRIGGER_3" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">3</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_LOCK_TRIGGER_0</spirit:name>
@@ -2429,6 +2438,7 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_RM_RESET_REQUIRED" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_RM" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_1" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_2" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_3" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_VS_HAS_AXIS_STATUS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_VS_HAS_POR_RM" xilinx:valueSource="user"/>

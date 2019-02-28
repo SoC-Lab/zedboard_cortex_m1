@@ -64,10 +64,10 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.VSM_VS_CORTEX_M_AXIS_STATUS.TID_WIDTH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.VSM_VS_CORTEX_M_AXIS_STATUS.TUSER_WIDTH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_XDEVICEFAMILY">zynq</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ALL_PARAMS">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7se
-ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ALL_PARAMS">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 301989888 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 
+3} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 369098752 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">m1_for_arty_a7_prc_0_0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_BS_ADDRESS_0">0x00800000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_BS_ADDRESS_0">0x16000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_BS_ADDRESS_1">0x00000000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_BS_CLEAR_0">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_BS_CLEAR_1">true</spirit:configurableElementValue>
@@ -87,16 +87,16 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RESET_ACTIVE_LEVEL">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_ID">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_NAME">Not Set</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_NEW_NAME">cortex_throttle</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_RESET_DURATION">3</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_RESET_REQUIRED">high</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_NEW_NAME">cortex_blank</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_RESET_DURATION">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_RESET_REQUIRED">no</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_SHUTDOWN_TYPE">no</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_RM_STARTUP_TYPE">no</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_RM">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_RM">3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_1">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_2">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_3">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_2">2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_3">3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_SELECT_VS">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_TRIGGER_BASE_SELECT">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GUI_VS_HAS_AXIS_CONTROL">false</spirit:configurableElementValue>
@@ -190,6 +190,7 @@ ries DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:configurableElementValue>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_RM_RESET_REQUIRED" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_RM" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_1" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_2" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_SELECT_TRIGGER_3" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_VS_HAS_AXIS_STATUS" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.GUI_VS_HAS_POR_RM" xilinx:valueSource="user"/>

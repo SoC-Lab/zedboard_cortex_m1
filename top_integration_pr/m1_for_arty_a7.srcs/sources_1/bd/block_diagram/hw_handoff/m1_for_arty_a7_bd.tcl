@@ -177,7 +177,10 @@ proc create_root_design { parentCell } {
   set UART_RX [ create_bd_port -dir I UART_RX ]
   set UART_TX [ create_bd_port -dir O UART_TX ]
   set btn_d [ create_bd_port -dir I btn_d ]
+  set btn_l [ create_bd_port -dir I btn_l ]
+  set btn_r [ create_bd_port -dir I btn_r ]
   set btn_u [ create_bd_port -dir I btn_u ]
+  set int_CM_PRC_RESET [ create_bd_port -dir O int_CM_PRC_RESET ]
   set int_DIN [ create_bd_port -dir O -from 31 -to 0 int_DIN ]
   set int_DOUT [ create_bd_port -dir I -from 31 -to 0 int_DOUT ]
   set int_RESET_INTERCONNECT [ create_bd_port -dir O -from 0 -to 0 -type rst int_RESET_INTERCONNECT ]
@@ -226,19 +229,20 @@ proc create_root_design { parentCell } {
   # Create instance: prc_0, and set properties
   set prc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:prc:1.3 prc_0 ]
   set_property -dict [ list \
-   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
-   CONFIG.GUI_BS_ADDRESS_0 {0x00800000} \
+   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 301989888 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 369098752 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
+   CONFIG.GUI_BS_ADDRESS_0 {0x16000000} \
    CONFIG.GUI_BS_SIZE_0 {1473436} \
    CONFIG.GUI_CDC_STAGES {2} \
    CONFIG.GUI_CP_ARBITRATION_PROTOCOL {1} \
    CONFIG.GUI_HAS_AXI_LITE {false} \
    CONFIG.GUI_RESET_ACTIVE_LEVEL {1} \
-   CONFIG.GUI_RM_NEW_NAME {cortex_throttle} \
-   CONFIG.GUI_RM_RESET_DURATION {3} \
-   CONFIG.GUI_RM_RESET_REQUIRED {high} \
-   CONFIG.GUI_SELECT_RM {1} \
+   CONFIG.GUI_RM_NEW_NAME {cortex_blank} \
+   CONFIG.GUI_RM_RESET_DURATION {1} \
+   CONFIG.GUI_RM_RESET_REQUIRED {no} \
+   CONFIG.GUI_SELECT_RM {3} \
    CONFIG.GUI_SELECT_TRIGGER_1 {1} \
-   CONFIG.GUI_SELECT_TRIGGER_3 {1} \
+   CONFIG.GUI_SELECT_TRIGGER_2 {2} \
+   CONFIG.GUI_SELECT_TRIGGER_3 {3} \
    CONFIG.GUI_VS_HAS_AXIS_STATUS {true} \
    CONFIG.GUI_VS_HAS_POR_RM {true} \
    CONFIG.GUI_VS_NEW_NAME {vs_cortex} \
@@ -672,7 +676,7 @@ proc create_root_design { parentCell } {
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
   set_property -dict [ list \
-   CONFIG.NUM_PORTS {3} \
+   CONFIG.NUM_PORTS {4} \
  ] $xlconcat_0
 
   # Create instance: xlconcat_1, and set properties
@@ -774,10 +778,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net THROTTLE_1 [get_bd_ports THROTTLE] [get_bd_pins xlconcat_1/In2]
   connect_bd_net -net UART_RX_1 [get_bd_ports UART_RX] [get_bd_pins top_0/UART_RX_EXT]
   connect_bd_net -net btn_d_1 [get_bd_ports btn_d] [get_bd_pins xlconcat_0/In0]
+  connect_bd_net -net btn_l_1 [get_bd_ports btn_l] [get_bd_pins xlconcat_0/In3]
+  connect_bd_net -net btn_r_1 [get_bd_ports btn_r] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net btn_u_1 [get_bd_ports btn_u] [get_bd_pins xlconcat_0/In1]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports int_SYS_CLOCK] [get_bd_pins axi_protocol_convert_0/aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins prc_0/clk] [get_bd_pins prc_0/icap_clk] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins top_0/CLK]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked]
   connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_ports int_DOUT] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din]
+  connect_bd_net -net prc_0_vsm_vs_cortex_rm_reset [get_bd_ports int_CM_PRC_RESET] [get_bd_pins prc_0/vsm_vs_cortex_rm_reset]
   connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_ports int_RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_0/interconnect_aresetn]
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports int_RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
   connect_bd_net -net proc_sys_reset_1_peripheral_reset [get_bd_pins prc_0/icap_reset] [get_bd_pins prc_0/reset] [get_bd_pins proc_sys_reset_1/peripheral_reset]
@@ -796,7 +803,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconstant_3_dout [get_bd_pins xlconcat_1/In3] [get_bd_pins xlconstant_3/dout]
   connect_bd_net -net xlconstant_4_dout [get_bd_pins xlconstant_4/dout] [get_bd_pins xlslice_2/Din]
   connect_bd_net -net xlconstant_5_dout [get_bd_pins prc_0/cap_gnt] [get_bd_pins prc_0/vsm_vs_cortex_rm_shutdown_ack] [get_bd_pins xlconstant_5/dout]
-  connect_bd_net -net xlconstant_6_dout [get_bd_pins prc_0/cap_rel] [get_bd_pins xlconcat_0/In2] [get_bd_pins xlconstant_6/dout]
+  connect_bd_net -net xlconstant_6_dout [get_bd_pins prc_0/cap_rel] [get_bd_pins xlconstant_6/dout]
   connect_bd_net -net xlslice_0_Dout [get_bd_ports ENGINE] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins xlconcat_2/In0] [get_bd_pins xlslice_1/Dout]
   connect_bd_net -net xlslice_2_Dout [get_bd_pins xlconcat_2/In1] [get_bd_pins xlslice_2/Dout]

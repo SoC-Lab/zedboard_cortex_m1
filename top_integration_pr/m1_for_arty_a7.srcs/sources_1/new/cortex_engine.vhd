@@ -49,7 +49,8 @@ entity cortex_rp is
 end cortex_rp;
 
 architecture Behavioral of cortex_rp is
-COMPONENT cm1_ecu_wrapper_0
+
+COMPONENT cm1_engine_wrapper_0
   PORT (
     DIN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     DOUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -65,6 +66,7 @@ COMPONENT cm1_ecu_wrapper_0
     UART_TX : OUT STD_LOGIC
   );
 END COMPONENT;
+
 begin
 
 cortex_ecu_i : cm1_engine_wrapper_0

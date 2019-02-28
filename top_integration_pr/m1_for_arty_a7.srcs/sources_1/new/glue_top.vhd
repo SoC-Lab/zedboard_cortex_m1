@@ -67,7 +67,9 @@ entity glue_top is
     reset_0 : in STD_LOGIC;
     sys_clock : in STD_LOGIC;
     btn_d : in STD_LOGIC;
-    btn_u : in STD_LOGIC
+    btn_u : in STD_LOGIC;
+    btn_r : in STD_LOGIC;
+    btn_l : in STD_LOGIC
     -- Cortex Instance
   );
 end glue_top;
@@ -87,6 +89,7 @@ signal int_CM_TIMER_CLOCK : STD_LOGIC;
 signal int_CM_UART_RX : STD_LOGIC;  
 signal int_CM_UART_TX : STD_LOGIC;
 signal int_CM_uart_rx_int : STD_LOGIC;
+signal int_CM_PRC_RESET : STD_LOGIC;
 
 COMPONENT cortex_rp
   PORT (
@@ -147,12 +150,15 @@ component m1_for_arty_a7 is
     int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
     int_uart_rx_int : out STD_LOGIC;
     int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    int_CM_PRC_RESET : out STD_LOGIC;
     ICAP_0_csib : out STD_LOGIC;
     ICAP_0_i : out STD_LOGIC_VECTOR ( 31 downto 0 );
     ICAP_0_o : in STD_LOGIC_VECTOR ( 31 downto 0 );
     ICAP_0_rdwrb : out STD_LOGIC;
     btn_d : in STD_LOGIC;
-    btn_u : in STD_LOGIC
+    btn_u : in STD_LOGIC;
+    btn_r : in STD_LOGIC;
+    btn_l : in STD_LOGIC
     );
 end component m1_for_arty_a7;
 
@@ -255,6 +261,7 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       int_SYS_CLOCK             => int_CM_SYS_CLOCK,
       int_TIMER_CLOCK           => int_CM_TIMER_CLOCK,
       int_uart_rx_int           => int_CM_uart_rx_int,
+      int_CM_PRC_RESET         => int_CM_PRC_RESET,
       led(7 downto 0) => led(7 downto 0),
       reset_0 => reset_0,
       sys_clock => sys_clock,
@@ -263,7 +270,14 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       ICAP_0_o => ICAP_O,
       ICAP_0_rdwrb => ICAP_RDWRB,
       btn_d => btn_d,
-      btn_u => btn_u
+      btn_u => btn_u,
+      btn_r => btn_r,
+      btn_l => btn_l
     );
+    
+-- Reset the PR Module after a parital reconfiguration event and hope the best.
+--int_CM_RESET_INTERCONNECT <= int_CM_RESET_INTERCONNECT or int_CM_PRC_RESET;
+--int_CM_RESET_PERIPHERAL <= int_CM_RESET_PERIPHERAL or int_CM_PRC_RESET;
+--int_CM_RESET_TIMER <= int_CM_RESET_TIMER or int_CM_PRC_RESET;
 
 end Behavioral;
