@@ -108,3 +108,4 @@
 # SD-Card Bitstreams
 ###########
 #*.bin
+!*.bif
