@@ -63,17 +63,11 @@ entity glue_top is
     THROTTLE : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
     UART_TX : out STD_LOGIC;
---    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 );
---    int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
---    int_RESET_INTERCONNECT : out STD_LOGIC_VECTOR ( 0 to 0 );
---    int_RESET_PERIPHERAL : out STD_LOGIC_VECTOR ( 0 to 0 );
---    int_RESET_TIMER : out STD_LOGIC_VECTOR ( 0 to 0 );
---    int_SYS_CLOCK : out STD_LOGIC;
---    int_TIMER_CLOCK : out STD_LOGIC;
---    int_uart_rx_int : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 7 downto 0 );
     reset_0 : in STD_LOGIC;
-    sys_clock : in STD_LOGIC
+    sys_clock : in STD_LOGIC;
+    btn_d : in STD_LOGIC;
+    btn_u : in STD_LOGIC
     -- Cortex Instance
   );
 end glue_top;
@@ -152,10 +146,59 @@ component m1_for_arty_a7 is
     int_TIMER_CLOCK : out STD_LOGIC;
     int_DOUT : in STD_LOGIC_VECTOR ( 31 downto 0 );
     int_uart_rx_int : out STD_LOGIC;
-    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    int_DIN : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ICAP_0_csib : out STD_LOGIC;
+    ICAP_0_i : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ICAP_0_o : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ICAP_0_rdwrb : out STD_LOGIC;
+    btn_d : in STD_LOGIC;
+    btn_u : in STD_LOGIC
     );
 end component m1_for_arty_a7;
+
+component ICAPE2 is
+    generic (
+        DEVICE_ID : std_logic_vector(31 downto 0);
+        ICAP_WIDTH : string;
+        SIM_CFG_FILE_NAME : string
+    );   
+    port (
+        O : out std_logic_vector(31 downto 0);
+        CLK : in std_logic;
+        CSIB : in std_logic;
+        I : in std_logic_vector(31 downto 0);
+        RDWRB : inout std_logic
+    );
+end component ICAPE2;
+
+signal ICAP_O       :  std_logic_vector(31 downto 0);
+signal ICAP_CSIB    :  std_logic;
+signal ICAP_I       :  std_logic_vector(31 downto 0);
+signal ICAP_RDWRB   :  std_logic;
+
 begin
+
+
+
+-- ICAPE2: Internal Configuration Access Port
+-- 7 Series
+-- Xilinx HDL Libraries Guide, version 14.5
+ICAPE2_inst : ICAPE2
+generic map (
+DEVICE_ID => X"23727093", -- Specifies the pre-programmed Device ID value to be used for simulation
+-- purposes.
+ICAP_WIDTH => "X32", -- Specifies the input and output data width.
+SIM_CFG_FILE_NAME => "None" -- Specifies the Raw Bitstream (RBT) file to be parsed by the simulation
+-- model.
+)
+port map (
+O => ICAP_O, -- 32-bit output: Configuration data output bus
+CLK => int_CM_SYS_CLOCK, -- 1-bit input: Clock Input
+CSIB => ICAP_CSIB, -- 1-bit input: Active-Low ICAP Enable
+I => ICAP_I, -- 32-bit input: Configuration data input bus
+RDWRB => ICAP_RDWRB -- 1-bit input: Read/Write Select input
+);
+-- End of ICAPE2_inst instantiation
 
 cortex_i : component cortex_rp
     port map (
@@ -214,7 +257,13 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       int_uart_rx_int           => int_CM_uart_rx_int,
       led(7 downto 0) => led(7 downto 0),
       reset_0 => reset_0,
-      sys_clock => sys_clock
+      sys_clock => sys_clock,
+      ICAP_0_csib => ICAP_CSIB,
+      ICAP_0_i => ICAP_I,
+      ICAP_0_o => ICAP_O,
+      ICAP_0_rdwrb => ICAP_RDWRB,
+      btn_d => btn_d,
+      btn_u => btn_u
     );
 
 end Behavioral;

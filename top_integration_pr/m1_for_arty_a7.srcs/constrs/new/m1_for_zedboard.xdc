@@ -22,8 +22,8 @@ set_property PACKAGE_PIN M15 [get_ports {SW[7]}]
 
 set_property PACKAGE_PIN H15 [get_ports THROTTLE]
 set_property PACKAGE_PIN R15 [get_ports {ENGINE[0]}]
-set_property PACKAGE_PIN K15 [get_ports UART_RX]
-set_property PACKAGE_PIN J15 [get_ports UART_TX]
+set_property PACKAGE_PIN J15 [get_ports UART_RX]
+set_property PACKAGE_PIN K15 [get_ports UART_TX]
 set_property PACKAGE_PIN W12 [get_ports I2C_SDA_TX]
 set_property PACKAGE_PIN W11 [get_ports I2C_SDA_RX]
 set_property PACKAGE_PIN V10 [get_ports I2C_SCL]
@@ -54,6 +54,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports {SW[7]}]
 
 
 
+set_property PACKAGE_PIN R16 [get_ports btn_d]
+set_property PACKAGE_PIN T18 [get_ports btn_u]
+
+set_property IOSTANDARD LVCMOS33 [get_ports btn_u]
+set_property IOSTANDARD LVCMOS33 [get_ports btn_d]
 
 
 # --------------------------------------------------
