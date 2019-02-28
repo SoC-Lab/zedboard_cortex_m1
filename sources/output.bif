@@ -2,6 +2,6 @@
 the_ROM_image:
 {
 	[bootloader]/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/top_integration_pr/m1_for_arty_a7.sdk/zynq_fsbl/Debug/zynq_fsbl.elf
-	/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/top_integration_pr/m1_for_arty_a7.runs/child_0_impl_1/glue_top.bit
+	/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/sources/Bitstreams/glue_top.bit
 	/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/top_integration_pr/m1_for_arty_a7.sdk/TestApp/Debug/TestApp.elf
 }

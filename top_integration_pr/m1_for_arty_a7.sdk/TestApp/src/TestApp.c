@@ -45,10 +45,10 @@
 // cortex_ecu.bin is approx. 1.5MB = 736718 Words = 0xB3DCE
 // Parameters for Partial Reconfiguration
 #ifdef ZED
-#define PARTIAL_ECU_ADDR   0x400000
+#define PARTIAL_ECU_ADDR   		0x400000
 #define PARTIAL_THROTTLE_ADDR   0x800000
-#define PARTIAL_ENGINE_ADDR   0x120000
-#define PARTIAL_BLANK_ADDR   0x160000
+#define PARTIAL_ENGINE_ADDR   	0x120000
+#define PARTIAL_BLANK_ADDR   	0x160000
 #define PARTIAL_ECU_BITFILE_LEN 736718 // in number of words
 #define PARTIAL_THROTTLE_BITFILE_LEN 736718 // in number of words
 #define PARTIAL_ENGINE_BITFILE_LEN 736718 // in number of words

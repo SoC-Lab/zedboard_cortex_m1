@@ -30,7 +30,8 @@
       "axi_protocol_convert_0": "",
       "xlconstant_5": "",
       "xlconcat_0": "",
-      "xlconstant_6": ""
+      "xlconstant_6": "",
+      "util_vector_logic_1": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1322,10 +1323,10 @@
         "xci_name": "m1_for_arty_a7_prc_0_0",
         "parameters": {
           "ALL_PARAMS": {
-            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 301989888 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 369098752 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
+            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED high RESET_DURATION 3} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
           },
           "GUI_BS_ADDRESS_0": {
-            "value": "0x16000000"
+            "value": "0x00160000"
           },
           "GUI_BS_SIZE_0": {
             "value": "1473436"
@@ -1419,9 +1420,39 @@
             "value": "0"
           }
         }
+      },
+      "util_vector_logic_1": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "m1_for_arty_a7_util_vector_logic_1_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "or"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
       }
     },
     "interface_nets": {
+      "prc_0_m_axi_mem": {
+        "interface_ports": [
+          "prc_0/m_axi_mem",
+          "axi_protocol_convert_0/S_AXI"
+        ]
+      },
+      "prc_0_ICAP": {
+        "interface_ports": [
+          "ICAP_0",
+          "prc_0/ICAP"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
+        ]
+      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
@@ -1432,24 +1463,6 @@
         "interface_ports": [
           "axi_protocol_convert_0/M_AXI",
           "processing_system7_0/S_AXI_HP0"
-        ]
-      },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
-      "prc_0_ICAP": {
-        "interface_ports": [
-          "ICAP_0",
-          "prc_0/ICAP"
-        ]
-      },
-      "prc_0_m_axi_mem": {
-        "interface_ports": [
-          "prc_0/m_axi_mem",
-          "axi_protocol_convert_0/S_AXI"
         ]
       }
     },
@@ -1587,12 +1600,6 @@
           "xlconcat_2/In0"
         ]
       },
-      "xlslice_2_Dout": {
-        "ports": [
-          "xlslice_2/Dout",
-          "xlconcat_2/In1"
-        ]
-      },
       "xlslice_3_Dout": {
         "ports": [
           "xlslice_3/Dout",
@@ -1609,7 +1616,7 @@
         "ports": [
           "util_vector_logic_0/Res",
           "proc_sys_reset_1/ext_reset_in",
-          "proc_sys_reset_0/ext_reset_in"
+          "util_vector_logic_1/Op1"
         ]
       },
       "xlconstant_0_dout": {
@@ -1665,7 +1672,8 @@
       "prc_0_vsm_vs_cortex_rm_reset": {
         "ports": [
           "prc_0/vsm_vs_cortex_rm_reset",
-          "int_CM_PRC_RESET"
+          "int_CM_PRC_RESET",
+          "util_vector_logic_1/Op2"
         ]
       },
       "btn_r_1": {
@@ -1678,6 +1686,18 @@
         "ports": [
           "btn_l",
           "xlconcat_0/In3"
+        ]
+      },
+      "prc_0_vsm_vs_cortex_event_error": {
+        "ports": [
+          "prc_0/vsm_vs_cortex_event_error",
+          "xlconcat_2/In1"
+        ]
+      },
+      "util_vector_logic_1_Res": {
+        "ports": [
+          "util_vector_logic_1/Res",
+          "proc_sys_reset_0/ext_reset_in"
         ]
       }
     },
