@@ -100,6 +100,12 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/tor.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/block_diagram/m1_for_arty_a7.bd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/block_diagram/m1_for_arty_a7.bd"/>

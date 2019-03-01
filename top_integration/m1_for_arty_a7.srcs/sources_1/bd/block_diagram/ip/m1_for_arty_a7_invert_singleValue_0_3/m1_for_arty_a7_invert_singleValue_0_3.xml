@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
-  <spirit:name>m1_for_arty_a7_invert_singleValue_2_0</spirit:name>
+  <spirit:name>m1_for_arty_a7_invert_singleValue_0_3</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:model>
     <spirit:views>
@@ -14,7 +14,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e6d3418e</spirit:value>
+            <spirit:value>9:f931cc38</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23,18 +23,18 @@
         <spirit:displayName>VHDL Synthesis Wrapper</spirit:displayName>
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
-        <spirit:modelName>m1_for_arty_a7_invert_singleValue_2_0</spirit:modelName>
+        <spirit:modelName>m1_for_arty_a7_invert_singleValue_0_3</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsynthesiswrapper_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Mar 01 17:20:32 UTC 2019</spirit:value>
+            <spirit:value>Fri Mar 01 19:22:55 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e6d3418e</spirit:value>
+            <spirit:value>9:f931cc38</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -46,7 +46,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c2fd8891</spirit:value>
+            <spirit:value>9:4704b6bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -55,18 +55,18 @@
         <spirit:displayName>VHDL Simulation Wrapper</spirit:displayName>
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
-        <spirit:modelName>m1_for_arty_a7_invert_singleValue_2_0</spirit:modelName>
+        <spirit:modelName>m1_for_arty_a7_invert_singleValue_0_3</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsimulationwrapper_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Mar 01 17:20:32 UTC 2019</spirit:value>
+            <spirit:value>Fri Mar 01 19:22:55 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c2fd8891</spirit:value>
+            <spirit:value>9:4704b6bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -104,7 +104,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesiswrapper_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>synth/m1_for_arty_a7_invert_singleValue_2_0.vhd</spirit:name>
+        <spirit:name>synth/m1_for_arty_a7_invert_singleValue_0_3.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
@@ -112,7 +112,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsimulationwrapper_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>sim/m1_for_arty_a7_invert_singleValue_2_0.vhd</spirit:name>
+        <spirit:name>sim/m1_for_arty_a7_invert_singleValue_0_3.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
@@ -122,7 +122,7 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">m1_for_arty_a7_invert_singleValue_2_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">m1_for_arty_a7_invert_singleValue_0_3</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>

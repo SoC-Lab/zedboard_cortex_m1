@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# invert_singleValue, invert_singleValue, invert_singleValue, invert_singleValue, top
+# invert_singleValue, invert_singleValue, invert_singleValue, invert_singleValue, invert_singleValue, top, tor
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -243,13 +243,24 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: invert_singleValue_3, and set properties
+  # Create instance: invert_singleValue_4, and set properties
   set block_name invert_singleValue
-  set block_cell_name invert_singleValue_3
-  if { [catch {set invert_singleValue_3 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  set block_cell_name invert_singleValue_4
+  if { [catch {set invert_singleValue_4 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $invert_singleValue_3 eq "" } {
+   } elseif { $invert_singleValue_4 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: invert_singleValue_5, and set properties
+  set block_name invert_singleValue
+  set block_cell_name invert_singleValue_5
+  if { [catch {set invert_singleValue_5 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $invert_singleValue_5 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -260,6 +271,18 @@ proc create_root_design { parentCell } {
   # Create instance: proc_sys_reset_1, and set properties
   set proc_sys_reset_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_1 ]
 
+  # Create instance: proc_sys_reset_2, and set properties
+  set proc_sys_reset_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_2 ]
+
+  # Create instance: proc_sys_reset_3, and set properties
+  set proc_sys_reset_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_3 ]
+
+  # Create instance: proc_sys_reset_4, and set properties
+  set proc_sys_reset_4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_4 ]
+
+  # Create instance: proc_sys_reset_5, and set properties
+  set proc_sys_reset_5 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_5 ]
+
   # Create instance: top_0, and set properties
   set block_name top
   set block_cell_name top_0
@@ -267,6 +290,17 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    } elseif { $top_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: tor_0, and set properties
+  set block_name tor
+  set block_cell_name tor_0
+  if { [catch {set tor_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $tor_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -307,8 +341,27 @@ proc create_root_design { parentCell } {
    CONFIG.CONST_WIDTH {15} \
  ] $xlconstant_3
 
+  # Create instance: xlconstant_5, and set properties
+  set xlconstant_5 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_5 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0} \
+   CONFIG.CONST_WIDTH {1} \
+ ] $xlconstant_5
+
+  # Create instance: xlconstant_6, and set properties
+  set xlconstant_6 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_6 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0} \
+   CONFIG.CONST_WIDTH {1} \
+ ] $xlconstant_6
+
   # Create instance: xlslice_0, and set properties
   set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {1} \
+   CONFIG.DIN_TO {1} \
+   CONFIG.DOUT_WIDTH {1} \
+ ] $xlslice_0
 
   # Create instance: xlslice_1, and set properties
   set xlslice_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_1 ]
@@ -333,37 +386,49 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net I2C_SDA_RX_1 [get_bd_ports I2C_SDA_RX] [get_bd_pins cm1_ecu_wrapper_0/I2C_SDA_RX] [get_bd_pins cm1_engine_wrapper_0/I2C_SDA_RX] [get_bd_pins cm1_throttle_wrapper_0/I2C_SDA_RX]
-  connect_bd_net -net M04_ACLK_1 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins cm1_ecu_wrapper_0/TIMER_CLOCK] [get_bd_pins cm1_engine_wrapper_0/TIMER_CLOCK] [get_bd_pins cm1_throttle_wrapper_0/TIMER_CLOCK] [get_bd_pins proc_sys_reset_1/slowest_sync_clk]
+  connect_bd_net -net M04_ACLK_1 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins cm1_ecu_wrapper_0/TIMER_CLOCK] [get_bd_pins cm1_engine_wrapper_0/TIMER_CLOCK] [get_bd_pins cm1_throttle_wrapper_0/TIMER_CLOCK] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins proc_sys_reset_3/slowest_sync_clk] [get_bd_pins proc_sys_reset_4/slowest_sync_clk]
   connect_bd_net -net SW_1 [get_bd_ports SW] [get_bd_pins xlconcat_1/In1]
   connect_bd_net -net THROTTLE_1 [get_bd_ports THROTTLE] [get_bd_pins xlconcat_1/In2]
   connect_bd_net -net UART_RX_1 [get_bd_ports UART_RX] [get_bd_pins invert_singleValue_1/i_signal] [get_bd_pins top_0/UART_RX_EXT]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins cm1_ecu_wrapper_0/SYS_CLOCK] [get_bd_pins cm1_engine_wrapper_0/SYS_CLOCK] [get_bd_pins cm1_throttle_wrapper_0/SYS_CLOCK] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins top_0/CLK]
-  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked]
-  connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_pins cm1_ecu_wrapper_0/DOUT] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins cm1_ecu_wrapper_0/SYS_CLOCK] [get_bd_pins cm1_engine_wrapper_0/SYS_CLOCK] [get_bd_pins cm1_throttle_wrapper_0/SYS_CLOCK] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins proc_sys_reset_5/slowest_sync_clk] [get_bd_pins top_0/CLK] [get_bd_pins tor_0/CLK]
+  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins proc_sys_reset_2/dcm_locked] [get_bd_pins proc_sys_reset_3/dcm_locked] [get_bd_pins proc_sys_reset_4/dcm_locked] [get_bd_pins proc_sys_reset_5/dcm_locked]
+  connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_pins cm1_ecu_wrapper_0/DOUT] [get_bd_pins xlslice_1/Din]
   connect_bd_net -net cm1_ecu_wrapper_0_I2C_SCL [get_bd_ports I2C_SCL] [get_bd_pins cm1_ecu_wrapper_0/I2C_SCL]
   connect_bd_net -net cm1_ecu_wrapper_0_I2C_SDA_TX [get_bd_ports I2C_SDA_TX] [get_bd_pins cm1_ecu_wrapper_0/I2C_SDA_TX]
-  connect_bd_net -net cm1_ecu_wrapper_0_UART_TX [get_bd_pins cm1_ecu_wrapper_0/UART_TX] [get_bd_pins top_0/UART_TX_INT]
-  connect_bd_net -net cm1_engine_wrapper_0_DOUT [get_bd_pins cm1_engine_wrapper_0/DOUT] [get_bd_pins xlslice_2/Din]
+  connect_bd_net -net cm1_ecu_wrapper_0_UART_TX [get_bd_pins cm1_ecu_wrapper_0/UART_TX] [get_bd_pins tor_0/INPUT0]
+  connect_bd_net -net cm1_engine_wrapper_0_DOUT [get_bd_pins cm1_engine_wrapper_0/DOUT] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_2/Din]
+  connect_bd_net -net cm1_engine_wrapper_0_UART_TX [get_bd_pins cm1_engine_wrapper_0/UART_TX] [get_bd_pins tor_0/INPUT2]
   connect_bd_net -net cm1_throttle_wrapper_0_DOUT [get_bd_pins cm1_throttle_wrapper_0/DOUT] [get_bd_pins xlslice_3/Din]
+  connect_bd_net -net cm1_throttle_wrapper_0_UART_TX [get_bd_pins cm1_throttle_wrapper_0/UART_TX] [get_bd_pins tor_0/INPUT1]
   connect_bd_net -net invert_singleValue_0_o_signal [get_bd_pins invert_singleValue_0/o_signal] [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in]
   connect_bd_net -net invert_singleValue_1_o_signal [get_bd_pins invert_singleValue_1/o_signal] [get_bd_pins xlconcat_2/In7]
   connect_bd_net -net invert_singleValue_2_o_signal [get_bd_pins invert_singleValue_2/o_signal] [get_bd_pins xlconcat_2/In6]
-  connect_bd_net -net invert_singleValue_3_o_signal [get_bd_pins cm1_ecu_wrapper_0/RESET_INTERCONNECT] [get_bd_pins cm1_ecu_wrapper_0/RESET_PERIPHERAL] [get_bd_pins invert_singleValue_3/o_signal]
-  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_INTERCONNECT] [get_bd_pins cm1_throttle_wrapper_0/RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_0/interconnect_aresetn]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_PERIPHERAL] [get_bd_pins cm1_throttle_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins top_0/RST]
-  connect_bd_net -net reset_0_1 [get_bd_pins cm1_ecu_wrapper_0/RESET_TIMER] [get_bd_pins cm1_engine_wrapper_0/RESET_TIMER] [get_bd_pins cm1_throttle_wrapper_0/RESET_TIMER] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
-  connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins invert_singleValue_0/i_signal]
+  connect_bd_net -net invert_singleValue_4_o_signal [get_bd_pins invert_singleValue_4/o_signal] [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins proc_sys_reset_3/ext_reset_in]
+  connect_bd_net -net invert_singleValue_5_o_signal [get_bd_pins invert_singleValue_5/o_signal] [get_bd_pins proc_sys_reset_4/ext_reset_in] [get_bd_pins proc_sys_reset_5/ext_reset_in]
+  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins cm1_throttle_wrapper_0/RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_0/interconnect_aresetn]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins cm1_throttle_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_2_interconnect_aresetn [get_bd_pins cm1_ecu_wrapper_0/RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_2/interconnect_aresetn]
+  connect_bd_net -net proc_sys_reset_2_peripheral_aresetn [get_bd_pins cm1_ecu_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_2/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_3_peripheral_aresetn [get_bd_pins cm1_ecu_wrapper_0/RESET_TIMER] [get_bd_pins proc_sys_reset_3/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_4_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_TIMER] [get_bd_pins proc_sys_reset_4/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_5_interconnect_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_5/interconnect_aresetn]
+  connect_bd_net -net proc_sys_reset_5_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_5/peripheral_aresetn]
+  connect_bd_net -net reset_0_1 [get_bd_pins cm1_throttle_wrapper_0/RESET_TIMER] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
+  connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins top_0/RST] [get_bd_pins tor_0/RST]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
-  connect_bd_net -net top_0_REC_ECU [get_bd_pins invert_singleValue_3/i_signal] [get_bd_pins top_0/REC_ECU] [get_bd_pins xlconcat_2/In3]
-  connect_bd_net -net top_0_REC_MCU [get_bd_pins top_0/REC_MCU] [get_bd_pins xlconcat_2/In5]
-  connect_bd_net -net top_0_REC_THS [get_bd_pins top_0/REC_THS] [get_bd_pins xlconcat_2/In4]
+  connect_bd_net -net top_0_REC_ECU [get_bd_pins invert_singleValue_4/i_signal] [get_bd_pins top_0/REC_ECU] [get_bd_pins tor_0/SELECT0] [get_bd_pins xlconcat_2/In3]
+  connect_bd_net -net top_0_REC_MCU [get_bd_pins invert_singleValue_5/i_signal] [get_bd_pins top_0/REC_MCU] [get_bd_pins tor_0/SELECT2] [get_bd_pins xlconcat_2/In5]
+  connect_bd_net -net top_0_REC_THS [get_bd_pins invert_singleValue_0/i_signal] [get_bd_pins top_0/REC_THS] [get_bd_pins tor_0/SELECT1] [get_bd_pins xlconcat_2/In4]
   connect_bd_net -net top_0_UART_RX_INT [get_bd_pins cm1_ecu_wrapper_0/UART_RX] [get_bd_pins cm1_engine_wrapper_0/UART_RX] [get_bd_pins cm1_throttle_wrapper_0/UART_RX] [get_bd_pins top_0/UART_RX_INT]
   connect_bd_net -net top_0_UART_TX_EXT [get_bd_ports UART_TX] [get_bd_pins invert_singleValue_2/i_signal] [get_bd_pins top_0/UART_TX_EXT]
+  connect_bd_net -net tor_0_OUTPUT [get_bd_pins top_0/UART_TX_INT] [get_bd_pins tor_0/OUTPUT0]
   connect_bd_net -net xlconcat_1_dout [get_bd_pins cm1_ecu_wrapper_0/DIN] [get_bd_pins cm1_engine_wrapper_0/DIN] [get_bd_pins cm1_throttle_wrapper_0/DIN] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconcat_2_dout [get_bd_ports led] [get_bd_pins xlconcat_2/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins xlconcat_1/In0] [get_bd_pins xlconstant_1/dout]
   connect_bd_net -net xlconstant_2_dout [get_bd_pins top_0/EN] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlconstant_3_dout [get_bd_pins xlconcat_1/In3] [get_bd_pins xlconstant_3/dout]
+  connect_bd_net -net xlconstant_5_dout [get_bd_pins tor_0/SELECT3] [get_bd_pins xlconstant_5/dout]
+  connect_bd_net -net xlconstant_6_dout [get_bd_pins tor_0/INPUT3] [get_bd_pins xlconstant_6/dout]
   connect_bd_net -net xlslice_0_Dout [get_bd_ports ENGINE] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins xlconcat_2/In0] [get_bd_pins xlslice_1/Dout]
   connect_bd_net -net xlslice_2_Dout [get_bd_pins xlconcat_2/In2] [get_bd_pins xlslice_2/Dout]

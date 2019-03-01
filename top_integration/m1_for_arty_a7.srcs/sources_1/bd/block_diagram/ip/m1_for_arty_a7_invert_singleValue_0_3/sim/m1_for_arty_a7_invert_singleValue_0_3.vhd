@@ -53,16 +53,16 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY m1_for_arty_a7_invert_singleValue_2_0 IS
+ENTITY m1_for_arty_a7_invert_singleValue_0_3 IS
   PORT (
     i_signal : IN STD_LOGIC;
     o_signal : OUT STD_LOGIC
   );
-END m1_for_arty_a7_invert_singleValue_2_0;
+END m1_for_arty_a7_invert_singleValue_0_3;
 
-ARCHITECTURE m1_for_arty_a7_invert_singleValue_2_0_arch OF m1_for_arty_a7_invert_singleValue_2_0 IS
+ARCHITECTURE m1_for_arty_a7_invert_singleValue_0_3_arch OF m1_for_arty_a7_invert_singleValue_0_3 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "yes";
   COMPONENT invert_singleValue IS
     PORT (
       i_signal : IN STD_LOGIC;
@@ -70,11 +70,11 @@ ARCHITECTURE m1_for_arty_a7_invert_singleValue_2_0_arch OF m1_for_arty_a7_invert
     );
   END COMPONENT invert_singleValue;
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "module_ref";
 BEGIN
   U0 : invert_singleValue
     PORT MAP (
       i_signal => i_signal,
       o_signal => o_signal
     );
-END m1_for_arty_a7_invert_singleValue_2_0_arch;
+END m1_for_arty_a7_invert_singleValue_0_3_arch;

@@ -53,16 +53,16 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY m1_for_arty_a7_invert_singleValue_2_0 IS
+ENTITY m1_for_arty_a7_invert_singleValue_0_2 IS
   PORT (
     i_signal : IN STD_LOGIC;
     o_signal : OUT STD_LOGIC
   );
-END m1_for_arty_a7_invert_singleValue_2_0;
+END m1_for_arty_a7_invert_singleValue_0_2;
 
-ARCHITECTURE m1_for_arty_a7_invert_singleValue_2_0_arch OF m1_for_arty_a7_invert_singleValue_2_0 IS
+ARCHITECTURE m1_for_arty_a7_invert_singleValue_0_2_arch OF m1_for_arty_a7_invert_singleValue_0_2 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_0_2_arch: ARCHITECTURE IS "yes";
   COMPONENT invert_singleValue IS
     PORT (
       i_signal : IN STD_LOGIC;
@@ -70,17 +70,17 @@ ARCHITECTURE m1_for_arty_a7_invert_singleValue_2_0_arch OF m1_for_arty_a7_invert
     );
   END COMPONENT invert_singleValue;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "invert_singleValue,Vivado 2018.3";
+  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_invert_singleValue_0_2_arch: ARCHITECTURE IS "invert_singleValue,Vivado 2018.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_invert_singleValue_2_0_arch : ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_2_0,invert_singleValue,{}";
+  ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_invert_singleValue_0_2_arch : ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_2,invert_singleValue,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_2_0,invert_singleValue,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=invert_singleValue,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_invert_singleValue_0_2_arch: ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_2,invert_singleValue,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=invert_singleValue,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_2_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_0_2_arch: ARCHITECTURE IS "module_ref";
 BEGIN
   U0 : invert_singleValue
     PORT MAP (
       i_signal => i_signal,
       o_signal => o_signal
     );
-END m1_for_arty_a7_invert_singleValue_2_0_arch;
+END m1_for_arty_a7_invert_singleValue_0_2_arch;
