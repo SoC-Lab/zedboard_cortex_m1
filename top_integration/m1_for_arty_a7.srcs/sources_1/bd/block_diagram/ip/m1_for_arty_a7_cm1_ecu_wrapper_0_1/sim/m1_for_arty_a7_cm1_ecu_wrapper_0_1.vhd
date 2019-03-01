@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:cm1_ecu_wrapper:1.0
--- IP Revision: 3
+-- IP VLNV: xilinx.com:user:cm1_ecu_wrapper:1.1
+-- IP Revision: 4
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

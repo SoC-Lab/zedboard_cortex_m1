@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:cm1_ecu_wrapper:1.0
--- IP Revision: 3
+-- IP VLNV: xilinx.com:user:cm1_ecu_wrapper:1.1
+-- IP Revision: 4
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -94,7 +94,7 @@ ARCHITECTURE m1_for_arty_a7_cm1_ecu_wrapper_0_1_arch OF m1_for_arty_a7_cm1_ecu_w
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_cm1_ecu_wrapper_0_1_arch : ARCHITECTURE IS "m1_for_arty_a7_cm1_ecu_wrapper_0_1,cm1_ecu_wrapper,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_cm1_ecu_wrapper_0_1_arch: ARCHITECTURE IS "m1_for_arty_a7_cm1_ecu_wrapper_0_1,cm1_ecu_wrapper,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=cm1_ecu_wrapper,x_ipVersion=1.0,x_ipCoreRevision=3,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_cm1_ecu_wrapper_0_1_arch: ARCHITECTURE IS "m1_for_arty_a7_cm1_ecu_wrapper_0_1,cm1_ecu_wrapper,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=cm1_ecu_wrapper,x_ipVersion=1.1,x_ipCoreRevision=4,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_cm1_ecu_wrapper_0_1_arch: ARCHITECTURE IS "package_project";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
