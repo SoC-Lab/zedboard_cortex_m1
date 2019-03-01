@@ -1,0 +1,52 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port UART_RX -pg 1 -y 830 -defaultsOSRD
+preplace port TIMER_CLOCK -pg 1 -y 220 -defaultsOSRD
+preplace port SYS_CLOCK -pg 1 -y 260 -defaultsOSRD
+preplace port RESET_INTERCONNECT -pg 1 -y 320 -defaultsOSRD
+preplace port I2C_SDA_TX -pg 1 -y 310 -defaultsOSRD
+preplace port I2C_SDA_RX -pg 1 -y 180 -defaultsOSRD
+preplace port UART_TX -pg 1 -y 750 -defaultsOSRD
+preplace port RESET_PERIPHERAL -pg 1 -y 200 -defaultsOSRD
+preplace port I2C_SCL -pg 1 -y 250 -defaultsOSRD
+preplace port RESET_TIMER -pg 1 -y 240 -defaultsOSRD
+preplace portBus DOUT -pg 1 -y 100 -defaultsOSRD
+preplace portBus DIN -pg 1 -y 160 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 4 -y 290 -defaultsOSRD
+preplace inst CORTEXM3_AXI_0 -pg 1 -lvl 2 -y 280 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -y 490 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 2 -y 680 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -y 550 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 4 -y 520 -defaultsOSRD
+preplace inst axi_gpio_2 -pg 1 -lvl 4 -y 80 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 4 -y 740 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 3 -y 370 -defaultsOSRD
+preplace netloc xlconstant_1_dout 1 1 2 100 750 530
+preplace netloc axi_uartlite_0_interrupt 1 1 4 80 850 NJ 850 NJ 850 1580
+preplace netloc axi_iic_0_sda_o 1 4 1 NJ
+preplace netloc axi_iic_0_iic2intc_irpt 1 1 4 120 840 NJ 840 NJ 840 1600
+preplace netloc reset_peripherial_1 1 0 3 NJ 200 80J 70 580J
+preplace netloc axi_interconnect_0_M02_AXI 1 3 1 1260
+preplace netloc axi_iic_0_scl_o 1 4 1 1600
+preplace netloc axi_gpio_2_gpio_io_o 1 4 1 NJ
+preplace netloc axi_uartlite_0_tx 1 4 1 NJ
+preplace netloc CORTEXM3_AXI_0_CM3_SYS_AXI3 1 2 1 570
+preplace netloc xlconcat_0_dout 1 1 2 90 740 540
+preplace netloc xlconstant_0_dout 1 1 1 70J
+preplace netloc M04_ACLK_1 1 0 4 -140J 40 NJ 40 590J 550 NJ
+preplace netloc clk_wiz_0_clk_out1 1 0 4 NJ 260 70J 80 600 80 1270
+preplace netloc I2C_SDA_RX_1 1 0 5 -150J 30 NJ 30 NJ 30 1260J 170 1580
+preplace netloc axi_interconnect_0_M00_AXI 1 3 1 1230
+preplace netloc axi_interconnect_0_M01_AXI 1 3 1 1240
+preplace netloc M04_ARESETN_1 1 0 4 -130J 50 NJ 50 550J 570 NJ
+preplace netloc DIN_1 1 0 5 -160J 20 NJ 20 NJ 20 1280J 160 1580
+preplace netloc reset_0_1 1 0 4 -120J 60 NJ 60 560 100 1250
+preplace netloc UART_RX_1 1 0 5 NJ 830 NJ 830 570J 650 NJ 650 1580
+preplace netloc axi_interconnect_0_M03_AXI 1 3 1 1220
+preplace netloc axi_timer_0_interrupt 1 1 4 110 820 NJ 820 1250J 830 1590
+levelinfo -pg 1 -180 -20 330 1070 1430 1620 -top 0 -bot 860
+"
+}
+
