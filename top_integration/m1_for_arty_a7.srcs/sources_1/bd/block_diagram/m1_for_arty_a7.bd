@@ -5,8 +5,7 @@
       "device": "xc7z020clg484-1",
       "name": "m1_for_arty_a7",
       "synth_flow_mode": "None",
-      "tool_version": "2018.3",
-      "validated": "true"
+      "tool_version": "2018.3"
     },
     "design_tree": {
       "clk_wiz_0": "",
@@ -35,10 +34,6 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
           "POLARITY": {
             "value": "ACTIVE_HIGH"
           }
@@ -51,16 +46,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "m1_for_arty_a7_sys_clock",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
           },
           "PHASE": {
             "value": "0.000"
@@ -79,13 +66,7 @@
       "led": {
         "direction": "O",
         "left": "7",
-        "right": "0",
-        "parameters": {
-          "PortWidth": {
-            "value": "8",
-            "value_src": "ip_prop"
-          }
-        }
+        "right": "0"
       },
       "I2C_SDA_TX": {
         "direction": "O"
@@ -280,13 +261,7 @@
         },
         "ports": {
           "i_signal": {
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
-              }
-            }
+            "direction": "I"
           },
           "o_signal": {
             "direction": "O"
@@ -304,35 +279,11 @@
         "ports": {
           "CLK": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "RST",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              },
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
+            "direction": "I"
           },
           "RST": {
             "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
+            "direction": "I"
           },
           "EN": {
             "direction": "I"
@@ -470,7 +421,6 @@
       "cm1_ecu_wrapper_0_DOUT": {
         "ports": [
           "cm1_ecu_wrapper_0/DOUT",
-          "xlslice_0/Din",
           "xlslice_1/Din"
         ]
       },
@@ -564,7 +514,8 @@
       "cm1_engine_wrapper_0_DOUT": {
         "ports": [
           "cm1_engine_wrapper_0/DOUT",
-          "xlslice_2/Din"
+          "xlslice_2/Din",
+          "xlslice_0/Din"
         ]
       },
       "cm1_throttle_wrapper_0_DOUT": {
