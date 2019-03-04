@@ -340,6 +340,9 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_PORTS {8} \
  ] $xlconcat_2
 
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+
   # Create instance: xlconstant_1, and set properties
   set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
   set_property -dict [ list \
@@ -418,7 +421,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net cm1_engine_wrapper_0_UART_TX [get_bd_pins cm1_engine_wrapper_0/UART_TX] [get_bd_pins tor_0/INPUT2]
   connect_bd_net -net cm1_throttle_wrapper_1_DOUT [get_bd_pins cm1_throttle_wrapper_1/DOUT] [get_bd_pins xlslice_3/Din]
   connect_bd_net -net cm1_throttle_wrapper_1_UART_TX [get_bd_pins cm1_throttle_wrapper_1/UART_TX] [get_bd_pins tor_0/INPUT1]
-  connect_bd_net -net invert_singleValue_0_o_signal [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins reset_impulse_2/reset_out]
   connect_bd_net -net invert_singleValue_1_o_signal [get_bd_pins invert_singleValue_1/o_signal] [get_bd_pins xlconcat_2/In7]
   connect_bd_net -net invert_singleValue_2_o_signal [get_bd_pins invert_singleValue_2/o_signal] [get_bd_pins xlconcat_2/In6]
   connect_bd_net -net invert_singleValue_5_o_signal [get_bd_pins proc_sys_reset_4/ext_reset_in] [get_bd_pins proc_sys_reset_5/ext_reset_in] [get_bd_pins reset_impulse_1/reset_out]
@@ -432,7 +434,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net proc_sys_reset_5_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_5/peripheral_aresetn]
   connect_bd_net -net reset_0_1 [get_bd_pins cm1_throttle_wrapper_1/RESET_TIMER] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
   connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins reset_impulse_0/rst] [get_bd_pins reset_impulse_1/rst] [get_bd_pins reset_impulse_2/rst] [get_bd_pins top_0/RST] [get_bd_pins tor_0/RST]
-  connect_bd_net -net reset_impulse_0_reset_out [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins proc_sys_reset_3/ext_reset_in] [get_bd_pins reset_impulse_0/reset_out]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net top_0_REC_ECU [get_bd_pins reset_impulse_0/reset_in] [get_bd_pins top_0/REC_ECU] [get_bd_pins tor_0/SELECT0] [get_bd_pins xlconcat_2/In3]
   connect_bd_net -net top_0_REC_MCU [get_bd_pins reset_impulse_1/reset_in] [get_bd_pins top_0/REC_MCU] [get_bd_pins tor_0/SELECT2] [get_bd_pins xlconcat_2/In5]
@@ -442,6 +443,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net tor_0_OUTPUT [get_bd_pins top_0/UART_TX_INT] [get_bd_pins tor_0/OUTPUT0]
   connect_bd_net -net xlconcat_1_dout [get_bd_pins cm1_ecu_wrapper_1/DIN] [get_bd_pins cm1_engine_wrapper_0/DIN] [get_bd_pins cm1_throttle_wrapper_1/DIN] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconcat_2_dout [get_bd_ports led] [get_bd_pins xlconcat_2/dout]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins proc_sys_reset_3/ext_reset_in] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins xlconcat_1/In0] [get_bd_pins xlconstant_1/dout]
   connect_bd_net -net xlconstant_2_dout [get_bd_pins top_0/EN] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlconstant_3_dout [get_bd_pins xlconcat_1/In3] [get_bd_pins xlconstant_3/dout]

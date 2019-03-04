@@ -43,13 +43,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="180"/>
-    <Option Name="WTModelSimExportSim" Val="180"/>
-    <Option Name="WTQuestaExportSim" Val="180"/>
-    <Option Name="WTIesExportSim" Val="180"/>
-    <Option Name="WTVcsExportSim" Val="180"/>
-    <Option Name="WTRivieraExportSim" Val="180"/>
-    <Option Name="WTActivehdlExportSim" Val="180"/>
+    <Option Name="WTXSimExportSim" Val="183"/>
+    <Option Name="WTModelSimExportSim" Val="183"/>
+    <Option Name="WTQuestaExportSim" Val="183"/>
+    <Option Name="WTIesExportSim" Val="183"/>
+    <Option Name="WTVcsExportSim" Val="183"/>
+    <Option Name="WTRivieraExportSim" Val="182"/>
+    <Option Name="WTActivehdlExportSim" Val="182"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -96,6 +96,15 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/glue_top.vhd">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/reset_impulse.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../top_integration/m1_for_arty_a7.srcs/sources_1/new/reset_impulse.vhd"/>
+          <Attr Name="ImportTime" Val="1551690295"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

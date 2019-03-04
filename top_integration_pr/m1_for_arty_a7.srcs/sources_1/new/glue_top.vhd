@@ -90,6 +90,7 @@ signal int_CM_UART_RX : STD_LOGIC;
 signal int_CM_UART_TX : STD_LOGIC;
 signal int_CM_uart_rx_int : STD_LOGIC;
 signal int_CM_PRC_RESET : STD_LOGIC;
+signal int_CM_UART_TX_INT : STD_LOGIC;
 
 COMPONENT cortex_rp
   PORT (
@@ -158,7 +159,8 @@ component m1_for_arty_a7 is
     btn_d : in STD_LOGIC;
     btn_u : in STD_LOGIC;
     btn_r : in STD_LOGIC;
-    btn_l : in STD_LOGIC
+    btn_l : in STD_LOGIC;
+    int_UART_TX_INT : in STD_LOGIC
     );
 end component m1_for_arty_a7;
 
@@ -272,7 +274,8 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       btn_d => btn_d,
       btn_u => btn_u,
       btn_r => btn_r,
-      btn_l => btn_l
+      btn_l => btn_l,
+      int_UART_TX_INT => int_CM_UART_TX
     );
     
 -- Reset the PR Module after a parital reconfiguration event and hope the best.

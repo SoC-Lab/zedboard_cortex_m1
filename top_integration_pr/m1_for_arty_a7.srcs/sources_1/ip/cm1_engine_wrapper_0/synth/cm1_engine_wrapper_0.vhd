@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:cm1_engine_wrapper:1.0
--- IP Revision: 3
+-- IP VLNV: user.org:user:cm1_engine_wrapper:1.0
+-- IP Revision: 2
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -93,8 +93,6 @@ ARCHITECTURE cm1_engine_wrapper_0_arch OF cm1_engine_wrapper_0 IS
   ATTRIBUTE X_CORE_INFO OF cm1_engine_wrapper_0_arch: ARCHITECTURE IS "cm1_engine_wrapper,Vivado 2018.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF cm1_engine_wrapper_0_arch : ARCHITECTURE IS "cm1_engine_wrapper_0,cm1_engine_wrapper,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF cm1_engine_wrapper_0_arch: ARCHITECTURE IS "cm1_engine_wrapper_0,cm1_engine_wrapper,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=cm1_engine_wrapper,x_ipVersion=1.0,x_ipCoreRevision=3,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF cm1_engine_wrapper_0_arch: ARCHITECTURE IS "package_project";
   ATTRIBUTE X_INTERFACE_INFO : STRING;

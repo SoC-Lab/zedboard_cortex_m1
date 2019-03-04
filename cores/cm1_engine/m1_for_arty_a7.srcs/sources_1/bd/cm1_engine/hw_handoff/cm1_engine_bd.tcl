@@ -202,8 +202,9 @@ proc create_root_design { parentCell } {
   set axi_gpio_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2 ]
   set_property -dict [ list \
    CONFIG.C_ALL_OUTPUTS {0} \
+   CONFIG.C_DOUT_DEFAULT {0x00000000} \
    CONFIG.C_GPIO_WIDTH {32} \
-   CONFIG.C_TRI_DEFAULT {0xFFFFFF00} \
+   CONFIG.C_TRI_DEFAULT {0xFFFFFFFF} \
    CONFIG.GPIO_BOARD_INTERFACE {Custom} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_gpio_2

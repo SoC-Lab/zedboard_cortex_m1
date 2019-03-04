@@ -24,22 +24,22 @@ CONFIG.VS.vs_cortex.TRIGGER2_TO_RM                        cortex_engine
 CONFIG.VS.vs_cortex.TRIGGER3_TO_RM                        cortex_blank
 CONFIG.VS.vs_cortex.RM.cortex_ecu.SHUTDOWN_REQUIRED       no
 CONFIG.VS.vs_cortex.RM.cortex_ecu.STARTUP_REQUIRED        no
-CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_REQUIRED          high
-CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_DURATION          3
+CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_REQUIRED          low
+CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_DURATION          5
 CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.ADDRESS            4194304
 CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.SIZE               1473436
 CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.CLEAR              0
 CONFIG.VS.vs_cortex.RM.cortex_throttle.SHUTDOWN_REQUIRED  no
 CONFIG.VS.vs_cortex.RM.cortex_throttle.STARTUP_REQUIRED   no
-CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_REQUIRED     high
-CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_DURATION     3
+CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_REQUIRED     low
+CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_DURATION     5
 CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.ADDRESS       8388608
 CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.SIZE          1473436
 CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.CLEAR         0
 CONFIG.VS.vs_cortex.RM.cortex_engine.SHUTDOWN_REQUIRED    no
 CONFIG.VS.vs_cortex.RM.cortex_engine.STARTUP_REQUIRED     no
-CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       high
-CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       3
+CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       low
+CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       5
 CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         1179648
 CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.SIZE            1473436
 CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.CLEAR           0
@@ -77,22 +77,22 @@ prc_v1_3::set_property -dict [list \
                                CONFIG.VS.vs_cortex.TRIGGER3_TO_RM                        cortex_blank \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.SHUTDOWN_REQUIRED       no \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.STARTUP_REQUIRED        no \
-                               CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_REQUIRED          high \
-                               CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_DURATION          3 \
+                               CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_REQUIRED          low \
+                               CONFIG.VS.vs_cortex.RM.cortex_ecu.RESET_DURATION          5 \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.ADDRESS            4194304 \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.SIZE               1473436 \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.BS.0.CLEAR              0 \
                                CONFIG.VS.vs_cortex.RM.cortex_throttle.SHUTDOWN_REQUIRED  no \
                                CONFIG.VS.vs_cortex.RM.cortex_throttle.STARTUP_REQUIRED   no \
-                               CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_REQUIRED     high \
-                               CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_DURATION     3 \
+                               CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_REQUIRED     low \
+                               CONFIG.VS.vs_cortex.RM.cortex_throttle.RESET_DURATION     5 \
                                CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.ADDRESS       8388608 \
                                CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.SIZE          1473436 \
                                CONFIG.VS.vs_cortex.RM.cortex_throttle.BS.0.CLEAR         0 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.SHUTDOWN_REQUIRED    no \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.STARTUP_REQUIRED     no \
-                               CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       high \
-                               CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       3 \
+                               CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       low \
+                               CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       5 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         1179648 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.SIZE            1473436 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.CLEAR           0 \

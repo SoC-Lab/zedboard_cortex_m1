@@ -36,7 +36,8 @@
       "tor_0": "",
       "cm1_ecu_wrapper_1": "",
       "cm1_engine_wrapper_0": "",
-      "cm1_throttle_wrapper_1": ""
+      "cm1_throttle_wrapper_1": "",
+      "xlconstant_0": ""
     },
     "ports": {
       "reset_0": {
@@ -682,6 +683,10 @@
       "cm1_throttle_wrapper_1": {
         "vlnv": "user.org:user:cm1_throttle_wrapper:1.0",
         "xci_name": "m1_for_arty_a7_cm1_throttle_wrapper_1_0"
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "m1_for_arty_a7_xlconstant_0_0"
       }
     },
     "nets": {
@@ -733,13 +738,6 @@
         "ports": [
           "sys_clock",
           "clk_wiz_0/clk_in1"
-        ]
-      },
-      "invert_singleValue_0_o_signal": {
-        "ports": [
-          "reset_impulse_2/reset_out",
-          "proc_sys_reset_0/ext_reset_in",
-          "proc_sys_reset_1/ext_reset_in"
         ]
       },
       "clk_wiz_0_locked": {
@@ -949,13 +947,6 @@
           "tor_0/INPUT3"
         ]
       },
-      "reset_impulse_0_reset_out": {
-        "ports": [
-          "reset_impulse_0/reset_out",
-          "proc_sys_reset_3/ext_reset_in",
-          "proc_sys_reset_2/ext_reset_in"
-        ]
-      },
       "proc_sys_reset_4_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_4/peripheral_aresetn",
@@ -1014,6 +1005,15 @@
         "ports": [
           "cm1_ecu_wrapper_1/UART_TX",
           "tor_0/INPUT0"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "proc_sys_reset_0/ext_reset_in",
+          "proc_sys_reset_1/ext_reset_in",
+          "proc_sys_reset_3/ext_reset_in",
+          "proc_sys_reset_2/ext_reset_in"
         ]
       }
     }
