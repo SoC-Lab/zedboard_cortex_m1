@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Fri Mar  1 20:22:01 2019
---Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
+--Date        : Mon Mar  4 00:44:18 2019
+--Host        : I750 running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
 --Purpose     : IP block netlist
@@ -178,26 +178,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     UART_TX : out STD_LOGIC
   );
   end component m1_for_arty_a7_cm1_ecu_wrapper_0_1;
-  component m1_for_arty_a7_invert_singleValue_0_0 is
-  port (
-    i_signal : in STD_LOGIC;
-    o_signal : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_invert_singleValue_0_0;
-  component m1_for_arty_a7_top_0_1 is
-  port (
-    CLK : in STD_LOGIC;
-    RST : in STD_LOGIC;
-    EN : in STD_LOGIC;
-    UART_RX_EXT : in STD_LOGIC;
-    UART_TX_EXT : out STD_LOGIC;
-    UART_RX_INT : out STD_LOGIC;
-    UART_TX_INT : in STD_LOGIC;
-    REC_ECU : out STD_LOGIC;
-    REC_MCU : out STD_LOGIC;
-    REC_THS : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_top_0_1;
   component m1_for_arty_a7_invert_singleValue_0_1 is
   port (
     i_signal : in STD_LOGIC;
@@ -215,12 +195,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_xlconstant_4_0;
-  component m1_for_arty_a7_invert_singleValue_0_2 is
-  port (
-    i_signal : in STD_LOGIC;
-    o_signal : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_invert_singleValue_0_2;
   component m1_for_arty_a7_proc_sys_reset_0_2 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -249,12 +223,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_proc_sys_reset_1_0;
-  component m1_for_arty_a7_invert_singleValue_0_3 is
-  port (
-    i_signal : in STD_LOGIC;
-    o_signal : out STD_LOGIC
-  );
-  end component m1_for_arty_a7_invert_singleValue_0_3;
   component m1_for_arty_a7_proc_sys_reset_0_3 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -303,6 +271,44 @@ architecture STRUCTURE of m1_for_arty_a7 is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_xlconstant_5_0;
+  component m1_for_arty_a7_reset_impulse_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    reset_in : in STD_LOGIC;
+    reset_out : out STD_LOGIC
+  );
+  end component m1_for_arty_a7_reset_impulse_0_0;
+  component m1_for_arty_a7_reset_impulse_0_1 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    reset_in : in STD_LOGIC;
+    reset_out : out STD_LOGIC
+  );
+  end component m1_for_arty_a7_reset_impulse_0_1;
+  component m1_for_arty_a7_reset_impulse_1_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    reset_in : in STD_LOGIC;
+    reset_out : out STD_LOGIC
+  );
+  end component m1_for_arty_a7_reset_impulse_1_0;
+  component m1_for_arty_a7_top_0_1 is
+  port (
+    CLK : in STD_LOGIC;
+    RST : in STD_LOGIC;
+    EN : in STD_LOGIC;
+    UART_RX_EXT : in STD_LOGIC;
+    UART_TX_EXT : out STD_LOGIC;
+    UART_RX_INT : out STD_LOGIC;
+    UART_TX_INT : in STD_LOGIC;
+    REC_ECU : out STD_LOGIC;
+    REC_MCU : out STD_LOGIC;
+    REC_THS : out STD_LOGIC
+  );
+  end component m1_for_arty_a7_top_0_1;
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -321,7 +327,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal invert_singleValue_0_o_signal : STD_LOGIC;
   signal invert_singleValue_1_o_signal : STD_LOGIC;
   signal invert_singleValue_2_o_signal : STD_LOGIC;
-  signal invert_singleValue_4_o_signal : STD_LOGIC;
   signal invert_singleValue_5_o_signal : STD_LOGIC;
   signal proc_sys_reset_0_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -333,6 +338,7 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal proc_sys_reset_5_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal reset_0_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal reset_0_2 : STD_LOGIC;
+  signal reset_impulse_0_reset_out : STD_LOGIC;
   signal sys_clock_1 : STD_LOGIC;
   signal top_0_REC_ECU : STD_LOGIC;
   signal top_0_REC_MCU : STD_LOGIC;
@@ -447,11 +453,6 @@ cm1_throttle_wrapper_0: component m1_for_arty_a7_cm1_throttle_wrapper_0_0
       UART_RX => top_0_UART_RX_INT,
       UART_TX => cm1_throttle_wrapper_0_UART_TX
     );
-invert_singleValue_0: component m1_for_arty_a7_invert_singleValue_0_0
-     port map (
-      i_signal => top_0_REC_THS,
-      o_signal => invert_singleValue_0_o_signal
-    );
 invert_singleValue_1: component m1_for_arty_a7_invert_singleValue_0_1
      port map (
       i_signal => UART_RX_1,
@@ -461,16 +462,6 @@ invert_singleValue_2: component m1_for_arty_a7_invert_singleValue_1_0
      port map (
       i_signal => top_0_UART_TX_EXT,
       o_signal => invert_singleValue_2_o_signal
-    );
-invert_singleValue_4: component m1_for_arty_a7_invert_singleValue_0_2
-     port map (
-      i_signal => top_0_REC_ECU,
-      o_signal => invert_singleValue_4_o_signal
-    );
-invert_singleValue_5: component m1_for_arty_a7_invert_singleValue_0_3
-     port map (
-      i_signal => top_0_REC_MCU,
-      o_signal => invert_singleValue_5_o_signal
     );
 proc_sys_reset_0: component m1_for_arty_a7_proc_sys_reset_0_0
      port map (
@@ -503,7 +494,7 @@ proc_sys_reset_2: component m1_for_arty_a7_proc_sys_reset_0_2
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_proc_sys_reset_2_bus_struct_reset_UNCONNECTED(0),
       dcm_locked => clk_wiz_0_locked,
-      ext_reset_in => invert_singleValue_4_o_signal,
+      ext_reset_in => reset_impulse_0_reset_out,
       interconnect_aresetn(0) => proc_sys_reset_2_interconnect_aresetn(0),
       mb_debug_sys_rst => '0',
       mb_reset => NLW_proc_sys_reset_2_mb_reset_UNCONNECTED,
@@ -516,7 +507,7 @@ proc_sys_reset_3: component m1_for_arty_a7_proc_sys_reset_1_0
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_proc_sys_reset_3_bus_struct_reset_UNCONNECTED(0),
       dcm_locked => clk_wiz_0_locked,
-      ext_reset_in => invert_singleValue_4_o_signal,
+      ext_reset_in => reset_impulse_0_reset_out,
       interconnect_aresetn(0) => NLW_proc_sys_reset_3_interconnect_aresetn_UNCONNECTED(0),
       mb_debug_sys_rst => '0',
       mb_reset => NLW_proc_sys_reset_3_mb_reset_UNCONNECTED,
@@ -549,6 +540,27 @@ proc_sys_reset_5: component m1_for_arty_a7_proc_sys_reset_1_1
       peripheral_aresetn(0) => proc_sys_reset_5_peripheral_aresetn(0),
       peripheral_reset(0) => NLW_proc_sys_reset_5_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => clk_wiz_0_clk_out1
+    );
+reset_impulse_0: component m1_for_arty_a7_reset_impulse_0_0
+     port map (
+      clk => M04_ACLK_1,
+      reset_in => top_0_REC_ECU,
+      reset_out => reset_impulse_0_reset_out,
+      rst => reset_0_2
+    );
+reset_impulse_1: component m1_for_arty_a7_reset_impulse_0_1
+     port map (
+      clk => M04_ACLK_1,
+      reset_in => top_0_REC_MCU,
+      reset_out => invert_singleValue_5_o_signal,
+      rst => reset_0_2
+    );
+reset_impulse_2: component m1_for_arty_a7_reset_impulse_1_0
+     port map (
+      clk => M04_ACLK_1,
+      reset_in => top_0_REC_THS,
+      reset_out => invert_singleValue_0_o_signal,
+      rst => reset_0_2
     );
 top_0: component m1_for_arty_a7_top_0_1
      port map (

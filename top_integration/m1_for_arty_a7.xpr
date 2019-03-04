@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="D:/Projects/SoC_Lab/zedboard_cortex_m1/top_integration/m1_for_arty_a7.xpr">
+<Project Version="7" Minor="39" Path="C:/GIT/zedboard_cortex_m1/top_integration/m1_for_arty_a7.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="83835a1b28184581aa1390a0595f6a16"/>
@@ -60,6 +60,38 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_error.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_error.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_timeout.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_timeout.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/uart_rx.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/uart_rx.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/vhdl/top.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/top.vhd"/>
+          <Attr Name="ImportTime" Val="1548969769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/m1_for_arty_a7/VHDL_Custom/Invert_SingleValue/invert_singleValue.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/VHDL_Custom/Invert_SingleValue/invert_singleValue.vhd"/>
@@ -68,39 +100,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_error.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_error.vhd"/>
-          <Attr Name="ImportTime" Val="1548969769"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/vhdl/bus_monitor_timeout.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/bus_monitor_timeout.vhd"/>
-          <Attr Name="ImportTime" Val="1548969769"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/vhdl/uart_rx.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/uart_rx.vhd"/>
-          <Attr Name="ImportTime" Val="1548969769"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/vhdl/top.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/Andreas/Downloads/FailsafeECU-master/Design/Hardware/BusMonitor/src/vhdl/top.vhd"/>
-          <Attr Name="ImportTime" Val="1548969769"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/vhdl/tor.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/reset_impulse.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -221,16 +227,15 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="false">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -243,7 +248,6 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>

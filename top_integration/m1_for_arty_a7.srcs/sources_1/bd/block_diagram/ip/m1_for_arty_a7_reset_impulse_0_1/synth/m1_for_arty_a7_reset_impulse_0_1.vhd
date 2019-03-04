@@ -46,41 +46,57 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:invert_singleValue:1.0
+-- IP VLNV: xilinx.com:module_ref:reset_impulse:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY m1_for_arty_a7_invert_singleValue_0_3 IS
+ENTITY m1_for_arty_a7_reset_impulse_0_1 IS
   PORT (
-    i_signal : IN STD_LOGIC;
-    o_signal : OUT STD_LOGIC
+    clk : IN STD_LOGIC;
+    rst : IN STD_LOGIC;
+    reset_in : IN STD_LOGIC;
+    reset_out : OUT STD_LOGIC
   );
-END m1_for_arty_a7_invert_singleValue_0_3;
+END m1_for_arty_a7_reset_impulse_0_1;
 
-ARCHITECTURE m1_for_arty_a7_invert_singleValue_0_3_arch OF m1_for_arty_a7_invert_singleValue_0_3 IS
+ARCHITECTURE m1_for_arty_a7_reset_impulse_0_1_arch OF m1_for_arty_a7_reset_impulse_0_1 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "yes";
-  COMPONENT invert_singleValue IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_reset_impulse_0_1_arch: ARCHITECTURE IS "yes";
+  COMPONENT reset_impulse IS
     PORT (
-      i_signal : IN STD_LOGIC;
-      o_signal : OUT STD_LOGIC
+      clk : IN STD_LOGIC;
+      rst : IN STD_LOGIC;
+      reset_in : IN STD_LOGIC;
+      reset_out : OUT STD_LOGIC
     );
-  END COMPONENT invert_singleValue;
+  END COMPONENT reset_impulse;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "invert_singleValue,Vivado 2018.3";
+  ATTRIBUTE X_CORE_INFO OF m1_for_arty_a7_reset_impulse_0_1_arch: ARCHITECTURE IS "reset_impulse,Vivado 2018.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_invert_singleValue_0_3_arch : ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_3,invert_singleValue,{}";
+  ATTRIBUTE CHECK_LICENSE_TYPE OF m1_for_arty_a7_reset_impulse_0_1_arch : ARCHITECTURE IS "m1_for_arty_a7_reset_impulse_0_1,reset_impulse,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "m1_for_arty_a7_invert_singleValue_0_3,invert_singleValue,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=invert_singleValue,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF m1_for_arty_a7_reset_impulse_0_1_arch: ARCHITECTURE IS "m1_for_arty_a7_reset_impulse_0_1,reset_impulse,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=reset_impulse,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_0_3_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_reset_impulse_0_1_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF reset_out: SIGNAL IS "XIL_INTERFACENAME reset_out, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF reset_out: SIGNAL IS "xilinx.com:signal:reset:1.0 reset_out RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF reset_in: SIGNAL IS "XIL_INTERFACENAME reset_in, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF reset_in: SIGNAL IS "xilinx.com:signal:reset:1.0 reset_in RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 8000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
-  U0 : invert_singleValue
+  U0 : reset_impulse
     PORT MAP (
-      i_signal => i_signal,
-      o_signal => o_signal
+      clk => clk,
+      rst => rst,
+      reset_in => reset_in,
+      reset_out => reset_out
     );
-END m1_for_arty_a7_invert_singleValue_0_3_arch;
+END m1_for_arty_a7_reset_impulse_0_1_arch;

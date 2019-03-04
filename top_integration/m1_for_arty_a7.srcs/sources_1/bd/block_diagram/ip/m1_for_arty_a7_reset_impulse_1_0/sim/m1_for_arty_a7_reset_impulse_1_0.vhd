@@ -46,35 +46,51 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:invert_singleValue:1.0
+-- IP VLNV: xilinx.com:module_ref:reset_impulse:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY m1_for_arty_a7_invert_singleValue_0_0 IS
+ENTITY m1_for_arty_a7_reset_impulse_1_0 IS
   PORT (
-    i_signal : IN STD_LOGIC;
-    o_signal : OUT STD_LOGIC
+    clk : IN STD_LOGIC;
+    rst : IN STD_LOGIC;
+    reset_in : IN STD_LOGIC;
+    reset_out : OUT STD_LOGIC
   );
-END m1_for_arty_a7_invert_singleValue_0_0;
+END m1_for_arty_a7_reset_impulse_1_0;
 
-ARCHITECTURE m1_for_arty_a7_invert_singleValue_0_0_arch OF m1_for_arty_a7_invert_singleValue_0_0 IS
+ARCHITECTURE m1_for_arty_a7_reset_impulse_1_0_arch OF m1_for_arty_a7_reset_impulse_1_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT invert_singleValue IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF m1_for_arty_a7_reset_impulse_1_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT reset_impulse IS
     PORT (
-      i_signal : IN STD_LOGIC;
-      o_signal : OUT STD_LOGIC
+      clk : IN STD_LOGIC;
+      rst : IN STD_LOGIC;
+      reset_in : IN STD_LOGIC;
+      reset_out : OUT STD_LOGIC
     );
-  END COMPONENT invert_singleValue;
+  END COMPONENT reset_impulse;
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_invert_singleValue_0_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE IP_DEFINITION_SOURCE OF m1_for_arty_a7_reset_impulse_1_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF reset_out: SIGNAL IS "XIL_INTERFACENAME reset_out, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF reset_out: SIGNAL IS "xilinx.com:signal:reset:1.0 reset_out RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF reset_in: SIGNAL IS "XIL_INTERFACENAME reset_in, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF reset_in: SIGNAL IS "xilinx.com:signal:reset:1.0 reset_in RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 8000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
-  U0 : invert_singleValue
+  U0 : reset_impulse
     PORT MAP (
-      i_signal => i_signal,
-      o_signal => o_signal
+      clk => clk,
+      rst => rst,
+      reset_in => reset_in,
+      reset_out => reset_out
     );
-END m1_for_arty_a7_invert_singleValue_0_0_arch;
+END m1_for_arty_a7_reset_impulse_1_0_arch;
