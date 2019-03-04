@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Mon Mar  4 00:44:18 2019
---Host        : I750 running 64-bit Service Pack 1  (build 7601)
+--Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+--Date        : Mon Mar  4 13:27:39 2019
+--Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7_wrapper.bd
 --Design      : m1_for_arty_a7_wrapper
 --Purpose     : IP block netlist

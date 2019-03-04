@@ -1,6 +1,6 @@
 {
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
 preplace port UART_RX -pg 1 -y 740 -defaultsOSRD
 preplace port TIMER_CLOCK -pg 1 -y 680 -defaultsOSRD
@@ -23,30 +23,30 @@ preplace inst axi_timer_0 -pg 1 -lvl 5 -y 850 -defaultsOSRD
 preplace inst axi_gpio_2 -pg 1 -lvl 5 -y 80 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 5 -y 500 -defaultsOSRD
 preplace inst axi_interconnect_0 -pg 1 -lvl 4 -y 510 -defaultsOSRD
-preplace netloc xlconstant_1_dout 1 2 1 430J
-preplace netloc axi_uartlite_0_interrupt 1 1 5 190 690 NJ 690 NJ 690 NJ 690 1450
+preplace netloc xlconstant_1_dout 1 2 1 450J
+preplace netloc axi_uartlite_0_interrupt 1 1 5 200 690 NJ 690 NJ 690 NJ 690 1460
 preplace netloc axi_iic_0_sda_o 1 5 1 NJ
-preplace netloc axi_iic_0_iic2intc_irpt 1 1 5 180 270 NJ 270 NJ 270 1130J 410 1450
+preplace netloc axi_iic_0_iic2intc_irpt 1 1 5 190 270 NJ 270 NJ 270 1130J 410 1460
 preplace netloc Cortex_M1_0_CM1_AXI3 1 3 1 N
-preplace netloc reset_peripherial_1 1 0 4 20J 290 NJ 290 NJ 290 760J
+preplace netloc reset_peripherial_1 1 0 4 10J 290 NJ 290 NJ 290 760J
 preplace netloc axi_interconnect_0_M02_AXI 1 4 1 1120
-preplace netloc axi_iic_0_scl_o 1 5 1 1460
+preplace netloc axi_iic_0_scl_o 1 5 1 1470
 preplace netloc axi_gpio_2_gpio_io_o 1 5 1 NJ
 preplace netloc axi_uartlite_0_tx 1 5 1 NJ
 preplace netloc xlconstant_0_dout 1 1 1 NJ
-preplace netloc xlconcat_0_dout 1 2 1 410
+preplace netloc xlconcat_0_dout 1 2 1 430
 preplace netloc M04_ACLK_1 1 0 5 NJ 680 NJ 680 NJ 680 750 720 1120J
-preplace netloc clk_wiz_0_clk_out1 1 0 5 10J 280 NJ 280 430 280 770 280 1140
-preplace netloc I2C_SDA_RX_1 1 0 6 0J 260 NJ 260 NJ 260 NJ 260 1100J 400 1460
+preplace netloc clk_wiz_0_clk_out1 1 0 5 0J 280 NJ 280 450 280 770 280 1140
+preplace netloc I2C_SDA_RX_1 1 0 6 -10J 260 NJ 260 NJ 260 NJ 260 1100J 400 1470
 preplace netloc axi_interconnect_0_M00_AXI 1 4 1 N
 preplace netloc axi_interconnect_0_M01_AXI 1 4 1 1110
 preplace netloc M04_ARESETN_1 1 0 5 NJ 710 NJ 710 NJ 710 760 730 1100J
-preplace netloc DIN_1 1 0 6 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 1460
-preplace netloc reset_0_1 1 0 5 NJ 510 NJ 510 420 300 750 300 1150
-preplace netloc UART_RX_1 1 0 6 NJ 740 NJ 740 NJ 740 NJ 740 1140J 730 1460
+preplace netloc DIN_1 1 0 6 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 1470
+preplace netloc reset_0_1 1 0 5 NJ 510 NJ 510 440 300 750 300 1150
+preplace netloc UART_RX_1 1 0 6 NJ 740 NJ 740 NJ 740 NJ 740 1140J 730 1470
 preplace netloc axi_interconnect_0_M03_AXI 1 4 1 1130
-preplace netloc axi_timer_0_interrupt 1 1 5 200 750 NJ 750 NJ 750 1150J 740 1450
-levelinfo -pg 1 -20 100 310 600 950 1310 1480 -top 0 -bot 970
+preplace netloc axi_timer_0_interrupt 1 1 5 210 750 NJ 750 NJ 750 1150J 740 1460
+levelinfo -pg 1 -30 100 320 600 950 1310 1490 -top 0 -bot 970
 "
 }
 0
