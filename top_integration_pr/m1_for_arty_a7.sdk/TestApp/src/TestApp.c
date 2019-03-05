@@ -49,11 +49,13 @@
 #define PARTIAL_THROTTLE_ADDR   0x800000
 #define PARTIAL_ENGINE_ADDR   	0x120000
 #define PARTIAL_BLANK_ADDR   	0x160000
-#define PARTIAL_ECU_BITFILE_LEN 736718 // in number of words
-#define PARTIAL_THROTTLE_BITFILE_LEN 736718 // in number of words
-#define PARTIAL_ENGINE_BITFILE_LEN 736718 // in number of words
-#define PARTIAL_BLANK_BITFILE_LEN 736718 // in number of words
+#define PARTIAL_ECU_BITFILE_LEN 		736718 // in number of words
+#define PARTIAL_THROTTLE_BITFILE_LEN 	736718 // in number of words
+#define PARTIAL_ENGINE_BITFILE_LEN 		736718 // in number of words
+#define PARTIAL_BLANK_BITFILE_LEN 		736718 // in number of words
 #endif
+
+
 
 #ifdef ZYBO
 #define PARTIAL_LEFT_ADDR   0x200000
