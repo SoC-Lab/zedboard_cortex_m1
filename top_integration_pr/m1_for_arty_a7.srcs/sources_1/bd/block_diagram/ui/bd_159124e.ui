@@ -56,50 +56,51 @@ preplace inst clk_wiz_0 -pg 1 -lvl 7 -y 1160 -defaultsOSRD
 preplace inst top_0 -pg 1 -lvl 3 -y 550 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 7 -y 720 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 7 2 NJ 670 NJ
-preplace netloc btn_u_1 1 0 5 10J 920 NJ 920 NJ 920 NJ 920 1280J
-preplace netloc xlconstant_5_dout 1 4 2 1270 530 1790
-preplace netloc xlconstant_1_dout 1 7 1 2580J
-preplace netloc top_0_UART_TX_EXT 1 3 6 1040J 240 NJ 240 NJ 240 2110 20 NJ 20 NJ
+preplace netloc top_0_MCU_GPIO_EXT 1 3 6 1070 10 NJ 10 NJ 10 NJ 10 NJ 10 3030J
+preplace netloc btn_u_1 1 0 5 10J 920 NJ 920 NJ 920 NJ 920 1310J
+preplace netloc xlconstant_5_dout 1 4 2 1310 530 1830
+preplace netloc xlconstant_1_dout 1 7 1 2630J
+preplace netloc top_0_UART_TX_EXT 1 3 6 1080J 240 NJ 240 NJ 240 2150 20 NJ 20 NJ
 preplace netloc axi_protocol_convert_0_M_AXI 1 6 1 N
 preplace netloc xlslice_1_Dout 1 7 1 NJ
-preplace netloc clk_wiz_0_locked 1 1 7 330 930 NJ 930 NJ 930 NJ 930 1810J 920 NJ 920 2570
-preplace netloc xlconstant_2_dout 1 2 1 NJ
+preplace netloc clk_wiz_0_locked 1 1 7 330 930 NJ 930 NJ 930 NJ 930 1850J 920 NJ 920 2600
+preplace netloc xlconstant_2_dout 1 2 1 700J
 preplace netloc UART_TX_INT_0_1 1 0 7 NJ 630 NJ 630 690 250 NJ 250 NJ 250 NJ 250 NJ
 preplace netloc util_vector_logic_3_Res 1 5 1 NJ
-preplace netloc util_vector_logic_4_Res 1 7 1 2570J
-preplace netloc cm1_ecu_wrapper_0_DOUT 1 0 8 NJ 80 NJ 80 NJ 80 1030J 70 NJ 70 NJ 70 2120 70 2600J
+preplace netloc util_vector_logic_4_Res 1 7 1 2610J
+preplace netloc cm1_ecu_wrapper_0_DOUT 1 0 8 NJ 80 NJ 80 NJ 80 1060J 60 1300J 50 NJ 50 2160 50 2660J
 preplace netloc proc_sys_reset_1_peripheral_aresetn 1 8 1 NJ
-preplace netloc top_0_REC_THS 1 3 5 1030 90 NJ 90 NJ 90 NJ 90 2580J
+preplace netloc top_0_REC_THS 1 3 5 1100 80 NJ 80 NJ 80 NJ 80 2620J
 preplace netloc util_vector_logic_0_Res 1 1 1 NJ
 preplace netloc xlconcat_1_dout 1 8 1 NJ
 preplace netloc sys_clock_1 1 0 7 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ
-preplace netloc prc_0_vsm_vs_cortex_rm_reset 1 5 1 1800
-preplace netloc top_0_REC_ECU1 1 3 1 1040
-preplace netloc top_0_REC_BLK 1 3 1 1020
+preplace netloc prc_0_vsm_vs_cortex_rm_reset 1 5 1 1840
+preplace netloc top_0_REC_ECU1 1 3 1 1080
+preplace netloc top_0_REC_BLK 1 3 1 1060
 preplace netloc THROTTLE_1 1 0 8 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ
-preplace netloc xlconcat_0_dout 1 4 1 1260
-preplace netloc M04_ACLK_1 1 7 2 2600 1040 NJ
+preplace netloc xlconcat_0_dout 1 4 1 1300
+preplace netloc M04_ACLK_1 1 7 2 2630 1040 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 7 2 NJ 690 NJ
-preplace netloc xlconstant_6_dout 1 5 1 1790
-preplace netloc clk_wiz_0_clk_out1 1 1 8 320 490 710 430 NJ 430 1280 520 1800 630 2120 880 2590 1020 NJ
+preplace netloc xlconstant_6_dout 1 5 1 1830
+preplace netloc clk_wiz_0_clk_out1 1 1 8 320 490 720 410 NJ 410 1320 520 1840 630 2160 880 2610 1020 NJ
 preplace netloc proc_sys_reset_0_peripheral_aresetn 1 8 1 NJ
-preplace netloc top_0_UART_RX_INT 1 3 6 1060J 510 NJ 510 NJ 510 2110 510 NJ 510 NJ
-preplace netloc util_vector_logic_2_Res 1 7 1 2580J
-preplace netloc util_vector_logic_1_Res 1 6 2 N 990 2610
+preplace netloc top_0_UART_RX_INT 1 3 6 NJ 510 NJ 510 NJ 510 2150 510 NJ 510 NJ
+preplace netloc util_vector_logic_2_Res 1 7 1 2610J
+preplace netloc util_vector_logic_1_Res 1 6 2 N 990 2650
 preplace netloc proc_sys_reset_1_interconnect_aresetn 1 8 1 NJ
-preplace netloc util_vector_logic_5_Res 1 7 1 2560J
+preplace netloc util_vector_logic_5_Res 1 7 1 2600J
 preplace netloc xlconcat_2_dout 1 8 1 NJ
-preplace netloc UART_RX_1 1 0 3 NJ 610 NJ 610 710J
+preplace netloc UART_RX_1 1 0 3 NJ 610 NJ 610 720J
 preplace netloc prc_0_ICAP 1 5 4 NJ 590 NJ 590 NJ 590 NJ
 preplace netloc prc_0_m_axi_mem 1 5 1 N
-preplace netloc top_0_REC_MCU 1 3 5 1050 80 NJ 80 NJ 80 NJ 80 2590
-preplace netloc proc_sys_reset_2_interconnect_aresetn 1 2 4 720J 440 NJ 440 NJ 440 1810
-preplace netloc proc_sys_reset_2_peripheral_reset 1 2 6 700 420 NJ 420 1290 60 NJ 60 NJ 60 2610
-preplace netloc xlconstant_3_dout 1 7 1 2590J
+preplace netloc xlslice_0_Dout 1 2 7 740 90 NJ 90 NJ 90 NJ 90 NJ 90 2640J 140 3020
+preplace netloc top_0_REC_MCU 1 3 5 1090 70 NJ 70 NJ 70 NJ 70 2630
+preplace netloc proc_sys_reset_2_interconnect_aresetn 1 2 4 730J 430 NJ 430 NJ 430 1850
+preplace netloc proc_sys_reset_2_peripheral_reset 1 2 6 710 420 NJ 420 1330 60 NJ 60 NJ 60 2650
+preplace netloc xlconstant_3_dout 1 7 1 2630J
 preplace netloc SW_1 1 0 8 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ
-preplace netloc xlslice_0_Dout 1 8 1 NJ
-preplace netloc reset_0_2 1 0 7 20 940 NJ 940 NJ 940 NJ 940 NJ 940 1790J 1060 2110J
-levelinfo -pg 1 -10 170 510 870 1160 1540 1960 2340 2790 2990 -top 0 -bot 1480
+preplace netloc reset_0_2 1 0 7 20 940 NJ 940 NJ 940 NJ 940 NJ 940 1830J 1060 2150J
+levelinfo -pg 1 -10 170 510 900 1200 1580 2000 2380 2840 3050 -top 0 -bot 1480
 "
 }
 {
