@@ -88,3 +88,8 @@ resize_pblock [get_pblocks pblock_cortex_i] -add {DSP48_X3Y0:DSP48_X4Y19}
 resize_pblock [get_pblocks pblock_cortex_i] -add {RAMB18_X3Y0:RAMB18_X5Y19}
 resize_pblock [get_pblocks pblock_cortex_i] -add {RAMB36_X3Y0:RAMB36_X5Y9}
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_cortex_i]
+
+set_property PULLUP true [get_ports {ENGINE[0]}]
+set_property DRIVE 12 [get_ports {ENGINE[0]}]
+set_property PULLUP true [get_ports UART_TX]
+set_property PULLUP true [get_ports UART_RX]

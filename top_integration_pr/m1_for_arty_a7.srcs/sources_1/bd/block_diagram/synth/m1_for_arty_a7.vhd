@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Mar  4 22:34:06 2019
+--Date        : Tue Mar  5 11:34:24 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
@@ -65,7 +65,7 @@ entity m1_for_arty_a7 is
     sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=23,numReposBlks=23,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=24,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of m1_for_arty_a7 : entity is "m1_for_arty_a7.hwdef";
 end m1_for_arty_a7;
@@ -425,6 +425,13 @@ architecture STRUCTURE of m1_for_arty_a7 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_proc_sys_reset_1_0;
+  component m1_for_arty_a7_util_vector_logic_1_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_1_0;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal THROTTLE_1 : STD_LOGIC;
@@ -467,6 +474,7 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal prc_0_m_axi_mem_RREADY : STD_LOGIC;
   signal prc_0_m_axi_mem_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal prc_0_m_axi_mem_RVALID : STD_LOGIC;
+  signal prc_0_vsm_vs_cortex_rm_reset : STD_LOGIC;
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_1_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_1_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -496,14 +504,15 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal reset_0_2 : STD_LOGIC;
   signal sys_clock_1 : STD_LOGIC;
   signal top_0_REC_BLK : STD_LOGIC;
-  signal top_0_REC_ECU : STD_LOGIC;
   signal top_0_REC_ECU1 : STD_LOGIC;
+  signal top_0_REC_MCU : STD_LOGIC;
   signal top_0_REC_THS : STD_LOGIC;
   signal top_0_UART_RX_INT : STD_LOGIC;
   signal top_0_UART_TX_EXT : STD_LOGIC;
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_1_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_2_Res : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal util_vector_logic_3_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_4_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_5_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -521,7 +530,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal NLW_prc_0_vsm_vs_cortex_event_error_UNCONNECTED : STD_LOGIC;
   signal NLW_prc_0_vsm_vs_cortex_m_axis_status_tvalid_UNCONNECTED : STD_LOGIC;
   signal NLW_prc_0_vsm_vs_cortex_rm_decouple_UNCONNECTED : STD_LOGIC;
-  signal NLW_prc_0_vsm_vs_cortex_rm_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_prc_0_vsm_vs_cortex_rm_shutdown_req_UNCONNECTED : STD_LOGIC;
   signal NLW_prc_0_vsm_vs_cortex_m_axis_status_tdata_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal NLW_proc_sys_reset_0_mb_reset_UNCONNECTED : STD_LOGIC;
@@ -575,7 +583,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal NLW_processing_system7_0_S_AXI_HP0_WACOUNT_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_processing_system7_0_S_AXI_HP0_WCOUNT_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_processing_system7_0_USB0_PORT_INDCTL_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_top_0_REC_MCU_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of DDR_cas_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CAS_N";
   attribute X_INTERFACE_INFO of DDR_ck_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CK_N";
@@ -642,7 +649,6 @@ begin
   prc_0_ICAP_o(31 downto 0) <= ICAP_0_o(31 downto 0);
   reset_0_2 <= reset_0;
   sys_clock_1 <= sys_clock;
-  top_0_REC_ECU <= btn_r;
   I2C_SCL <= 'Z';
   I2C_SDA_TX <= 'Z';
   int_CM_PRC_RESET <= 'Z';
@@ -724,7 +730,7 @@ prc_0: component m1_for_arty_a7_prc_0_0
       vsm_vs_cortex_m_axis_status_tdata(31 downto 0) => NLW_prc_0_vsm_vs_cortex_m_axis_status_tdata_UNCONNECTED(31 downto 0),
       vsm_vs_cortex_m_axis_status_tvalid => NLW_prc_0_vsm_vs_cortex_m_axis_status_tvalid_UNCONNECTED,
       vsm_vs_cortex_rm_decouple => NLW_prc_0_vsm_vs_cortex_rm_decouple_UNCONNECTED,
-      vsm_vs_cortex_rm_reset => NLW_prc_0_vsm_vs_cortex_rm_reset_UNCONNECTED,
+      vsm_vs_cortex_rm_reset => prc_0_vsm_vs_cortex_rm_reset,
       vsm_vs_cortex_rm_shutdown_ack => xlconstant_5_dout(0),
       vsm_vs_cortex_rm_shutdown_req => NLW_prc_0_vsm_vs_cortex_rm_shutdown_req_UNCONNECTED
     );
@@ -886,7 +892,7 @@ top_0: component m1_for_arty_a7_top_0_0
       EN => xlconstant_2_dout(0),
       REC_BLK => top_0_REC_BLK,
       REC_ECU => top_0_REC_ECU1,
-      REC_MCU => NLW_top_0_REC_MCU_UNCONNECTED,
+      REC_MCU => top_0_REC_MCU,
       REC_THS => top_0_REC_THS,
       RST => proc_sys_reset_2_peripheral_reset(0),
       UART_RX_EXT => UART_RX_1,
@@ -899,6 +905,12 @@ util_vector_logic_0: component m1_for_arty_a7_util_vector_logic_0_0
       Op1(0) => reset_0_2,
       Res(0) => util_vector_logic_0_Res(0)
     );
+util_vector_logic_1: component m1_for_arty_a7_util_vector_logic_1_0
+     port map (
+      Op1(0) => prc_0_vsm_vs_cortex_rm_reset,
+      Op2(0) => util_vector_logic_3_Res(0),
+      Res(0) => util_vector_logic_1_Res(0)
+    );
 util_vector_logic_2: component m1_for_arty_a7_util_vector_logic_2_0
      port map (
       Op1(0) => top_0_UART_RX_INT,
@@ -907,7 +919,7 @@ util_vector_logic_2: component m1_for_arty_a7_util_vector_logic_2_0
 util_vector_logic_3: component m1_for_arty_a7_util_vector_logic_0_1
      port map (
       Op1(0) => btn_u_1,
-      Res(0) => util_vector_logic_1_Res(0)
+      Res(0) => util_vector_logic_3_Res(0)
     );
 util_vector_logic_4: component m1_for_arty_a7_util_vector_logic_2_1
      port map (
@@ -922,8 +934,8 @@ util_vector_logic_5: component m1_for_arty_a7_util_vector_logic_4_0
 xlconcat_0: component m1_for_arty_a7_xlconcat_0_1
      port map (
       In0(0) => top_0_REC_ECU1,
-      In1(0) => top_0_REC_THS,
-      In2(0) => top_0_REC_ECU,
+      In1(0) => top_0_REC_MCU,
+      In2(0) => top_0_REC_THS,
       In3(0) => top_0_REC_BLK,
       dout(3 downto 0) => xlconcat_0_dout(3 downto 0)
     );
@@ -939,7 +951,7 @@ xlconcat_2: component m1_for_arty_a7_xlconcat_1_1
      port map (
       In0(0) => proc_sys_reset_2_peripheral_reset(0),
       In1(0) => top_0_REC_THS,
-      In2(0) => top_0_REC_THS,
+      In2(0) => top_0_REC_MCU,
       In3(0) => util_vector_logic_4_Res(0),
       In4(0) => util_vector_logic_5_Res(0),
       In5(0) => xlslice_1_Dout(0),

@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
-  <spirit:name>m1_for_arty_a7_util_vector_logic_0_0</spirit:name>
+  <spirit:name>m1_for_arty_a7_util_vector_logic_1_0</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:model>
     <spirit:views>
@@ -22,7 +22,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ed6528d9</spirit:value>
+            <spirit:value>9:0f47c93f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31,18 +31,18 @@
         <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
         <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
         <spirit:language>verilog</spirit:language>
-        <spirit:modelName>m1_for_arty_a7_util_vector_logic_0_0</spirit:modelName>
+        <spirit:modelName>m1_for_arty_a7_util_vector_logic_1_0</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 10:00:57 UTC 2019</spirit:value>
+            <spirit:value>Tue Mar 05 10:01:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ed6528d9</spirit:value>
+            <spirit:value>9:0f47c93f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -62,7 +62,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ec33602</spirit:value>
+            <spirit:value>9:7451b510</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -71,18 +71,18 @@
         <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
         <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
         <spirit:language>verilog</spirit:language>
-        <spirit:modelName>m1_for_arty_a7_util_vector_logic_0_0</spirit:modelName>
+        <spirit:modelName>m1_for_arty_a7_util_vector_logic_1_0</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 10:00:57 UTC 2019</spirit:value>
+            <spirit:value>Tue Mar 05 10:01:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ec33602</spirit:value>
+            <spirit:value>9:7451b510</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -130,7 +130,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.Op2" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_OPERATION&apos;)) != &apos;not&apos;)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.Op2" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_OPERATION&apos;)) != &apos;not&apos;)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -157,7 +157,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="string">
         <spirit:name>C_OPERATION</spirit:name>
         <spirit:displayName>C Operation</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OPERATION">not</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OPERATION">and</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SIZE</spirit:name>
@@ -187,7 +187,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>synth/m1_for_arty_a7_util_vector_logic_0_0.v</spirit:name>
+        <spirit:name>synth/m1_for_arty_a7_util_vector_logic_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
@@ -204,7 +204,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>sim/m1_for_arty_a7_util_vector_logic_0_0.v</spirit:name>
+        <spirit:name>sim/m1_for_arty_a7_util_vector_logic_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
@@ -214,7 +214,7 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="2">m1_for_arty_a7_util_vector_logic_0_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="2">m1_for_arty_a7_util_vector_logic_1_0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_SIZE</spirit:name>
@@ -224,11 +224,11 @@
     <spirit:parameter>
       <spirit:name>C_OPERATION</spirit:name>
       <spirit:displayName>C_OPERATION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C_OPERATION" spirit:choiceRef="choice_list_e94027ef" spirit:order="4">not</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C_OPERATION" spirit:choiceRef="choice_list_e94027ef" spirit:order="4">and</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>LOGO_FILE</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOGO_FILE" spirit:order="5">data/sym_notgate.png</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LOGO_FILE" spirit:order="5">data/sym_andgate.png</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

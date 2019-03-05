@@ -19,8 +19,8 @@ CONFIG.VS.vs_cortex.HAS_POR_RM                            1
 CONFIG.VS.vs_cortex.POR_RM                                cortex_ecu
 CONFIG.VS.vs_cortex.SKIP_RM_STARTUP_AFTER_RESET           0
 CONFIG.VS.vs_cortex.TRIGGER0_TO_RM                        cortex_ecu
-CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_throttle
-CONFIG.VS.vs_cortex.TRIGGER2_TO_RM                        cortex_engine
+CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_engine
+CONFIG.VS.vs_cortex.TRIGGER2_TO_RM                        cortex_throttle
 CONFIG.VS.vs_cortex.TRIGGER3_TO_RM                        cortex_blank
 CONFIG.VS.vs_cortex.RM.cortex_ecu.SHUTDOWN_REQUIRED       no
 CONFIG.VS.vs_cortex.RM.cortex_ecu.STARTUP_REQUIRED        no
@@ -72,8 +72,8 @@ prc_v1_3::set_property -dict [list \
                                CONFIG.VS.vs_cortex.POR_RM                                cortex_ecu \
                                CONFIG.VS.vs_cortex.SKIP_RM_STARTUP_AFTER_RESET           0 \
                                CONFIG.VS.vs_cortex.TRIGGER0_TO_RM                        cortex_ecu \
-                               CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_throttle \
-                               CONFIG.VS.vs_cortex.TRIGGER2_TO_RM                        cortex_engine \
+                               CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_engine \
+                               CONFIG.VS.vs_cortex.TRIGGER2_TO_RM                        cortex_throttle \
                                CONFIG.VS.vs_cortex.TRIGGER3_TO_RM                        cortex_blank \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.SHUTDOWN_REQUIRED       no \
                                CONFIG.VS.vs_cortex.RM.cortex_ecu.STARTUP_REQUIRED        no \

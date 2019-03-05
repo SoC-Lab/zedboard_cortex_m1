@@ -230,21 +230,21 @@ proc create_root_design { parentCell } {
   # Create instance: prc_0, and set properties
   set prc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:prc:1.3 prc_0 ]
   set_property -dict [ list \
-   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
+   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {1 cortex_engine 2 cortex_throttle}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
    CONFIG.GUI_BS_ADDRESS_0 {0x00400000} \
    CONFIG.GUI_BS_SIZE_0 {1473436} \
    CONFIG.GUI_CDC_STAGES {2} \
    CONFIG.GUI_CP_ARBITRATION_PROTOCOL {1} \
    CONFIG.GUI_HAS_AXI_LITE {false} \
-   CONFIG.GUI_LOCK_TRIGGER_1 {false} \
-   CONFIG.GUI_LOCK_TRIGGER_2 {false} \
+   CONFIG.GUI_LOCK_TRIGGER_1 {true} \
+   CONFIG.GUI_LOCK_TRIGGER_2 {true} \
    CONFIG.GUI_RESET_ACTIVE_LEVEL {1} \
    CONFIG.GUI_RM_NEW_NAME {cortex_ecu} \
    CONFIG.GUI_RM_RESET_DURATION {5} \
    CONFIG.GUI_RM_RESET_REQUIRED {low} \
    CONFIG.GUI_SELECT_RM {0} \
-   CONFIG.GUI_SELECT_TRIGGER_1 {1} \
-   CONFIG.GUI_SELECT_TRIGGER_2 {2} \
+   CONFIG.GUI_SELECT_TRIGGER_1 {2} \
+   CONFIG.GUI_SELECT_TRIGGER_2 {1} \
    CONFIG.GUI_SELECT_TRIGGER_3 {3} \
    CONFIG.GUI_VS_HAS_AXIS_STATUS {true} \
    CONFIG.GUI_VS_HAS_POR_RM {true} \
@@ -679,6 +679,14 @@ proc create_root_design { parentCell } {
    CONFIG.LOGO_FILE {data/sym_notgate.png} \
  ] $util_vector_logic_0
 
+  # Create instance: util_vector_logic_1, and set properties
+  set util_vector_logic_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_1 ]
+  set_property -dict [ list \
+   CONFIG.C_OPERATION {and} \
+   CONFIG.C_SIZE {1} \
+   CONFIG.LOGO_FILE {data/sym_andgate.png} \
+ ] $util_vector_logic_1
+
   # Create instance: util_vector_logic_2, and set properties
   set util_vector_logic_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_2 ]
   set_property -dict [ list \
@@ -801,6 +809,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports int_SYS_CLOCK] [get_bd_pins axi_protocol_convert_0/aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins prc_0/clk] [get_bd_pins prc_0/icap_clk] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins top_0/CLK]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins proc_sys_reset_2/dcm_locked]
   connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_ports int_DOUT] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din]
+  connect_bd_net -net prc_0_vsm_vs_cortex_rm_reset [get_bd_pins prc_0/vsm_vs_cortex_rm_reset] [get_bd_pins util_vector_logic_1/Op1]
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports int_RESET_TIMER] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
   connect_bd_net -net proc_sys_reset_1_interconnect_aresetn [get_bd_ports int_RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_1/interconnect_aresetn]
   connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_ports int_RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
@@ -809,14 +818,15 @@ proc create_root_design { parentCell } {
   connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins util_vector_logic_0/Op1]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net top_0_REC_BLK [get_bd_pins top_0/REC_BLK] [get_bd_pins xlconcat_0/In3]
-  connect_bd_net -net top_0_REC_ECU [get_bd_ports btn_r] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net top_0_REC_ECU1 [get_bd_pins top_0/REC_ECU] [get_bd_pins xlconcat_0/In0]
-  connect_bd_net -net top_0_REC_THS [get_bd_pins top_0/REC_THS] [get_bd_pins xlconcat_0/In1] [get_bd_pins xlconcat_2/In1] [get_bd_pins xlconcat_2/In2]
+  connect_bd_net -net top_0_REC_MCU [get_bd_pins top_0/REC_MCU] [get_bd_pins xlconcat_0/In1] [get_bd_pins xlconcat_2/In2]
+  connect_bd_net -net top_0_REC_THS [get_bd_pins top_0/REC_THS] [get_bd_pins xlconcat_0/In2] [get_bd_pins xlconcat_2/In1]
   connect_bd_net -net top_0_UART_RX_INT [get_bd_ports int_uart_rx_int] [get_bd_pins top_0/UART_RX_INT] [get_bd_pins util_vector_logic_2/Op1]
   connect_bd_net -net top_0_UART_TX_EXT [get_bd_ports UART_TX] [get_bd_pins top_0/UART_TX_EXT] [get_bd_pins util_vector_logic_4/Op1]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins util_vector_logic_0/Res]
-  connect_bd_net -net util_vector_logic_1_Res [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins util_vector_logic_3/Res] [get_bd_pins xlconcat_2/In6]
+  connect_bd_net -net util_vector_logic_1_Res [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins util_vector_logic_1/Res] [get_bd_pins xlconcat_2/In6]
   connect_bd_net -net util_vector_logic_2_Res [get_bd_pins util_vector_logic_2/Res] [get_bd_pins xlconcat_2/In7]
+  connect_bd_net -net util_vector_logic_3_Res [get_bd_pins util_vector_logic_1/Op2] [get_bd_pins util_vector_logic_3/Res]
   connect_bd_net -net util_vector_logic_4_Res [get_bd_pins util_vector_logic_4/Res] [get_bd_pins xlconcat_2/In3]
   connect_bd_net -net util_vector_logic_5_Res [get_bd_pins util_vector_logic_5/Res] [get_bd_pins xlconcat_2/In4]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins prc_0/vsm_vs_cortex_hw_triggers] [get_bd_pins xlconcat_0/dout]

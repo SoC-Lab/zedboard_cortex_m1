@@ -262,7 +262,7 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       int_RESET_TIMER(0)       => int_CM_RESET_TIMER,
       int_SYS_CLOCK             => int_CM_SYS_CLOCK,
       int_TIMER_CLOCK           => int_CM_TIMER_CLOCK,
-      int_uart_rx_int           => int_CM_uart_rx_int,
+      int_uart_rx_int           => int_CM_UART_RX,
       int_CM_PRC_RESET         => int_CM_PRC_RESET,
       led(7 downto 0) => led(7 downto 0),
       reset_0 => reset_0,
