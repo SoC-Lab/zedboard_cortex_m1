@@ -103,3 +103,14 @@
 *.sim
 *.ip_user_files
 *.backup*
+
+###########
+# SD-Card Bitstreams
+###########
+#*.bin
+!*.bif
+
+###########
+# SD-Card Bitstreams
+###########
+!*.protoinst

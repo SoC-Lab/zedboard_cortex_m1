@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"m1_for_arty_a7": {
+			"proto_instances": {
+			}
+		}
+	}
+}
