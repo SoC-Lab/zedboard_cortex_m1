@@ -40,14 +40,14 @@ CONFIG.VS.vs_cortex.RM.cortex_engine.SHUTDOWN_REQUIRED    no
 CONFIG.VS.vs_cortex.RM.cortex_engine.STARTUP_REQUIRED     no
 CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       low
 CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       5
-CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         1179648
+CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         12582912
 CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.SIZE            1473436
 CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.CLEAR           0
 CONFIG.VS.vs_cortex.RM.cortex_blank.SHUTDOWN_REQUIRED     no
 CONFIG.VS.vs_cortex.RM.cortex_blank.STARTUP_REQUIRED      no
 CONFIG.VS.vs_cortex.RM.cortex_blank.RESET_REQUIRED        no
 CONFIG.VS.vs_cortex.RM.cortex_blank.RESET_DURATION        1
-CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.ADDRESS          1441792
+CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.ADDRESS          16777216
 CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.SIZE             1473436
 CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.CLEAR            0
 
@@ -93,14 +93,14 @@ prc_v1_3::set_property -dict [list \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.STARTUP_REQUIRED     no \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_REQUIRED       low \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.RESET_DURATION       5 \
-                               CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         1179648 \
+                               CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.ADDRESS         12582912 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.SIZE            1473436 \
                                CONFIG.VS.vs_cortex.RM.cortex_engine.BS.0.CLEAR           0 \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.SHUTDOWN_REQUIRED     no \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.STARTUP_REQUIRED      no \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.RESET_REQUIRED        no \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.RESET_DURATION        1 \
-                               CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.ADDRESS          1441792 \
+                               CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.ADDRESS          16777216 \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.SIZE             1473436 \
                                CONFIG.VS.vs_cortex.RM.cortex_blank.BS.0.CLEAR            0 \
                              ] [get_ips m1_for_arty_a7_prc_0_0]

@@ -114,3 +114,7 @@
 # SD-Card Bitstreams
 ###########
 !*.protoinst
+
+#Shell scripts
+
+!*.sh

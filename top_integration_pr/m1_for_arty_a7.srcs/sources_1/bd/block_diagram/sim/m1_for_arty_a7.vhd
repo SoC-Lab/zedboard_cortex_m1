@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Tue Mar  5 21:47:48 2019
+--Date        : Sat Mar  9 11:34:05 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
@@ -65,7 +65,7 @@ entity m1_for_arty_a7 is
     sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=23,numReposBlks=23,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of m1_for_arty_a7 : entity is "m1_for_arty_a7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=m1_for_arty_a7,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=2,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of m1_for_arty_a7 : entity is "m1_for_arty_a7.hwdef";
 end m1_for_arty_a7;
@@ -428,6 +428,27 @@ architecture STRUCTURE of m1_for_arty_a7 is
     Res : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_util_vector_logic_2_3;
+  component m1_for_arty_a7_util_vector_logic_5_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_5_0;
+  component m1_for_arty_a7_util_vector_logic_5_1 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_5_1;
+  component m1_for_arty_a7_util_vector_logic_6_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_6_0;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal THROTTLE_1 : STD_LOGIC;
@@ -448,6 +469,9 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal axi_protocol_convert_0_M_AXI_RREADY : STD_LOGIC;
   signal axi_protocol_convert_0_M_AXI_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_protocol_convert_0_M_AXI_RVALID : STD_LOGIC;
+  signal btn_d_1 : STD_LOGIC;
+  signal btn_l_1 : STD_LOGIC;
+  signal btn_r_1 : STD_LOGIC;
   signal btn_u_1 : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
@@ -511,6 +535,9 @@ architecture STRUCTURE of m1_for_arty_a7 is
   signal util_vector_logic_2_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_3_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_4_Res : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal util_vector_logic_5_Res : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal util_vector_logic_6_Res : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal util_vector_logic_7_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal xlconcat_1_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlconcat_2_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -632,6 +659,9 @@ begin
   UART_RX_1 <= UART_RX;
   UART_TX <= top_0_UART_TX_EXT;
   UART_TX_INT_0_1 <= int_UART_TX_INT;
+  btn_d_1 <= btn_d;
+  btn_l_1 <= btn_l;
+  btn_r_1 <= btn_r;
   btn_u_1 <= btn_u;
   cm1_ecu_wrapper_0_DOUT(31 downto 0) <= int_DOUT(31 downto 0);
   int_DIN(31 downto 0) <= xlconcat_1_dout(31 downto 0);
@@ -924,12 +954,30 @@ util_vector_logic_4: component m1_for_arty_a7_util_vector_logic_2_3
       Op1(0) => top_0_UART_TX_EXT,
       Res(0) => util_vector_logic_4_Res(0)
     );
+util_vector_logic_5: component m1_for_arty_a7_util_vector_logic_5_0
+     port map (
+      Op1(0) => top_0_REC_BLK,
+      Op2(0) => btn_r_1,
+      Res(0) => util_vector_logic_5_Res(0)
+    );
+util_vector_logic_6: component m1_for_arty_a7_util_vector_logic_5_1
+     port map (
+      Op1(0) => btn_l_1,
+      Op2(0) => top_0_REC_MCU,
+      Res(0) => util_vector_logic_6_Res(0)
+    );
+util_vector_logic_7: component m1_for_arty_a7_util_vector_logic_6_0
+     port map (
+      Op1(0) => top_0_REC_THS,
+      Op2(0) => btn_d_1,
+      Res(0) => util_vector_logic_7_Res(0)
+    );
 xlconcat_0: component m1_for_arty_a7_xlconcat_0_1
      port map (
       In0(0) => top_0_REC_ECU1,
-      In1(0) => top_0_REC_THS,
-      In2(0) => top_0_REC_MCU,
-      In3(0) => top_0_REC_BLK,
+      In1(0) => util_vector_logic_7_Res(0),
+      In2(0) => util_vector_logic_6_Res(0),
+      In3(0) => util_vector_logic_5_Res(0),
       dout(3 downto 0) => xlconcat_0_dout(3 downto 0)
     );
 xlconcat_1: component m1_for_arty_a7_xlconcat_1_0

@@ -812,7 +812,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5b7ae0ef</spirit:value>
+            <spirit:value>9:abcd08e1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -869,11 +869,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 20:48:37 UTC 2019</spirit:value>
+            <spirit:value>Sat Mar 09 10:17:07 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2ab85cc7</spirit:value>
+            <spirit:value>9:d8679123</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -887,11 +887,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 20:48:37 UTC 2019</spirit:value>
+            <spirit:value>Sat Mar 09 10:17:07 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2ab85cc7</spirit:value>
+            <spirit:value>9:d8679123</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -907,11 +907,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 20:48:37 UTC 2019</spirit:value>
+            <spirit:value>Sat Mar 09 10:17:07 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2ab85cc7</spirit:value>
+            <spirit:value>9:d8679123</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -968,11 +968,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 20:48:37 UTC 2019</spirit:value>
+            <spirit:value>Sat Mar 09 10:17:07 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:24ac0416</spirit:value>
+            <spirit:value>9:3e27ed81</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -988,11 +988,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 05 20:48:37 UTC 2019</spirit:value>
+            <spirit:value>Sat Mar 09 10:17:07 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:24ac0416</spirit:value>
+            <spirit:value>9:3e27ed81</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2149,8 +2149,8 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>ALL_PARAMS</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ALL_PARAMS" spirit:order="1">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} co
-rtex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ALL_PARAMS" spirit:order="1">HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 12582912 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} c
+ortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 16777216 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -2242,7 +2242,7 @@ rtex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_SELECT_RM</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_RM" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_SELECT_RM" spirit:choiceRef="choice_pairs_1cf69b88" spirit:order="2">3</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_NAME</spirit:name>
@@ -2257,7 +2257,7 @@ rtex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_NEW_NAME</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_NEW_NAME" spirit:order="3">cortex_throttle</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_NEW_NAME" spirit:order="3">cortex_blank</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_ID</spirit:name>
@@ -2280,15 +2280,22 @@ rtex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_RESET_REQUIRED</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_REQUIRED" spirit:choiceRef="choice_pairs_f622faa5" spirit:order="4">low</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_REQUIRED" spirit:choiceRef="choice_pairs_f622faa5" spirit:order="4">no</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_RM_RESET_DURATION</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_DURATION" spirit:order="4" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">5</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_RM_RESET_DURATION" spirit:order="4" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">1</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.GUI_RM_RESET_DURATION">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_BS_ADDRESS_0</spirit:name>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_BS_ADDRESS_0" spirit:order="4" spirit:bitStringLength="32">0x00800000</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.GUI_BS_ADDRESS_0" spirit:order="4" spirit:bitStringLength="32">0x01000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>GUI_BS_SIZE_0</spirit:name>

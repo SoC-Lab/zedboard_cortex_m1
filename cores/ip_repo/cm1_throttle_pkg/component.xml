@@ -130,7 +130,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b518222e</spirit:value>
+            <spirit:value>d47d5d14</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -176,7 +176,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3e3dc453</spirit:value>
+            <spirit:value>a632343e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -264,7 +264,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7f3c78b6</spirit:value>
+            <spirit:value>b4598da1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -543,12 +543,20 @@
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_throttle_auto_cc_0/cm1_throttle_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_throttle_ooc.xdc</spirit:name>
@@ -556,6 +564,10 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_cm1_throttle</spirit:userFileType>
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/bram_a7.hex</spirit:name>
@@ -775,17 +787,29 @@
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_throttle_auto_cc_0/cm1_throttle_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>sim/cm1_throttle.protoinst</spirit:name>
         <spirit:fileType>unknown</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/bram_a7.hex</spirit:name>
@@ -935,6 +959,10 @@
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1108,20 +1136,21 @@
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
       <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-03-04T21:24:17Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2019-03-08T07:26:21Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@346b2104_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4345299c_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@b4301dc_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@118fd37b_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@1861c692_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@19a930e8_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38e33d11_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@141aa707_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@578a51f5_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1845f140_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bb4a4d7_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d0b20b8_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36833558_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_throttle_pkg</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2e55eea3"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5777d412"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="fa7dfe29"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="8e70390c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="38257eef"/>
     </xilinx:packagingInfo>

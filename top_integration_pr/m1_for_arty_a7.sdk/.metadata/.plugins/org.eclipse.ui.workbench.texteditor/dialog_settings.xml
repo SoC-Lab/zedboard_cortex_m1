@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="XPAR_XDCFG_0_DEVICE_ID" key="selection"/>
+		<item value="PARTIAL_ENGINE" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="PARTIAL_ENGINE"/>
 			<item value="ICAP"/>
 			<item value="XPAR_XDCFG_0_DEVICE_ID"/>
 			<item value="findfirst"/>
@@ -15,7 +16,6 @@
 			<item value="readDir"/>
 			<item value="read_dir"/>
 			<item value="DIR"/>
-			<item value="PARTIAL_LEFT_ADDR"/>
 		</list>
 		<list key="replacehistory">
 		</list>

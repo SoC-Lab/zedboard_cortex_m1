@@ -74,15 +74,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/m1_for_arty_a7/m1_for_arty_a7/bram_a7.hex">
+      <File Path="$PPRDIR/archive_project_summary.txt"/>
+      <File Path="$PSRCDIR/sources_1/imports/throttle/bram_a7.hex">
         <FileInfo SFType="MIF">
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../Zedboard/Cortex_M1/hardware/m1_for_arty_a7/m1_for_arty_a7/bram_a7.hex"/>
-          <Attr Name="ImportTime" Val="1547399345"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../sources/Hexfiles/throttle/bram_a7.hex"/>
+          <Attr Name="ImportTime" Val="1551818147"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/archive_project_summary.txt"/>
       <File Path="$PPRDIR/../ip_repo/cm1_throttle_pkg/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>

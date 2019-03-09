@@ -31,7 +31,10 @@
       "util_vector_logic_1": "",
       "top_0": "",
       "util_vector_logic_2": "",
-      "util_vector_logic_4": ""
+      "util_vector_logic_4": "",
+      "util_vector_logic_5": "",
+      "util_vector_logic_6": "",
+      "util_vector_logic_7": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1238,10 +1241,10 @@
         "xci_name": "m1_for_arty_a7_prc_0_0",
         "parameters": {
           "ALL_PARAMS": {
-            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
+            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 12582912 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 16777216 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
           },
           "GUI_BS_ADDRESS_0": {
-            "value": "0x00800000"
+            "value": "0x01000000"
           },
           "GUI_BS_SIZE_0": {
             "value": "1473436"
@@ -1265,16 +1268,13 @@
             "value": "1"
           },
           "GUI_RM_NEW_NAME": {
-            "value": "cortex_throttle"
-          },
-          "GUI_RM_RESET_DURATION": {
-            "value": "5"
+            "value": "cortex_blank"
           },
           "GUI_RM_RESET_REQUIRED": {
-            "value": "low"
+            "value": "no"
           },
           "GUI_SELECT_RM": {
-            "value": "1"
+            "value": "3"
           },
           "GUI_SELECT_TRIGGER_1": {
             "value": "1"
@@ -1430,21 +1430,7 @@
             "direction": "I"
           },
           "REC_ECU": {
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "const_prop"
-              },
-              "PortType": {
-                "value": "rst",
-                "value_src": "ip_prop"
-              },
-              "PortType.PROP_SRC": {
-                "value": "false",
-                "value_src": "ip_prop"
-              }
-            }
+            "direction": "O"
           },
           "REC_MCU": {
             "direction": "O"
@@ -1486,25 +1472,49 @@
             "value": "1"
           }
         }
+      },
+      "util_vector_logic_5": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "m1_for_arty_a7_util_vector_logic_5_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "or"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_6": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "m1_for_arty_a7_util_vector_logic_5_1",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "or"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_7": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "m1_for_arty_a7_util_vector_logic_6_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "or"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "axi_protocol_convert_0_M_AXI": {
         "interface_ports": [
           "axi_protocol_convert_0/M_AXI",
           "processing_system7_0/S_AXI_HP0"
-        ]
-      },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
         ]
       },
       "prc_0_m_axi_mem": {
@@ -1513,10 +1523,22 @@
           "axi_protocol_convert_0/S_AXI"
         ]
       },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
+        ]
+      },
       "prc_0_ICAP": {
         "interface_ports": [
           "ICAP_0",
           "prc_0/ICAP"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
         ]
       }
     },
@@ -1656,7 +1678,7 @@
         "ports": [
           "top_0/REC_THS",
           "xlconcat_2/In1",
-          "xlconcat_0/In1"
+          "util_vector_logic_7/Op1"
         ]
       },
       "UART_TX_INT_0_1": {
@@ -1696,12 +1718,6 @@
           "prc_0/vsm_vs_cortex_hw_triggers"
         ]
       },
-      "top_0_REC_BLK": {
-        "ports": [
-          "top_0/REC_BLK",
-          "xlconcat_0/In3"
-        ]
-      },
       "btn_u_1": {
         "ports": [
           "btn_u",
@@ -1733,7 +1749,7 @@
         "ports": [
           "top_0/REC_MCU",
           "xlconcat_2/In2",
-          "xlconcat_0/In2"
+          "util_vector_logic_6/Op2"
         ]
       },
       "prc_0_vsm_vs_cortex_rm_reset": {
@@ -1777,6 +1793,48 @@
         "ports": [
           "util_vector_logic_4/Res",
           "xlconcat_2/In5"
+        ]
+      },
+      "util_vector_logic_5_Res": {
+        "ports": [
+          "util_vector_logic_5/Res",
+          "xlconcat_0/In3"
+        ]
+      },
+      "top_0_REC_BLK": {
+        "ports": [
+          "top_0/REC_BLK",
+          "util_vector_logic_5/Op1"
+        ]
+      },
+      "btn_r_1": {
+        "ports": [
+          "btn_r",
+          "util_vector_logic_5/Op2"
+        ]
+      },
+      "util_vector_logic_6_Res": {
+        "ports": [
+          "util_vector_logic_6/Res",
+          "xlconcat_0/In2"
+        ]
+      },
+      "btn_l_1": {
+        "ports": [
+          "btn_l",
+          "util_vector_logic_6/Op1"
+        ]
+      },
+      "util_vector_logic_7_Res": {
+        "ports": [
+          "util_vector_logic_7/Res",
+          "xlconcat_0/In1"
+        ]
+      },
+      "btn_d_1": {
+        "ports": [
+          "btn_d",
+          "util_vector_logic_7/Op2"
         ]
       }
     },
