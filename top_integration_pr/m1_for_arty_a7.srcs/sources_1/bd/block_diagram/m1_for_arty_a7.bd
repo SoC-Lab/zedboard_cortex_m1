@@ -1238,10 +1238,10 @@
         "xci_name": "m1_for_arty_a7_prc_0_0",
         "parameters": {
           "ALL_PARAMS": {
-            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 1179648 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 1441792 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
+            "value": "HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 12582912 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 16777216 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1"
           },
           "GUI_BS_ADDRESS_0": {
-            "value": "0x00800000"
+            "value": "0x01000000"
           },
           "GUI_BS_SIZE_0": {
             "value": "1473436"
@@ -1265,16 +1265,13 @@
             "value": "1"
           },
           "GUI_RM_NEW_NAME": {
-            "value": "cortex_throttle"
-          },
-          "GUI_RM_RESET_DURATION": {
-            "value": "5"
+            "value": "cortex_blank"
           },
           "GUI_RM_RESET_REQUIRED": {
-            "value": "low"
+            "value": "no"
           },
           "GUI_SELECT_RM": {
-            "value": "1"
+            "value": "3"
           },
           "GUI_SELECT_TRIGGER_1": {
             "value": "1"
@@ -1430,21 +1427,7 @@
             "direction": "I"
           },
           "REC_ECU": {
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "const_prop"
-              },
-              "PortType": {
-                "value": "rst",
-                "value_src": "ip_prop"
-              },
-              "PortType.PROP_SRC": {
-                "value": "false",
-                "value_src": "ip_prop"
-              }
-            }
+            "direction": "O"
           },
           "REC_MCU": {
             "direction": "O"
@@ -1489,6 +1472,18 @@
       }
     },
     "interface_nets": {
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "prc_0_ICAP": {
+        "interface_ports": [
+          "ICAP_0",
+          "prc_0/ICAP"
+        ]
+      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
@@ -1501,22 +1496,10 @@
           "processing_system7_0/S_AXI_HP0"
         ]
       },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
       "prc_0_m_axi_mem": {
         "interface_ports": [
           "prc_0/m_axi_mem",
           "axi_protocol_convert_0/S_AXI"
-        ]
-      },
-      "prc_0_ICAP": {
-        "interface_ports": [
-          "ICAP_0",
-          "prc_0/ICAP"
         ]
       }
     },

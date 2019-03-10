@@ -43,13 +43,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="196"/>
-    <Option Name="WTModelSimExportSim" Val="196"/>
-    <Option Name="WTQuestaExportSim" Val="196"/>
-    <Option Name="WTIesExportSim" Val="196"/>
-    <Option Name="WTVcsExportSim" Val="196"/>
-    <Option Name="WTRivieraExportSim" Val="195"/>
-    <Option Name="WTActivehdlExportSim" Val="195"/>
+    <Option Name="WTXSimExportSim" Val="199"/>
+    <Option Name="WTModelSimExportSim" Val="199"/>
+    <Option Name="WTQuestaExportSim" Val="199"/>
+    <Option Name="WTIesExportSim" Val="199"/>
+    <Option Name="WTVcsExportSim" Val="199"/>
+    <Option Name="WTRivieraExportSim" Val="198"/>
+    <Option Name="WTActivehdlExportSim" Val="198"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -392,7 +392,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="child_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Each implementation step trades design performance for better runtime. Physical optimization (phys_opt_design) is disabled." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/child_0_impl_1" SynthRun="impl_1" IncludeInArchive="true" PRConfiguration="cortex_throttle_config" ConfigurationChanged="false" GenFullBitstream="true">
+    <Run Id="child_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Each implementation step trades design performance for better runtime. Physical optimization (phys_opt_design) is disabled." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/child_0_impl_1" SynthRun="impl_1" IncludeInArchive="true" PRConfiguration="cortex_throttle_config" ConfigurationChanged="false" GenFullBitstream="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Flow_RuntimeOptimized" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -415,7 +415,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="child_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Each implementation step trades design performance for better runtime. Physical optimization (phys_opt_design) is disabled." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/child_1_impl_1" SynthRun="impl_1" IncludeInArchive="true" PRConfiguration="cortex_engine_config" ConfigurationChanged="false" GenFullBitstream="true">
+    <Run Id="child_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs" Description="Each implementation step trades design performance for better runtime. Physical optimization (phys_opt_design) is disabled." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/child_1_impl_1" SynthRun="impl_1" IncludeInArchive="true" PRConfiguration="cortex_engine_config" ConfigurationChanged="false" GenFullBitstream="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Flow_RuntimeOptimized" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>

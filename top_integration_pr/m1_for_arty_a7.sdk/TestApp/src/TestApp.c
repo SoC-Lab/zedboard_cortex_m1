@@ -32,14 +32,14 @@
 #include "xil_types.h"
 
 // Parameters for Partial Reconfiguration
-#ifdef ZED
-#define PARTIAL_LEFT_ADDR   0x200000
-#define PARTIAL_RIGHT_ADDR   0x300000
-#define PARTIAL_BLANK_SHIFT_ADDR   0x400000
-#define PARTIAL_LEFT_BITFILE_LEN 37871 // in number of words
-#define PARTIAL_RIGHT_BITFILE_LEN 37871 // in number of words
-#define PARTIAL_BLANK_SHIFT_BITFILE_LEN 30490 // in number of words
-#endif
+//#ifdef ZED
+//#define PARTIAL_LEFT_ADDR   0x200000
+//#define PARTIAL_RIGHT_ADDR   0x300000
+//#define PARTIAL_BLANK_SHIFT_ADDR   0x400000
+//#define PARTIAL_LEFT_BITFILE_LEN 37871 // in number of words
+//#define PARTIAL_RIGHT_BITFILE_LEN 37871 // in number of words
+//#define PARTIAL_BLANK_SHIFT_BITFILE_LEN 30490 // in number of words
+//#endif
 
 // BOOT.BIN is approx. 4.5MB = 2107684 Words = 0x202924
 // cortex_ecu.bin is approx. 1.5MB = 736718 Words = 0xB3DCE
@@ -47,8 +47,8 @@
 #ifdef ZED
 #define PARTIAL_ECU_ADDR   		0x400000
 #define PARTIAL_THROTTLE_ADDR   0x800000
-#define PARTIAL_ENGINE_ADDR   	0x120000
-#define PARTIAL_BLANK_ADDR   	0x160000
+#define PARTIAL_ENGINE_ADDR   	0xC00000
+#define PARTIAL_BLANK_ADDR   	0x1000000
 #define PARTIAL_ECU_BITFILE_LEN 		736718 // in number of words
 #define PARTIAL_THROTTLE_BITFILE_LEN 	736718 // in number of words
 #define PARTIAL_ENGINE_BITFILE_LEN 		736718 // in number of words
