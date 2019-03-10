@@ -1,8 +1,8 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Tue Feb 26 14:00:47 2019
---Host        : DESKTOP-LCBAU67 running 64-bit major release  (build 9200)
+--Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+--Date        : Mon Mar  4 22:20:28 2019
+--Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target cm1_ecu.bd
 --Design      : cm1_ecu
 --Purpose     : IP block netlist
@@ -1645,63 +1645,6 @@ entity cm1_ecu is
 end cm1_ecu;
 
 architecture STRUCTURE of cm1_ecu is
-  component cm1_ecu_Cortex_M1_0_0 is
-  port (
-    SYSRESETREQ : out STD_LOGIC;
-    DBGRESTARTED : out STD_LOGIC;
-    LOCKUP : out STD_LOGIC;
-    HALTED : out STD_LOGIC;
-    JTAGNSW : out STD_LOGIC;
-    JTAGTOP : out STD_LOGIC;
-    TDO : out STD_LOGIC;
-    nTDOEN : out STD_LOGIC;
-    HWDATA : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    HCLK : in STD_LOGIC;
-    SYSRESETn : in STD_LOGIC;
-    IRQ : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    NMI : in STD_LOGIC;
-    CFGITCMEN : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    DBGRESETn : in STD_LOGIC;
-    DBGRESTART : in STD_LOGIC;
-    EDBGRQ : in STD_LOGIC;
-    SWCLKTCK : in STD_LOGIC;
-    SWDITMS : in STD_LOGIC;
-    nTRST : in STD_LOGIC;
-    TDI : in STD_LOGIC;
-    HRDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    AWADDR : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    AWLEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    AWSIZE : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    AWBURST : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AWLOCK : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AWCACHE : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    AWPROT : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    AWUSER : out STD_LOGIC_VECTOR ( 0 to 0 );
-    AWVALID : out STD_LOGIC;
-    AWREADY : in STD_LOGIC;
-    WSTRB : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    WLAST : out STD_LOGIC;
-    WVALID : out STD_LOGIC;
-    WREADY : in STD_LOGIC;
-    BRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    BVALID : in STD_LOGIC;
-    BREADY : out STD_LOGIC;
-    ARADDR : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    ARLEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    ARSIZE : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    ARBURST : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    ARLOCK : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    ARCACHE : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    ARPROT : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    ARUSER : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ARVALID : out STD_LOGIC;
-    ARREADY : in STD_LOGIC;
-    RRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    RLAST : in STD_LOGIC;
-    RVALID : in STD_LOGIC;
-    RREADY : out STD_LOGIC
-  );
-  end component cm1_ecu_Cortex_M1_0_0;
   component cm1_ecu_axi_gpio_2_0 is
   port (
     s_axi_aclk : in STD_LOGIC;
@@ -1723,7 +1666,9 @@ architecture STRUCTURE of cm1_ecu is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    gpio_io_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    gpio_io_t : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component cm1_ecu_axi_gpio_2_0;
   component cm1_ecu_axi_iic_0_0 is
@@ -1832,6 +1777,63 @@ architecture STRUCTURE of cm1_ecu is
     dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component cm1_ecu_xlconstant_1_0;
+  component cm1_ecu_Cortex_M1_0_0 is
+  port (
+    SYSRESETREQ : out STD_LOGIC;
+    DBGRESTARTED : out STD_LOGIC;
+    LOCKUP : out STD_LOGIC;
+    HALTED : out STD_LOGIC;
+    JTAGNSW : out STD_LOGIC;
+    JTAGTOP : out STD_LOGIC;
+    TDO : out STD_LOGIC;
+    nTDOEN : out STD_LOGIC;
+    HWDATA : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    HCLK : in STD_LOGIC;
+    SYSRESETn : in STD_LOGIC;
+    IRQ : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    NMI : in STD_LOGIC;
+    CFGITCMEN : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    DBGRESETn : in STD_LOGIC;
+    DBGRESTART : in STD_LOGIC;
+    EDBGRQ : in STD_LOGIC;
+    SWCLKTCK : in STD_LOGIC;
+    SWDITMS : in STD_LOGIC;
+    nTRST : in STD_LOGIC;
+    TDI : in STD_LOGIC;
+    HRDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    AWADDR : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    AWLEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    AWSIZE : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    AWBURST : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AWLOCK : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AWCACHE : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    AWPROT : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    AWUSER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    AWVALID : out STD_LOGIC;
+    AWREADY : in STD_LOGIC;
+    WSTRB : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    WLAST : out STD_LOGIC;
+    WVALID : out STD_LOGIC;
+    WREADY : in STD_LOGIC;
+    BRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    BVALID : in STD_LOGIC;
+    BREADY : out STD_LOGIC;
+    ARADDR : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ARLEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ARSIZE : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    ARBURST : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    ARLOCK : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    ARCACHE : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ARPROT : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    ARUSER : out STD_LOGIC_VECTOR ( 0 to 0 );
+    ARVALID : out STD_LOGIC;
+    ARREADY : in STD_LOGIC;
+    RRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    RLAST : in STD_LOGIC;
+    RVALID : in STD_LOGIC;
+    RREADY : out STD_LOGIC
+  );
+  end component cm1_ecu_Cortex_M1_0_0;
   signal Cortex_M1_0_CM1_AXI3_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1863,6 +1865,7 @@ architecture STRUCTURE of cm1_ecu is
   signal Cortex_M1_0_CM1_AXI3_WREADY : STD_LOGIC;
   signal Cortex_M1_0_CM1_AXI3_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_WVALID : STD_LOGIC;
+  signal DIN_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal M04_ARESETN_1 : STD_LOGIC;
@@ -1958,6 +1961,7 @@ architecture STRUCTURE of cm1_ecu is
   signal NLW_Cortex_M1_0_nTDOEN_UNCONNECTED : STD_LOGIC;
   signal NLW_Cortex_M1_0_ARUSER_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_Cortex_M1_0_AWUSER_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_axi_gpio_2_gpio_io_t_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal NLW_axi_iic_0_scl_t_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_iic_0_sda_t_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_iic_0_gpo_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1977,6 +1981,7 @@ architecture STRUCTURE of cm1_ecu is
   attribute X_INTERFACE_INFO of TIMER_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.TIMER_CLOCK CLK";
   attribute X_INTERFACE_PARAMETER of TIMER_CLOCK : signal is "XIL_INTERFACENAME CLK.TIMER_CLOCK, ASSOCIATED_RESET RESET_TIMER, CLK_DOMAIN cm1_ecu_TIMER_CLOCK, FREQ_HZ 8000000, INSERT_VIP 0, PHASE 0.000";
 begin
+  DIN_1(31 downto 0) <= DIN(31 downto 0);
   DOUT(31 downto 0) <= axi_gpio_2_gpio_io_o(31 downto 0);
   I2C_SCL <= axi_iic_0_scl_o;
   I2C_SDA_RX_1 <= I2C_SDA_RX;
@@ -2046,7 +2051,9 @@ Cortex_M1_0: component cm1_ecu_Cortex_M1_0_0
     );
 axi_gpio_2: component cm1_ecu_axi_gpio_2_0
      port map (
+      gpio_io_i(31 downto 0) => DIN_1(31 downto 0),
       gpio_io_o(31 downto 0) => axi_gpio_2_gpio_io_o(31 downto 0),
+      gpio_io_t(31 downto 0) => NLW_axi_gpio_2_gpio_io_t_UNCONNECTED(31 downto 0),
       s_axi_aclk => clk_wiz_0_clk_out1,
       s_axi_araddr(8 downto 0) => axi_interconnect_0_M01_AXI_ARADDR(8 downto 0),
       s_axi_aresetn => reset_0_1,
