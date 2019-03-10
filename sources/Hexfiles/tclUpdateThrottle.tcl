@@ -1,3 +1,11 @@
+##############################################################################
+#
+# This script updates the hex files of the different cores
+# It also replaces the hex file in the already generated IP-Package which
+# makes re-packaging the core unnecessary.
+#
+##############################################################################
+
 set core "throttle"
 
 # Update the core development base
