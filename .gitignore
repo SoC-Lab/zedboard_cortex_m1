@@ -114,3 +114,9 @@
 # SD-Card Bitstreams
 ###########
 !*.protoinst
+
+
+###########
+#  Allow markdown
+###########
+!*.md
