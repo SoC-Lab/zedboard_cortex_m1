@@ -27,3 +27,5 @@ file delete -force "${ipPath}/bram_a7.hex"
 file copy "./${core}/bram_a7.hex" $ipPath
 
 #echo "IP REPO UPDATE: Copied \n\r./${core}/bram_a7.hex to \n\r${ipFullPath}\n\r"
+
+puts "Updated ${core}\r\n"

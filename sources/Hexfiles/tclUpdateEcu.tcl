@@ -20,10 +20,9 @@ set ipPath "./../../cores/ip_repo/cm1_${core}_pkg/src"
 file delete -force "${corePath}/bram_a7.hex"
 file copy "./${core}/bram_a7.hex" $corePath
 
-#echo "CORE UPDATE: Copied \n\r./${core}/bram_a7.hex to \n\r${coreFullPath}\n\r"
 
 # IP Repo
 file delete -force "${ipPath}/bram_a7.hex"
 file copy "./${core}/bram_a7.hex" $ipPath
 
-#echo "IP REPO UPDATE: Copied \n\r./${core}/bram_a7.hex to \n\r${ipFullPath}\n\r"
+puts "Updated ${core}\r\n"
