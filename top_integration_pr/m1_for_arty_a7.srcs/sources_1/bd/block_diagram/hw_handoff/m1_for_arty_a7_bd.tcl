@@ -230,8 +230,8 @@ proc create_root_design { parentCell } {
   # Create instance: prc_0, and set properties
   set prc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:prc:1.3 prc_0 ]
   set_property -dict [ list \
-   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 12582912 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 5} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 16777216 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
-   CONFIG.GUI_BS_ADDRESS_0 {0x01000000} \
+   CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 0 RESET_ACTIVE_LEVEL 1 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 2 VS {vs_cortex {ID 0 NAME vs_cortex RM {cortex_ecu {ID 0 NAME cortex_ecu BS {0 {ID 0 ADDR 4194304 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 100} cortex_throttle {ID 1 NAME cortex_throttle BS {0 {ID 0 ADDR 8388608 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 100} cortex_engine {ID 2 NAME cortex_engine BS {0 {ID 0 ADDR 12582912 SIZE 1473436 CLEAR 0}} RESET_REQUIRED low RESET_DURATION 100} cortex_blank {ID 3 NAME cortex_blank BS {0 {ID 0 ADDR 16777216 SIZE 1473436 CLEAR 0}}}} POR_RM cortex_ecu HAS_AXIS_STATUS 1 HAS_POR_RM 1 RMS_ALLOCATED 4 NUM_HW_TRIGGERS 4 NUM_TRIGGERS_ALLOCATED 4 TRIGGER_TO_RM {}}} CP_FAMILY 7series DIRTY 3 CP_ARBITRATION_PROTOCOL 1} \
+   CONFIG.GUI_BS_ADDRESS_0 {0x00400000} \
    CONFIG.GUI_BS_SIZE_0 {1473436} \
    CONFIG.GUI_CDC_STAGES {2} \
    CONFIG.GUI_CP_ARBITRATION_PROTOCOL {1} \
@@ -239,10 +239,10 @@ proc create_root_design { parentCell } {
    CONFIG.GUI_LOCK_TRIGGER_1 {false} \
    CONFIG.GUI_LOCK_TRIGGER_2 {false} \
    CONFIG.GUI_RESET_ACTIVE_LEVEL {1} \
-   CONFIG.GUI_RM_NEW_NAME {cortex_blank} \
-   CONFIG.GUI_RM_RESET_DURATION {1} \
-   CONFIG.GUI_RM_RESET_REQUIRED {no} \
-   CONFIG.GUI_SELECT_RM {3} \
+   CONFIG.GUI_RM_NEW_NAME {cortex_ecu} \
+   CONFIG.GUI_RM_RESET_DURATION {100} \
+   CONFIG.GUI_RM_RESET_REQUIRED {low} \
+   CONFIG.GUI_SELECT_RM {0} \
    CONFIG.GUI_SELECT_TRIGGER_1 {1} \
    CONFIG.GUI_SELECT_TRIGGER_2 {2} \
    CONFIG.GUI_SELECT_TRIGGER_3 {3} \
@@ -256,9 +256,15 @@ proc create_root_design { parentCell } {
 
   # Create instance: proc_sys_reset_0, and set properties
   set proc_sys_reset_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0 ]
+  set_property -dict [ list \
+   CONFIG.C_EXT_RST_WIDTH {16} \
+ ] $proc_sys_reset_0
 
   # Create instance: proc_sys_reset_1, and set properties
   set proc_sys_reset_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_1 ]
+  set_property -dict [ list \
+   CONFIG.C_EXT_RST_WIDTH {16} \
+ ] $proc_sys_reset_1
 
   # Create instance: proc_sys_reset_2, and set properties
   set proc_sys_reset_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_2 ]

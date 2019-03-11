@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Sun Mar 10 15:50:39 2019
+--Date        : Mon Mar 11 15:43:46 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7.bd
 --Design      : m1_for_arty_a7
@@ -399,6 +399,18 @@ architecture STRUCTURE of m1_for_arty_a7 is
     Res : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component m1_for_arty_a7_util_vector_logic_1_0;
+  component m1_for_arty_a7_util_vector_logic_2_2 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_2_2;
+  component m1_for_arty_a7_util_vector_logic_2_3 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component m1_for_arty_a7_util_vector_logic_2_3;
   component m1_for_arty_a7_top_0_0 is
   port (
     CLK : in STD_LOGIC;
@@ -416,18 +428,6 @@ architecture STRUCTURE of m1_for_arty_a7 is
     MCU_GPIO_EXT : out STD_LOGIC
   );
   end component m1_for_arty_a7_top_0_0;
-  component m1_for_arty_a7_util_vector_logic_2_2 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component m1_for_arty_a7_util_vector_logic_2_2;
-  component m1_for_arty_a7_util_vector_logic_2_3 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component m1_for_arty_a7_util_vector_logic_2_3;
   signal M04_ACLK_1 : STD_LOGIC;
   signal SW_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal THROTTLE_1 : STD_LOGIC;
