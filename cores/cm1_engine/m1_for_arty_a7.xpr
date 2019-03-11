@@ -43,13 +43,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="180"/>
-    <Option Name="WTModelSimExportSim" Val="180"/>
-    <Option Name="WTQuestaExportSim" Val="180"/>
-    <Option Name="WTIesExportSim" Val="180"/>
-    <Option Name="WTVcsExportSim" Val="180"/>
-    <Option Name="WTRivieraExportSim" Val="180"/>
-    <Option Name="WTActivehdlExportSim" Val="180"/>
+    <Option Name="WTXSimExportSim" Val="181"/>
+    <Option Name="WTModelSimExportSim" Val="181"/>
+    <Option Name="WTQuestaExportSim" Val="181"/>
+    <Option Name="WTIesExportSim" Val="181"/>
+    <Option Name="WTVcsExportSim" Val="181"/>
+    <Option Name="WTRivieraExportSim" Val="181"/>
+    <Option Name="WTActivehdlExportSim" Val="181"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -75,14 +75,14 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/archive_project_summary.txt"/>
-      <File Path="$PPRDIR/../ip_repo/cm1_engine_pkg/component.xml">
-        <FileInfo SFType="IPXACT"/>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/engine/bram_a7.hex">
         <FileInfo SFType="MIF">
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ip_repo/cm1_engine_pkg/component.xml">
+        <FileInfo SFType="IPXACT"/>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>

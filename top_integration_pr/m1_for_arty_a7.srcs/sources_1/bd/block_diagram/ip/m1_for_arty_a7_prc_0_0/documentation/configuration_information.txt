@@ -16,7 +16,7 @@ CONFIG.VS.vs_cortex.SHUTDOWN_ON_ERROR                     1
 CONFIG.VS.vs_cortex.HAS_AXIS_STATUS                       1
 CONFIG.VS.vs_cortex.HAS_AXIS_CONTROL                      0
 CONFIG.VS.vs_cortex.HAS_POR_RM                            1
-CONFIG.VS.vs_cortex.POR_RM                                cortex_ecu
+CONFIG.VS.vs_cortex.POR_RM                                cortex_blank
 CONFIG.VS.vs_cortex.SKIP_RM_STARTUP_AFTER_RESET           0
 CONFIG.VS.vs_cortex.TRIGGER0_TO_RM                        cortex_ecu
 CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_throttle
@@ -69,7 +69,7 @@ prc_v1_3::set_property -dict [list \
                                CONFIG.VS.vs_cortex.HAS_AXIS_STATUS                       1 \
                                CONFIG.VS.vs_cortex.HAS_AXIS_CONTROL                      0 \
                                CONFIG.VS.vs_cortex.HAS_POR_RM                            1 \
-                               CONFIG.VS.vs_cortex.POR_RM                                cortex_ecu \
+                               CONFIG.VS.vs_cortex.POR_RM                                cortex_blank \
                                CONFIG.VS.vs_cortex.SKIP_RM_STARTUP_AFTER_RESET           0 \
                                CONFIG.VS.vs_cortex.TRIGGER0_TO_RM                        cortex_ecu \
                                CONFIG.VS.vs_cortex.TRIGGER1_TO_RM                        cortex_throttle \

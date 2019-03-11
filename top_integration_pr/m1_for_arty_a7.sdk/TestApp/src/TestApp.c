@@ -49,10 +49,14 @@
 #define PARTIAL_THROTTLE_ADDR   0x800000
 #define PARTIAL_ENGINE_ADDR   	0xC00000
 #define PARTIAL_BLANK_ADDR   	0x1000000
-#define PARTIAL_ECU_BITFILE_LEN 		736718 // in number of words
-#define PARTIAL_THROTTLE_BITFILE_LEN 	736718 // in number of words
-#define PARTIAL_ENGINE_BITFILE_LEN 		736718 // in number of words
-#define PARTIAL_BLANK_BITFILE_LEN 		736718 // in number of words
+#define PARTIAL_ECU_BITFILE_LEN 		368359 // in number of words
+#define PARTIAL_THROTTLE_BITFILE_LEN 	368359 // in number of words
+#define PARTIAL_ENGINE_BITFILE_LEN 		368359 // in number of words
+#define PARTIAL_BLANK_BITFILE_LEN 		368359 // in number of words
+//#define PARTIAL_ECU_BITFILE_LEN 		736718 // in number of words
+//#define PARTIAL_THROTTLE_BITFILE_LEN 	736718 // in number of words
+//#define PARTIAL_ENGINE_BITFILE_LEN 		736718 // in number of words
+//#define PARTIAL_BLANK_BITFILE_LEN 		736718 // in number of words
 #endif
 
 

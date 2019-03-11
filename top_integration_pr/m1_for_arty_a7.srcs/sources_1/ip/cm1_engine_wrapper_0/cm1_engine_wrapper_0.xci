@@ -9,6 +9,8 @@
       <spirit:instanceName>cm1_engine_wrapper_0</spirit:instanceName>
       <spirit:componentRef spirit:vendor="user.org" spirit:library="user" spirit:name="cm1_engine_wrapper" spirit:version="1.0"/>
       <spirit:configurableElementValues>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CORTEX_RESET.INSERT_VIP">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CORTEX_RESET.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET_INTERCONNECT.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET_INTERCONNECT.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET_PERIPHERAL.INSERT_VIP">0</spirit:configurableElementValue>

@@ -158,6 +158,7 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  set CORTEX_RESET [ create_bd_port -dir I -type rst CORTEX_RESET ]
   set DIN [ create_bd_port -dir I -from 31 -to 0 DIN ]
   set DOUT [ create_bd_port -dir O -from 31 -to 0 DOUT ]
   set I2C_SCL [ create_bd_port -dir O I2C_SCL ]
@@ -285,10 +286,13 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net axi_interconnect_0_M03_AXI [get_bd_intf_pins axi_interconnect_0/M03_AXI] [get_bd_intf_pins axi_timer_0/S_AXI]
 
   # Create port connections
+  connect_bd_net -net CORTEX_RESET_1 [get_bd_ports CORTEX_RESET] [get_bd_pins Cortex_M1_0/DBGRESETn] [get_bd_pins Cortex_M1_0/SYSRESETn]
   connect_bd_net -net DIN_1 [get_bd_ports DIN] [get_bd_pins axi_gpio_2/gpio_io_i]
   connect_bd_net -net I2C_SDA_RX_1 [get_bd_ports I2C_SDA_RX] [get_bd_pins axi_iic_0/sda_i]
   connect_bd_net -net M04_ACLK_1 [get_bd_ports TIMER_CLOCK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_timer_0/s_axi_aclk]
   connect_bd_net -net M04_ARESETN_1 [get_bd_ports RESET_TIMER] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_timer_0/s_axi_aresetn]
+  connect_bd_net -net RESET_INTERCONNECT_1 [get_bd_ports RESET_INTERCONNECT] [get_bd_pins axi_interconnect_0/ARESETN]
+  connect_bd_net -net RESET_PERIPHERAL_1 [get_bd_ports RESET_PERIPHERAL] [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins axi_iic_0/s_axi_aresetn] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_uartlite_0/s_axi_aresetn]
   connect_bd_net -net UART_RX_1 [get_bd_ports UART_RX] [get_bd_pins axi_uartlite_0/rx]
   connect_bd_net -net axi_gpio_2_gpio_io_o [get_bd_ports DOUT] [get_bd_pins axi_gpio_2/gpio_io_o]
   connect_bd_net -net axi_iic_0_iic2intc_irpt [get_bd_pins axi_iic_0/iic2intc_irpt] [get_bd_pins xlconcat_0/In2]
@@ -298,8 +302,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axi_uartlite_0_interrupt [get_bd_pins axi_uartlite_0/interrupt] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net axi_uartlite_0_tx [get_bd_ports UART_TX] [get_bd_pins axi_uartlite_0/tx]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports SYS_CLOCK] [get_bd_pins Cortex_M1_0/HCLK] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins axi_iic_0/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_uartlite_0/s_axi_aclk]
-  connect_bd_net -net reset_0_1 [get_bd_ports RESET_INTERCONNECT] [get_bd_pins Cortex_M1_0/DBGRESETn] [get_bd_pins Cortex_M1_0/SYSRESETn] [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins axi_iic_0/s_axi_aresetn] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_uartlite_0/s_axi_aresetn]
-  connect_bd_net -net reset_peripherial_1 [get_bd_ports RESET_PERIPHERAL] [get_bd_pins axi_interconnect_0/ARESETN]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins Cortex_M1_0/IRQ] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins xlconcat_0/In3] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins Cortex_M1_0/CFGITCMEN] [get_bd_pins xlconstant_1/dout]

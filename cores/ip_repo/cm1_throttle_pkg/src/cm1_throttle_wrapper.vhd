@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Mar  4 22:23:09 2019
+--Date        : Mon Mar 11 17:14:30 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target cm1_throttle_wrapper.bd
 --Design      : cm1_throttle_wrapper
@@ -13,6 +13,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity cm1_throttle_wrapper is
   port (
+    CORTEX_RESET : in STD_LOGIC;
     DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
     DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
     I2C_SCL : out STD_LOGIC;
@@ -42,12 +43,14 @@ architecture STRUCTURE of cm1_throttle_wrapper is
     SYS_CLOCK : in STD_LOGIC;
     TIMER_CLOCK : in STD_LOGIC;
     UART_RX : in STD_LOGIC;
-    UART_TX : out STD_LOGIC
+    UART_TX : out STD_LOGIC;
+    CORTEX_RESET : in STD_LOGIC
   );
   end component cm1_throttle;
 begin
 cm1_throttle_i: component cm1_throttle
      port map (
+      CORTEX_RESET => CORTEX_RESET,
       DIN(31 downto 0) => DIN(31 downto 0),
       DOUT(31 downto 0) => DOUT(31 downto 0),
       I2C_SCL => I2C_SCL,

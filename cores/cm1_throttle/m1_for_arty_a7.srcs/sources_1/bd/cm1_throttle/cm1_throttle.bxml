@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="cm1_throttle" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1551734590"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1551734590"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1551734590"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1551734590"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1552320871"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1552320871"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1552320871"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1552320871"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/cm1_throttle_Cortex_M1_0_0/cm1_throttle_Cortex_M1_0_0.xci" Type="IP">
         <Instance HierarchyPath="Cortex_M1_0"/>
@@ -40,6 +40,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/cm1_throttle_axi_interconnect_0_0/cm1_throttle_axi_interconnect_0_0.xci" Type="IP">
+        <Instance HierarchyPath="axi_interconnect_0"/>
         <Properties IsEditable="false" IsVisible="false" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

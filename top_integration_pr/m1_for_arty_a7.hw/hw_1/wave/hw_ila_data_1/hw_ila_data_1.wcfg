@@ -3,32 +3,118 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/Projects/zedboard_cortex_m1/m1_for_arty_a7.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+      <db_ref path="/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/top_integration_pr/m1_for_arty_a7.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="5464719fs"></ZoomEndTime>
+      <ZoomEndTime time="1024001fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="2" />
-   <wvobject fp_name="m1_for_arty_a7_i/axi_uartlite_0_interrupt" type="logic">
+   <WVObjectSize size="14" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">m1_for_arty_a7_i/axi_uartlite_0_interrupt</obj_property>
-      <obj_property name="ObjectShortName">axi_uartlite_0_interrupt</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset</obj_property>
+      <obj_property name="ObjectShortName">prc_0_vsm_vs_cortex_rm_reset</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="m1_for_arty_a7_i/axi_uartlite_0_interrupt" type="logic">
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/proc_sys_reset_1_interconnect_aresetn">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">m1_for_arty_a7_i/axi_uartlite_0_interrupt</obj_property>
-      <obj_property name="ObjectShortName">axi_uartlite_0_interrupt</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/proc_sys_reset_1_interconnect_aresetn</obj_property>
+      <obj_property name="ObjectShortName">proc_sys_reset_1_interconnect_aresetn</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/proc_sys_reset_1_peripheral_aresetn">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/proc_sys_reset_1_peripheral_aresetn</obj_property>
+      <obj_property name="ObjectShortName">proc_sys_reset_1_peripheral_aresetn</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/reset_0_2">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/reset_0_2</obj_property>
+      <obj_property name="ObjectShortName">reset_0_2</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_1_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_1_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_1_Res</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_3_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_3_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_3_Res</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_5_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_5_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_5_Res</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset</obj_property>
+      <obj_property name="ObjectShortName">prc_0_vsm_vs_cortex_rm_reset</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/proc_sys_reset_1_interconnect_aresetn">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/proc_sys_reset_1_interconnect_aresetn</obj_property>
+      <obj_property name="ObjectShortName">proc_sys_reset_1_interconnect_aresetn</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/proc_sys_reset_1_peripheral_aresetn">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/proc_sys_reset_1_peripheral_aresetn</obj_property>
+      <obj_property name="ObjectShortName">proc_sys_reset_1_peripheral_aresetn</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/reset_0_2">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/reset_0_2</obj_property>
+      <obj_property name="ObjectShortName">reset_0_2</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_1_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_1_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_1_Res</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_3_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_3_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_3_Res</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="m1_for_arty_a7_i/util_vector_logic_5_Res">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">m1_for_arty_a7_i/util_vector_logic_5_Res</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_5_Res</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

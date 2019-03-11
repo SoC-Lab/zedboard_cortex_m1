@@ -44,7 +44,8 @@ entity cortex_rp is
     SYS_CLOCK : IN STD_LOGIC;
     TIMER_CLOCK : IN STD_LOGIC;
     UART_RX : IN STD_LOGIC;
-    UART_TX : OUT STD_LOGIC
+    UART_TX : OUT STD_LOGIC;
+    CORTEX_RESET : IN STD_LOGIC
   );
 end cortex_rp;
 
@@ -62,7 +63,8 @@ COMPONENT cm1_throttle_wrapper_0
     SYS_CLOCK : IN STD_LOGIC;
     TIMER_CLOCK : IN STD_LOGIC;
     UART_RX : IN STD_LOGIC;
-    UART_TX : OUT STD_LOGIC
+    UART_TX : OUT STD_LOGIC;
+    CORTEX_RESET : IN STD_LOGIC
   );
 END COMPONENT;
 begin
@@ -80,7 +82,8 @@ cortex_ecu_i : cm1_throttle_wrapper_0
     SYS_CLOCK => SYS_CLOCK,
     TIMER_CLOCK => TIMER_CLOCK,
     UART_RX => UART_RX,
-    UART_TX => UART_TX
+    UART_TX => UART_TX,
+    CORTEX_RESET => CORTEX_RESET
   );
 
 end Behavioral;

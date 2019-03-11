@@ -91,6 +91,7 @@ signal int_CM_UART_TX : STD_LOGIC;
 signal int_CM_uart_rx_int : STD_LOGIC;
 signal int_CM_PRC_RESET : STD_LOGIC;
 signal int_CM_UART_TX_INT : STD_LOGIC;
+signal int_CM_RESET : STD_LOGIC;
 
 COMPONENT cortex_rp
   PORT (
@@ -105,7 +106,8 @@ COMPONENT cortex_rp
     SYS_CLOCK : IN STD_LOGIC;
     TIMER_CLOCK : IN STD_LOGIC;
     UART_RX : IN STD_LOGIC;
-    UART_TX : OUT STD_LOGIC
+    UART_TX : OUT STD_LOGIC;
+    CORTEX_RESET : IN STD_LOGIC
   );
 END COMPONENT;
 
@@ -160,7 +162,8 @@ component m1_for_arty_a7 is
     btn_u : in STD_LOGIC;
     btn_r : in STD_LOGIC;
     btn_l : in STD_LOGIC;
-    int_UART_TX_INT : in STD_LOGIC
+    int_UART_TX_INT : in STD_LOGIC;
+    int_CORTEX_RESET : OUT STD_LOGIC
     );
 end component m1_for_arty_a7;
 
@@ -175,7 +178,7 @@ component ICAPE2 is
         CLK : in std_logic;
         CSIB : in std_logic;
         I : in std_logic_vector(31 downto 0);
-        RDWRB : inout std_logic
+        RDWRB : in std_logic
     );
 end component ICAPE2;
 
@@ -221,7 +224,8 @@ cortex_i : component cortex_rp
         SYS_CLOCK           => int_CM_SYS_CLOCK,
         TIMER_CLOCK         => int_CM_TIMER_CLOCK,
         UART_RX             => int_CM_UART_RX,
-        UART_TX             => int_CM_UART_TX
+        UART_TX             => int_CM_UART_TX,
+        CORTEX_RESET        => int_CM_RESET
     );
 
 m1_for_arty_a7_i: component m1_for_arty_a7
@@ -275,7 +279,8 @@ m1_for_arty_a7_i: component m1_for_arty_a7
       btn_u => btn_u,
       btn_r => btn_r,
       btn_l => btn_l,
-      int_UART_TX_INT => int_CM_UART_TX
+      int_UART_TX_INT => int_CM_UART_TX,
+      int_CORTEX_RESET => int_CM_RESET
     );
     
 -- Reset the PR Module after a parital reconfiguration event and hope the best.

@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Mar  4 22:20:28 2019
+--Date        : Mon Mar 11 17:06:36 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target cm1_ecu.bd
 --Design      : cm1_ecu
@@ -1625,6 +1625,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity cm1_ecu is
   port (
+    CORTEX_RESET : in STD_LOGIC;
     DIN : in STD_LOGIC_VECTOR ( 31 downto 0 );
     DOUT : out STD_LOGIC_VECTOR ( 31 downto 0 );
     I2C_SCL : out STD_LOGIC;
@@ -1834,6 +1835,7 @@ architecture STRUCTURE of cm1_ecu is
     RREADY : out STD_LOGIC
   );
   end component cm1_ecu_Cortex_M1_0_0;
+  signal CORTEX_RESET_1 : STD_LOGIC;
   signal Cortex_M1_0_CM1_AXI3_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal Cortex_M1_0_CM1_AXI3_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1869,6 +1871,8 @@ architecture STRUCTURE of cm1_ecu is
   signal I2C_SDA_RX_1 : STD_LOGIC;
   signal M04_ACLK_1 : STD_LOGIC;
   signal M04_ARESETN_1 : STD_LOGIC;
+  signal RESET_INTERCONNECT_1 : STD_LOGIC;
+  signal RESET_PERIPHERAL_1 : STD_LOGIC;
   signal UART_RX_1 : STD_LOGIC;
   signal axi_gpio_2_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_iic_0_iic2intc_irpt : STD_LOGIC;
@@ -1946,8 +1950,6 @@ architecture STRUCTURE of cm1_ecu is
   signal axi_uartlite_0_interrupt : STD_LOGIC;
   signal axi_uartlite_0_tx : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
-  signal reset_0_1 : STD_LOGIC;
-  signal reset_peripherial_1 : STD_LOGIC;
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 28 downto 0 );
   signal xlconstant_1_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1969,18 +1971,21 @@ architecture STRUCTURE of cm1_ecu is
   signal NLW_axi_timer_0_generateout1_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_pwm0_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of RESET_INTERCONNECT : signal is "xilinx.com:signal:reset:1.0 RST.RESET_INTERCONNECT RST";
+  attribute X_INTERFACE_INFO of CORTEX_RESET : signal is "xilinx.com:signal:reset:1.0 RST.CORTEX_RESET RST";
   attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of CORTEX_RESET : signal is "XIL_INTERFACENAME RST.CORTEX_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of RESET_INTERCONNECT : signal is "xilinx.com:signal:reset:1.0 RST.RESET_INTERCONNECT RST";
   attribute X_INTERFACE_PARAMETER of RESET_INTERCONNECT : signal is "XIL_INTERFACENAME RST.RESET_INTERCONNECT, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of RESET_PERIPHERAL : signal is "xilinx.com:signal:reset:1.0 RST.RESET_PERIPHERAL RST";
   attribute X_INTERFACE_PARAMETER of RESET_PERIPHERAL : signal is "XIL_INTERFACENAME RST.RESET_PERIPHERAL, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of RESET_TIMER : signal is "xilinx.com:signal:reset:1.0 RST.RESET_TIMER RST";
   attribute X_INTERFACE_PARAMETER of RESET_TIMER : signal is "XIL_INTERFACENAME RST.RESET_TIMER, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of SYS_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
-  attribute X_INTERFACE_PARAMETER of SYS_CLOCK : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, ASSOCIATED_RESET RESET_INTERCONNECT:RESET_PERIPHERAL, CLK_DOMAIN cm1_ecu_SYS_CLOCK, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of SYS_CLOCK : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, ASSOCIATED_RESET RESET_INTERCONNECT:RESET_PERIPHERAL:CORTEX_RESET, CLK_DOMAIN cm1_ecu_SYS_CLOCK, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.000";
   attribute X_INTERFACE_INFO of TIMER_CLOCK : signal is "xilinx.com:signal:clock:1.0 CLK.TIMER_CLOCK CLK";
   attribute X_INTERFACE_PARAMETER of TIMER_CLOCK : signal is "XIL_INTERFACENAME CLK.TIMER_CLOCK, ASSOCIATED_RESET RESET_TIMER, CLK_DOMAIN cm1_ecu_TIMER_CLOCK, FREQ_HZ 8000000, INSERT_VIP 0, PHASE 0.000";
 begin
+  CORTEX_RESET_1 <= CORTEX_RESET;
   DIN_1(31 downto 0) <= DIN(31 downto 0);
   DOUT(31 downto 0) <= axi_gpio_2_gpio_io_o(31 downto 0);
   I2C_SCL <= axi_iic_0_scl_o;
@@ -1988,11 +1993,11 @@ begin
   I2C_SDA_TX <= axi_iic_0_sda_o;
   M04_ACLK_1 <= TIMER_CLOCK;
   M04_ARESETN_1 <= RESET_TIMER;
+  RESET_INTERCONNECT_1 <= RESET_INTERCONNECT;
+  RESET_PERIPHERAL_1 <= RESET_PERIPHERAL;
   UART_RX_1 <= UART_RX;
   UART_TX <= axi_uartlite_0_tx;
   clk_wiz_0_clk_out1 <= SYS_CLOCK;
-  reset_0_1 <= RESET_INTERCONNECT;
-  reset_peripherial_1 <= RESET_PERIPHERAL;
 Cortex_M1_0: component cm1_ecu_Cortex_M1_0_0
      port map (
       ARADDR(31 downto 0) => Cortex_M1_0_CM1_AXI3_ARADDR(31 downto 0),
@@ -2019,7 +2024,7 @@ Cortex_M1_0: component cm1_ecu_Cortex_M1_0_0
       BRESP(1 downto 0) => Cortex_M1_0_CM1_AXI3_BRESP(1 downto 0),
       BVALID => Cortex_M1_0_CM1_AXI3_BVALID,
       CFGITCMEN(1 downto 0) => xlconstant_1_dout(1 downto 0),
-      DBGRESETn => reset_0_1,
+      DBGRESETn => CORTEX_RESET_1,
       DBGRESTART => '0',
       DBGRESTARTED => NLW_Cortex_M1_0_DBGRESTARTED_UNCONNECTED,
       EDBGRQ => '0',
@@ -2039,7 +2044,7 @@ Cortex_M1_0: component cm1_ecu_Cortex_M1_0_0
       SWCLKTCK => '0',
       SWDITMS => '0',
       SYSRESETREQ => NLW_Cortex_M1_0_SYSRESETREQ_UNCONNECTED,
-      SYSRESETn => reset_0_1,
+      SYSRESETn => CORTEX_RESET_1,
       TDI => '0',
       TDO => NLW_Cortex_M1_0_TDO_UNCONNECTED,
       WLAST => Cortex_M1_0_CM1_AXI3_WLAST,
@@ -2056,7 +2061,7 @@ axi_gpio_2: component cm1_ecu_axi_gpio_2_0
       gpio_io_t(31 downto 0) => NLW_axi_gpio_2_gpio_io_t_UNCONNECTED(31 downto 0),
       s_axi_aclk => clk_wiz_0_clk_out1,
       s_axi_araddr(8 downto 0) => axi_interconnect_0_M01_AXI_ARADDR(8 downto 0),
-      s_axi_aresetn => reset_0_1,
+      s_axi_aresetn => RESET_PERIPHERAL_1,
       s_axi_arready => axi_interconnect_0_M01_AXI_ARREADY,
       s_axi_arvalid => axi_interconnect_0_M01_AXI_ARVALID(0),
       s_axi_awaddr(8 downto 0) => axi_interconnect_0_M01_AXI_AWADDR(8 downto 0),
@@ -2080,7 +2085,7 @@ axi_iic_0: component cm1_ecu_axi_iic_0_0
       iic2intc_irpt => axi_iic_0_iic2intc_irpt,
       s_axi_aclk => clk_wiz_0_clk_out1,
       s_axi_araddr(8 downto 0) => axi_interconnect_0_M02_AXI_ARADDR(8 downto 0),
-      s_axi_aresetn => reset_0_1,
+      s_axi_aresetn => RESET_PERIPHERAL_1,
       s_axi_arready => axi_interconnect_0_M02_AXI_ARREADY,
       s_axi_arvalid => axi_interconnect_0_M02_AXI_ARVALID(0),
       s_axi_awaddr(8 downto 0) => axi_interconnect_0_M02_AXI_AWADDR(8 downto 0),
@@ -2107,9 +2112,9 @@ axi_iic_0: component cm1_ecu_axi_iic_0_0
 axi_interconnect_0: entity work.cm1_ecu_axi_interconnect_0_0
      port map (
       ACLK => clk_wiz_0_clk_out1,
-      ARESETN => reset_peripherial_1,
+      ARESETN => RESET_INTERCONNECT_1,
       M00_ACLK => clk_wiz_0_clk_out1,
-      M00_ARESETN => reset_0_1,
+      M00_ARESETN => RESET_PERIPHERAL_1,
       M00_AXI_araddr(31 downto 0) => axi_interconnect_0_M00_AXI_ARADDR(31 downto 0),
       M00_AXI_arready => axi_interconnect_0_M00_AXI_ARREADY,
       M00_AXI_arvalid => axi_interconnect_0_M00_AXI_ARVALID,
@@ -2128,7 +2133,7 @@ axi_interconnect_0: entity work.cm1_ecu_axi_interconnect_0_0
       M00_AXI_wstrb(3 downto 0) => axi_interconnect_0_M00_AXI_WSTRB(3 downto 0),
       M00_AXI_wvalid => axi_interconnect_0_M00_AXI_WVALID,
       M01_ACLK => clk_wiz_0_clk_out1,
-      M01_ARESETN => reset_0_1,
+      M01_ARESETN => RESET_PERIPHERAL_1,
       M01_AXI_araddr(31 downto 0) => axi_interconnect_0_M01_AXI_ARADDR(31 downto 0),
       M01_AXI_arready(0) => axi_interconnect_0_M01_AXI_ARREADY,
       M01_AXI_arvalid(0) => axi_interconnect_0_M01_AXI_ARVALID(0),
@@ -2147,7 +2152,7 @@ axi_interconnect_0: entity work.cm1_ecu_axi_interconnect_0_0
       M01_AXI_wstrb(3 downto 0) => axi_interconnect_0_M01_AXI_WSTRB(3 downto 0),
       M01_AXI_wvalid(0) => axi_interconnect_0_M01_AXI_WVALID(0),
       M02_ACLK => clk_wiz_0_clk_out1,
-      M02_ARESETN => reset_0_1,
+      M02_ARESETN => RESET_PERIPHERAL_1,
       M02_AXI_araddr(31 downto 0) => axi_interconnect_0_M02_AXI_ARADDR(31 downto 0),
       M02_AXI_arready(0) => axi_interconnect_0_M02_AXI_ARREADY,
       M02_AXI_arvalid(0) => axi_interconnect_0_M02_AXI_ARVALID(0),
@@ -2185,7 +2190,7 @@ axi_interconnect_0: entity work.cm1_ecu_axi_interconnect_0_0
       M03_AXI_wstrb(3 downto 0) => axi_interconnect_0_M03_AXI_WSTRB(3 downto 0),
       M03_AXI_wvalid => axi_interconnect_0_M03_AXI_WVALID,
       S00_ACLK => clk_wiz_0_clk_out1,
-      S00_ARESETN => reset_0_1,
+      S00_ARESETN => RESET_PERIPHERAL_1,
       S00_AXI_araddr(31 downto 0) => Cortex_M1_0_CM1_AXI3_ARADDR(31 downto 0),
       S00_AXI_arburst(1 downto 0) => Cortex_M1_0_CM1_AXI3_ARBURST(1 downto 0),
       S00_AXI_arcache(3 downto 0) => Cortex_M1_0_CM1_AXI3_ARCACHE(3 downto 0),
@@ -2253,7 +2258,7 @@ axi_uartlite_0: component cm1_ecu_axi_uartlite_0_0
       rx => UART_RX_1,
       s_axi_aclk => clk_wiz_0_clk_out1,
       s_axi_araddr(3 downto 0) => axi_interconnect_0_M00_AXI_ARADDR(3 downto 0),
-      s_axi_aresetn => reset_0_1,
+      s_axi_aresetn => RESET_PERIPHERAL_1,
       s_axi_arready => axi_interconnect_0_M00_AXI_ARREADY,
       s_axi_arvalid => axi_interconnect_0_M00_AXI_ARVALID,
       s_axi_awaddr(3 downto 0) => axi_interconnect_0_M00_AXI_AWADDR(3 downto 0),
