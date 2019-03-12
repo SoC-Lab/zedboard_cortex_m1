@@ -10,16 +10,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1024001fs"></ZoomEndTime>
+      <ZoomEndTime time="9441fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <NameColumnWidth column_width="170"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
-   <wave_markers>
-   </wave_markers>
    <wvobject type="logic" fp_name="m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">m1_for_arty_a7_i/prc_0_vsm_vs_cortex_rm_reset</obj_property>

@@ -31,7 +31,10 @@
       "util_vector_logic_2": "",
       "util_vector_logic_4": "",
       "util_vector_logic_5": "",
-      "ila_0": ""
+      "top_0": "",
+      "xlslice_2": "",
+      "reset_counter_0": "",
+      "util_vector_logic_6": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1147,7 +1150,7 @@
         "xci_name": "m1_for_arty_a7_xlconstant_0_1",
         "parameters": {
           "CONST_VAL": {
-            "value": "0"
+            "value": "1"
           },
           "CONST_WIDTH": {
             "value": "1"
@@ -1288,7 +1291,7 @@
             "value": "no"
           },
           "GUI_SELECT_RM": {
-            "value": "3"
+            "value": "0"
           },
           "GUI_SELECT_TRIGGER_1": {
             "value": "1"
@@ -1426,33 +1429,176 @@
           }
         }
       },
-      "ila_0": {
-        "vlnv": "xilinx.com:ip:ila:6.2",
-        "xci_name": "m1_for_arty_a7_ila_0_0",
+      "top_0": {
+        "vlnv": "xilinx.com:module_ref:top:1.0",
+        "xci_name": "m1_for_arty_a7_top_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RST",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "RST": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "EN": {
+            "direction": "I"
+          },
+          "UART_RX_EXT": {
+            "direction": "I"
+          },
+          "UART_TX_EXT": {
+            "direction": "O"
+          },
+          "UART_RX_INT": {
+            "direction": "O"
+          },
+          "UART_TX_INT": {
+            "direction": "I"
+          },
+          "REC_ECU": {
+            "direction": "O"
+          },
+          "REC_MCU": {
+            "direction": "O"
+          },
+          "REC_THS": {
+            "direction": "O"
+          },
+          "REC_BLK": {
+            "direction": "O"
+          },
+          "MCU_GPIO_INT": {
+            "direction": "I"
+          },
+          "MCU_GPIO_EXT": {
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          }
+        }
+      },
+      "xlslice_2": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "m1_for_arty_a7_xlslice_1_0",
         "parameters": {
-          "C_ENABLE_ILA_AXI_MON": {
-            "value": "false"
+          "DIN_FROM": {
+            "value": "1"
           },
-          "C_MONITOR_TYPE": {
-            "value": "Native"
+          "DIN_TO": {
+            "value": "1"
           },
-          "C_NUM_OF_PROBES": {
-            "value": "7"
+          "DOUT_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "reset_counter_0": {
+        "vlnv": "xilinx.com:module_ref:reset_counter:1.0",
+        "xci_name": "m1_for_arty_a7_reset_counter_0_0",
+        "parameters": {
+          "DURATION_RESET": {
+            "value": "100"
+          },
+          "MAX_COUNTER_VALUE": {
+            "value": "100000000"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "reset_counter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reset_i": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "clock_i": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset_i",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "reset_o": {
+            "type": "rst",
+            "direction": "O"
+          }
+        }
+      },
+      "util_vector_logic_6": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "m1_for_arty_a7_util_vector_logic_6_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "or"
+          },
+          "C_SIZE": {
+            "value": "1"
           }
         }
       }
     },
     "interface_nets": {
-      "processing_system7_0_FIXED_IO": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
-      "axi_protocol_convert_0_M_AXI": {
-        "interface_ports": [
-          "axi_protocol_convert_0/M_AXI",
-          "processing_system7_0/S_AXI_HP0"
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       },
       "prc_0_ICAP": {
@@ -1461,16 +1607,22 @@
           "prc_0/ICAP"
         ]
       },
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "prc_0_m_axi_mem": {
         "interface_ports": [
           "prc_0/m_axi_mem",
           "axi_protocol_convert_0/S_AXI"
+        ]
+      },
+      "axi_protocol_convert_0_M_AXI": {
+        "interface_ports": [
+          "axi_protocol_convert_0/M_AXI",
+          "processing_system7_0/S_AXI_HP0"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
         ]
       }
     },
@@ -1486,7 +1638,8 @@
           "prc_0/clk",
           "prc_0/icap_clk",
           "proc_sys_reset_2/slowest_sync_clk",
-          "ila_0/clk"
+          "top_0/CLK",
+          "reset_counter_0/clock_i"
         ]
       },
       "reset_0_2": {
@@ -1494,15 +1647,14 @@
           "reset_0",
           "clk_wiz_0/reset",
           "util_vector_logic_0/Op1",
-          "ila_0/probe6",
-          "ENGINE",
           "xlconcat_2/In6"
         ]
       },
       "UART_RX_1": {
         "ports": [
           "UART_RX",
-          "util_vector_logic_2/Op1"
+          "util_vector_logic_2/Op1",
+          "top_0/UART_RX_EXT"
         ]
       },
       "M04_ACLK_1": {
@@ -1528,6 +1680,7 @@
       },
       "top_0_UART_TX_EXT": {
         "ports": [
+          "top_0/UART_TX_EXT",
           "UART_TX",
           "util_vector_logic_4/Op1"
         ]
@@ -1535,7 +1688,8 @@
       "cm1_ecu_wrapper_0_DOUT": {
         "ports": [
           "int_DOUT",
-          "xlslice_1/Din"
+          "xlslice_1/Din",
+          "xlslice_2/Din"
         ]
       },
       "xlconstant_1_dout": {
@@ -1594,33 +1748,23 @@
           "prc_0/cap_rel"
         ]
       },
-      "top_0_REC_THS": {
-        "ports": [
-          "btn_l",
-          "xlconcat_2/In1",
-          "xlconcat_0/In1"
-        ]
-      },
       "proc_sys_reset_1_interconnect_aresetn": {
         "ports": [
           "proc_sys_reset_1/interconnect_aresetn",
-          "int_RESET_INTERCONNECT",
-          "ila_0/probe1"
+          "int_RESET_INTERCONNECT"
         ]
       },
       "proc_sys_reset_1_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_1/peripheral_aresetn",
-          "int_RESET_PERIPHERAL",
-          "ila_0/probe2"
+          "int_RESET_PERIPHERAL"
         ]
       },
       "util_vector_logic_1_Res": {
         "ports": [
           "util_vector_logic_1/Res",
           "proc_sys_reset_1/ext_reset_in",
-          "proc_sys_reset_0/ext_reset_in",
-          "ila_0/probe5"
+          "proc_sys_reset_0/ext_reset_in"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn": {
@@ -1644,8 +1788,9 @@
       "proc_sys_reset_2_peripheral_reset": {
         "ports": [
           "proc_sys_reset_2/peripheral_reset",
-          "prc_0/reset",
-          "prc_0/icap_reset"
+          "top_0/RST",
+          "reset_counter_0/reset_i",
+          "util_vector_logic_6/Op2"
         ]
       },
       "proc_sys_reset_2_interconnect_aresetn": {
@@ -1654,32 +1799,16 @@
           "axi_protocol_convert_0/aresetn"
         ]
       },
-      "top_0_REC_ECU1": {
-        "ports": [
-          "btn_d",
-          "xlconcat_0/In0",
-          "xlconcat_2/In0"
-        ]
-      },
-      "top_0_REC_MCU": {
-        "ports": [
-          "btn_r",
-          "xlconcat_2/In2",
-          "xlconcat_0/In2"
-        ]
-      },
       "prc_0_vsm_vs_cortex_rm_reset": {
         "ports": [
           "prc_0/vsm_vs_cortex_rm_reset",
-          "util_vector_logic_1/Op1",
-          "ila_0/probe3"
+          "util_vector_logic_1/Op1"
         ]
       },
       "util_vector_logic_3_Res": {
         "ports": [
           "util_vector_logic_3/Res",
-          "util_vector_logic_1/Op2",
-          "ila_0/probe4"
+          "util_vector_logic_1/Op2"
         ]
       },
       "xlslice_1_Dout": {
@@ -1709,14 +1838,77 @@
       "util_vector_logic_5_Res": {
         "ports": [
           "util_vector_logic_5/Res",
-          "int_CORTEX_RESET",
-          "ila_0/probe0"
+          "int_CORTEX_RESET"
         ]
       },
       "xlconstant_2_dout": {
         "ports": [
           "xlconstant_2/dout",
+          "top_0/EN"
+        ]
+      },
+      "int_UART_TX_INT_1": {
+        "ports": [
+          "int_UART_TX_INT",
+          "top_0/UART_TX_INT"
+        ]
+      },
+      "top_0_UART_RX_INT": {
+        "ports": [
+          "top_0/UART_RX_INT",
+          "int_uart_rx_int"
+        ]
+      },
+      "top_0_REC_ECU": {
+        "ports": [
+          "top_0/REC_ECU",
+          "xlconcat_0/In0",
+          "xlconcat_2/In0"
+        ]
+      },
+      "top_0_REC_THS": {
+        "ports": [
+          "top_0/REC_THS",
+          "xlconcat_0/In1",
+          "xlconcat_2/In2"
+        ]
+      },
+      "top_0_REC_MCU": {
+        "ports": [
+          "top_0/REC_MCU",
+          "xlconcat_0/In2",
+          "xlconcat_2/In1"
+        ]
+      },
+      "top_0_REC_BLK": {
+        "ports": [
+          "top_0/REC_BLK",
           "xlconcat_0/In3"
+        ]
+      },
+      "xlslice_2_Dout": {
+        "ports": [
+          "xlslice_2/Dout",
+          "top_0/MCU_GPIO_INT"
+        ]
+      },
+      "top_0_MCU_GPIO_EXT": {
+        "ports": [
+          "top_0/MCU_GPIO_EXT",
+          "ENGINE"
+        ]
+      },
+      "reset_counter_0_reset_o": {
+        "ports": [
+          "reset_counter_0/reset_o",
+          "util_vector_logic_6/Op1"
+        ]
+      },
+      "util_vector_logic_6_Res": {
+        "ports": [
+          "util_vector_logic_6/Res",
+          "prc_0/reset",
+          "prc_0/icap_reset"
         ]
       }
     },

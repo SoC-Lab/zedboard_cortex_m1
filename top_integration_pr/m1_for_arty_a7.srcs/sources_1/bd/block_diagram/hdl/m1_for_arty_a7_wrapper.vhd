@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Mon Mar 11 19:33:03 2019
+--Date        : Tue Mar 12 16:41:27 2019
 --Host        : consti-002 running 64-bit Ubuntu 16.04.6 LTS
 --Command     : generate_target m1_for_arty_a7_wrapper.bd
 --Design      : m1_for_arty_a7_wrapper
@@ -96,12 +96,6 @@ architecture STRUCTURE of m1_for_arty_a7_wrapper is
     btn_l : in STD_LOGIC;
     int_UART_TX_INT : in STD_LOGIC;
     int_CORTEX_RESET : out STD_LOGIC_VECTOR ( 0 to 0 );
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -120,7 +114,13 @@ architecture STRUCTURE of m1_for_arty_a7_wrapper is
     ICAP_0_csib : out STD_LOGIC;
     ICAP_0_i : out STD_LOGIC_VECTOR ( 31 downto 0 );
     ICAP_0_o : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    ICAP_0_rdwrb : out STD_LOGIC
+    ICAP_0_rdwrb : out STD_LOGIC;
+    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
+    FIXED_IO_ddr_vrn : inout STD_LOGIC;
+    FIXED_IO_ddr_vrp : inout STD_LOGIC;
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    FIXED_IO_ps_clk : inout STD_LOGIC;
+    FIXED_IO_ps_porb : inout STD_LOGIC
   );
   end component m1_for_arty_a7;
 begin

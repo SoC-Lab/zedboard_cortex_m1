@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="m1_for_arty_a7" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1552329210"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1552329210"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1552329210"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1552329210"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1552405326"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1552405326"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1552405326"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1552405326"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/m1_for_arty_a7_processing_system7_0_0/m1_for_arty_a7_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -175,6 +175,14 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
+      <File Name="ip/m1_for_arty_a7_util_vector_logic_5_0/m1_for_arty_a7_util_vector_logic_5_0.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_5"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
       <File Name="synth/m1_for_arty_a7.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
@@ -185,16 +193,32 @@
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/m1_for_arty_a7_util_vector_logic_5_0/m1_for_arty_a7_util_vector_logic_5_0.xci" Type="IP">
-        <Instance HierarchyPath="util_vector_logic_5"/>
+      <File Name="ip/m1_for_arty_a7_top_0_0/m1_for_arty_a7_top_0_0.xci" Type="IP">
+        <Instance HierarchyPath="top_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/m1_for_arty_a7_ila_0_0/m1_for_arty_a7_ila_0_0.xci" Type="IP">
-        <Instance HierarchyPath="ila_0"/>
+      <File Name="ip/m1_for_arty_a7_xlslice_1_0/m1_for_arty_a7_xlslice_1_0.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/m1_for_arty_a7_reset_counter_0_0/m1_for_arty_a7_reset_counter_0_0.xci" Type="IP">
+        <Instance HierarchyPath="reset_counter_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/m1_for_arty_a7_util_vector_logic_6_0/m1_for_arty_a7_util_vector_logic_6_0.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_6"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

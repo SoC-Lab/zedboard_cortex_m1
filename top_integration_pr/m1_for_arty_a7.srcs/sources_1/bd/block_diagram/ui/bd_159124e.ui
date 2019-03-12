@@ -4,99 +4,109 @@
    "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
 preplace port btn_r -pg 1 -y 80 -defaultsOSRD
-preplace port int_uart_rx_int -pg 1 -y 40 -defaultsOSRD
-preplace port int_SYS_CLOCK -pg 1 -y 940 -defaultsOSRD
-preplace port DDR -pg 1 -y 720 -defaultsOSRD
-preplace port UART_RX -pg 1 -y 350 -defaultsOSRD
-preplace port ICAP_0 -pg 1 -y 450 -defaultsOSRD
-preplace port int_TIMER_CLOCK -pg 1 -y 960 -defaultsOSRD
-preplace port btn_u -pg 1 -y 900 -defaultsOSRD
-preplace port sys_clock -pg 1 -y 980 -defaultsOSRD
+preplace port int_uart_rx_int -pg 1 -y 60 -defaultsOSRD
+preplace port int_SYS_CLOCK -pg 1 -y 1100 -defaultsOSRD
+preplace port DDR -pg 1 -y 870 -defaultsOSRD
+preplace port UART_RX -pg 1 -y 260 -defaultsOSRD
+preplace port ICAP_0 -pg 1 -y 430 -defaultsOSRD
+preplace port int_TIMER_CLOCK -pg 1 -y 1120 -defaultsOSRD
+preplace port btn_u -pg 1 -y 850 -defaultsOSRD
+preplace port sys_clock -pg 1 -y 1130 -defaultsOSRD
 preplace port btn_l -pg 1 -y 60 -defaultsOSRD
-preplace port I2C_SDA_TX -pg 1 -y 80 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 740 -defaultsOSRD
+preplace port I2C_SDA_TX -pg 1 -y 100 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 890 -defaultsOSRD
 preplace port I2C_SDA_RX -pg 1 -y 20 -defaultsOSRD
-preplace port THROTTLE -pg 1 -y 700 -defaultsOSRD
+preplace port THROTTLE -pg 1 -y 670 -defaultsOSRD
 preplace port UART_TX -pg 1 -y 20 -defaultsOSRD
-preplace port reset_0 -pg 1 -y 920 -defaultsOSRD
-preplace port int_UART_TX_INT -pg 1 -y 370 -defaultsOSRD
-preplace port I2C_SCL -pg 1 -y 60 -defaultsOSRD
-preplace port int_CM_PRC_RESET -pg 1 -y 100 -defaultsOSRD
+preplace port reset_0 -pg 1 -y 870 -defaultsOSRD
+preplace port int_UART_TX_INT -pg 1 -y 280 -defaultsOSRD
+preplace port I2C_SCL -pg 1 -y 80 -defaultsOSRD
+preplace port int_CM_PRC_RESET -pg 1 -y 120 -defaultsOSRD
 preplace port btn_d -pg 1 -y 40 -defaultsOSRD
-preplace portBus ENGINE -pg 1 -y 400 -defaultsOSRD
-preplace portBus int_CORTEX_RESET -pg 1 -y 430 -defaultsOSRD
-preplace portBus led -pg 1 -y 270 -defaultsOSRD
-preplace portBus int_DOUT -pg 1 -y 100 -defaultsOSRD
-preplace portBus int_RESET_PERIPHERAL -pg 1 -y 600 -defaultsOSRD
-preplace portBus int_RESET_INTERCONNECT -pg 1 -y 580 -defaultsOSRD
-preplace portBus SW -pg 1 -y 1150 -defaultsOSRD
-preplace portBus int_DIN -pg 1 -y 1160 -defaultsOSRD
-preplace portBus int_RESET_TIMER -pg 1 -y 880 -defaultsOSRD
-preplace inst prc_0 -pg 1 -lvl 4 -y 540 -defaultsOSRD
-preplace inst xlslice_1 -pg 1 -lvl 6 -y 100 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 6 -y 1090 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 2 -y 250 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 3 -y 520 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 780 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 6 -y 1210 -defaultsOSRD
-preplace inst proc_sys_reset_0 -pg 1 -lvl 7 -y 840 -defaultsOSRD
-preplace inst util_vector_logic_1 -pg 1 -lvl 5 -y 610 -defaultsOSRD
-preplace inst xlconcat_1 -pg 1 -lvl 7 -y 1160 -defaultsOSRD
-preplace inst proc_sys_reset_1 -pg 1 -lvl 6 -y 560 -defaultsOSRD
-preplace inst util_vector_logic_2 -pg 1 -lvl 6 -y 200 -defaultsOSRD
-preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -y 800 -defaultsOSRD
-preplace inst xlconstant_5 -pg 1 -lvl 3 -y 650 -defaultsOSRD
-preplace inst axi_protocol_convert_0 -pg 1 -lvl 5 -y 760 -defaultsOSRD
-preplace inst xlconcat_2 -pg 1 -lvl 7 -y 270 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 3 -y 290 -defaultsOSRD
-preplace inst util_vector_logic_3 -pg 1 -lvl 4 -y 890 -defaultsOSRD
-preplace inst xlconstant_6 -pg 1 -lvl 4 -y 750 -defaultsOSRD
-preplace inst util_vector_logic_4 -pg 1 -lvl 6 -y 300 -defaultsOSRD
-preplace inst util_vector_logic_5 -pg 1 -lvl 7 -y 520 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 6 -y 970 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 6 -y 770 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 6 2 NJ 720 NJ
-preplace netloc btn_u_1 1 0 4 NJ 900 NJ 900 710J 890 NJ
-preplace netloc xlconstant_5_dout 1 3 2 1300 690 1840
-preplace netloc xlconstant_1_dout 1 6 1 2690J
-preplace netloc top_0_UART_TX_EXT 1 5 3 2240 10 2770J 20 NJ
-preplace netloc axi_protocol_convert_0_M_AXI 1 5 1 N
-preplace netloc xlconstant_2_dout 1 2 1 700J
-preplace netloc xlslice_1_Dout 1 6 1 2700J
-preplace netloc clk_wiz_0_locked 1 1 6 320 950 NJ 950 NJ 950 NJ 950 2240 880 2700
-preplace netloc util_vector_logic_4_Res 1 6 1 NJ
-preplace netloc util_vector_logic_3_Res 1 2 3 790 830 N 830 1880J
-preplace netloc cm1_ecu_wrapper_0_DOUT 1 0 6 NJ 100 N 100 NJ 100 NJ 100 NJ 100 NJ
-preplace netloc proc_sys_reset_1_peripheral_aresetn 1 2 6 760 960 N 960 1900 680 2250 660 2700J 600 NJ
-preplace netloc top_0_REC_THS 1 0 7 N 60 N 60 740 40 NJ 40 NJ 40 NJ 40 2730
+preplace portBus ENGINE -pg 1 -y 40 -defaultsOSRD
+preplace portBus int_CORTEX_RESET -pg 1 -y 670 -defaultsOSRD
+preplace portBus led -pg 1 -y 290 -defaultsOSRD
+preplace portBus int_DOUT -pg 1 -y 120 -defaultsOSRD
+preplace portBus int_RESET_PERIPHERAL -pg 1 -y 750 -defaultsOSRD
+preplace portBus int_RESET_INTERCONNECT -pg 1 -y 730 -defaultsOSRD
+preplace portBus SW -pg 1 -y 1300 -defaultsOSRD
+preplace portBus int_DIN -pg 1 -y 1310 -defaultsOSRD
+preplace portBus int_RESET_TIMER -pg 1 -y 1040 -defaultsOSRD
+preplace inst reset_counter_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
+preplace inst prc_0 -pg 1 -lvl 5 -y 520 -defaultsOSRD
+preplace inst xlslice_1 -pg 1 -lvl 7 -y 120 -defaultsOSRD
+preplace inst xlslice_2 -pg 1 -lvl 2 -y 340 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 7 -y 1240 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 2 -y 210 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -y 290 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 940 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 7 -y 1360 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 8 -y 1000 -defaultsOSRD
+preplace inst util_vector_logic_1 -pg 1 -lvl 6 -y 750 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 8 -y 1310 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 7 -y 710 -defaultsOSRD
+preplace inst util_vector_logic_2 -pg 1 -lvl 7 -y 220 -defaultsOSRD
+preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -y 960 -defaultsOSRD
+preplace inst xlconstant_5 -pg 1 -lvl 4 -y 610 -defaultsOSRD
+preplace inst axi_protocol_convert_0 -pg 1 -lvl 6 -y 910 -defaultsOSRD
+preplace inst xlconcat_2 -pg 1 -lvl 8 -y 290 -defaultsOSRD
+preplace inst util_vector_logic_3 -pg 1 -lvl 5 -y 850 -defaultsOSRD
+preplace inst xlconstant_6 -pg 1 -lvl 5 -y 730 -defaultsOSRD
+preplace inst util_vector_logic_4 -pg 1 -lvl 7 -y 320 -defaultsOSRD
+preplace inst util_vector_logic_5 -pg 1 -lvl 8 -y 670 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 7 -y 1120 -defaultsOSRD
+preplace inst util_vector_logic_6 -pg 1 -lvl 4 -y 480 -defaultsOSRD
+preplace inst top_0 -pg 1 -lvl 3 -y 250 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 7 -y 920 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 7 2 NJ 870 NJ
+preplace netloc top_0_MCU_GPIO_EXT 1 3 6 1060J 180 NJ 180 NJ 180 2290J 40 NJ 40 NJ
+preplace netloc btn_u_1 1 0 5 NJ 850 NJ 850 NJ 850 NJ 850 NJ
+preplace netloc xlconstant_5_dout 1 4 2 1430 670 1960
+preplace netloc xlconstant_1_dout 1 7 1 2780J
+preplace netloc top_0_UART_TX_EXT 1 3 6 NJ 190 NJ 190 NJ 190 2320 20 NJ 20 NJ
+preplace netloc axi_protocol_convert_0_M_AXI 1 6 1 N
+preplace netloc xlconstant_2_dout 1 2 1 710J
+preplace netloc xlslice_1_Dout 1 7 1 2780J
+preplace netloc clk_wiz_0_locked 1 1 7 330 860 NJ 860 NJ 860 1430J 990 NJ 990 2320 1040 2790
+preplace netloc util_vector_logic_6_Res 1 4 1 1420
+preplace netloc reset_counter_0_reset_o 1 3 1 1060
+preplace netloc util_vector_logic_4_Res 1 7 1 NJ
+preplace netloc util_vector_logic_3_Res 1 5 1 1990J
+preplace netloc cm1_ecu_wrapper_0_DOUT 1 0 7 NJ 120 330 120 NJ 120 NJ 120 NJ 120 NJ 120 NJ
+preplace netloc top_0_REC_THS 1 3 5 1100 50 NJ 50 NJ 50 NJ 50 2790
+preplace netloc proc_sys_reset_1_peripheral_aresetn 1 7 2 NJ 750 NJ
 preplace netloc util_vector_logic_0_Res 1 1 1 NJ
-preplace netloc xlconcat_1_dout 1 7 1 NJ
-preplace netloc sys_clock_1 1 0 6 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ
-preplace netloc prc_0_vsm_vs_cortex_rm_reset 1 2 3 780 820 N 820 1850
-preplace netloc top_0_REC_ECU1 1 0 7 N 40 N 40 730 30 NJ 30 NJ 30 NJ 30 2740
-preplace netloc THROTTLE_1 1 0 7 -10J -20 NJ -20 NJ -20 NJ -20 NJ -20 NJ -20 2720
-preplace netloc xlconcat_0_dout 1 3 1 1290
-preplace netloc M04_ACLK_1 1 6 2 2760 960 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 6 2 NJ 740 NJ
-preplace netloc xlconstant_6_dout 1 4 1 1830
-preplace netloc clk_wiz_0_clk_out1 1 1 7 320 190 750 160 1310 380 1870 520 2220 890 2690 940 NJ
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 7 1 NJ
-preplace netloc util_vector_logic_2_Res 1 6 1 2690J
-preplace netloc util_vector_logic_1_Res 1 2 5 770 150 N 150 N 150 2210 460 2690J
-preplace netloc proc_sys_reset_1_interconnect_aresetn 1 2 6 760 -10 N -10 N -10 N -10 2710J 580 NJ
-preplace netloc util_vector_logic_5_Res 1 2 6 790 20 N 20 N 20 N 20 2760 140 3130J
-preplace netloc xlconcat_2_dout 1 7 1 NJ
-preplace netloc UART_RX_1 1 0 6 0J 180 NJ 180 700 140 NJ 140 NJ 140 2230J
-preplace netloc prc_0_m_axi_mem 1 4 1 1860
-preplace netloc prc_0_ICAP 1 4 4 NJ 450 NJ 450 NJ 450 NJ
-preplace netloc proc_sys_reset_1_mb_reset 1 6 1 NJ
-preplace netloc top_0_REC_MCU 1 0 7 N 80 N 80 710 0 NJ 0 NJ 0 NJ 0 2750
-preplace netloc proc_sys_reset_2_interconnect_aresetn 1 2 3 710J 810 NJ 810 1890
-preplace netloc proc_sys_reset_2_peripheral_reset 1 2 2 720 430 1300
-preplace netloc xlconstant_3_dout 1 6 1 2730J
-preplace netloc SW_1 1 0 7 NJ 1150 NJ 1150 NJ 1150 NJ 1150 NJ 1150 NJ 1150 NJ
-preplace netloc reset_0_2 1 0 8 0 420 NJ 420 750J 420 1290J 390 NJ 390 2230J 390 2760 400 N
-levelinfo -pg 1 -30 170 520 1190 1580 2060 2470 2950 3150 -top -100 -bot 1270
+preplace netloc xlconcat_1_dout 1 8 1 NJ
+preplace netloc sys_clock_1 1 0 7 NJ 1130 NJ 1130 NJ 1130 NJ 1130 NJ 1130 NJ 1130 NJ
+preplace netloc top_0_REC_BLK 1 3 1 1070
+preplace netloc prc_0_vsm_vs_cortex_rm_reset 1 5 1 1990
+preplace netloc THROTTLE_1 1 0 8 NJ 670 NJ 670 NJ 670 1090J 380 1420J 360 NJ 360 2300J 380 2800
+preplace netloc xlconcat_0_dout 1 4 1 1430
+preplace netloc M04_ACLK_1 1 7 2 2810 1120 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 7 2 NJ 890 NJ
+preplace netloc xlslice_2_Dout 1 2 1 730J
+preplace netloc top_0_REC_ECU 1 3 5 1090 10 NJ 10 NJ 10 NJ 10 2810J
+preplace netloc xlconstant_6_dout 1 5 1 1950
+preplace netloc clk_wiz_0_clk_out1 1 1 8 320 490 740 490 1070J 410 1440 370 1980 670 2290 1030 2770 1100 NJ
+preplace netloc top_0_UART_RX_INT 1 3 6 1070J 200 NJ 200 NJ 200 2300J 60 NJ 60 NJ
+preplace netloc int_UART_TX_INT_1 1 0 3 NJ 280 NJ 280 NJ
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 8 1 NJ
+preplace netloc util_vector_logic_2_Res 1 7 1 2770J
+preplace netloc util_vector_logic_1_Res 1 6 2 2310 810 2780
+preplace netloc proc_sys_reset_1_interconnect_aresetn 1 7 2 NJ 730 NJ
+preplace netloc util_vector_logic_5_Res 1 8 1 NJ
+preplace netloc xlconcat_2_dout 1 8 1 NJ
+preplace netloc UART_RX_1 1 0 7 NJ 260 320J 270 700 130 NJ 130 NJ 130 NJ 130 2310J
+preplace netloc prc_0_m_axi_mem 1 5 1 1970
+preplace netloc prc_0_ICAP 1 5 4 NJ 430 NJ 430 NJ 430 NJ
+preplace netloc top_0_REC_MCU 1 3 5 1080 30 NJ 30 NJ 30 NJ 30 2800
+preplace netloc proc_sys_reset_1_mb_reset 1 7 1 NJ
+preplace netloc proc_sys_reset_2_interconnect_aresetn 1 2 4 740 930 NJ 930 NJ 930 NJ
+preplace netloc proc_sys_reset_2_peripheral_reset 1 2 2 720 500 1100J
+preplace netloc xlconstant_3_dout 1 7 1 2790J
+preplace netloc SW_1 1 0 8 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
+preplace netloc reset_0_2 1 0 8 20 790 NJ 790 NJ 790 NJ 790 NJ 790 1960J 820 2300 390 2780J
+levelinfo -pg 1 0 170 520 900 1270 1700 2140 2550 2990 3190 -top 0 -bot 1420
 "
 }
 {

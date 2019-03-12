@@ -6,6 +6,42 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
+      <spirit:name>CORTEX_RESET</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>CORTEX_RESET</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CORTEX_RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CORTEX_RESET.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
       <spirit:name>RESET_INTERCONNECT</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
@@ -271,11 +307,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 04 19:34:43 UTC 2019</spirit:value>
+            <spirit:value>Mon Mar 11 22:04:20 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c10c5282</spirit:value>
+            <spirit:value>9:37e4280a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -291,11 +327,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 04 19:34:43 UTC 2019</spirit:value>
+            <spirit:value>Mon Mar 11 22:04:20 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c10c5282</spirit:value>
+            <spirit:value>9:37e4280a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -310,11 +346,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 04 19:34:43 UTC 2019</spirit:value>
+            <spirit:value>Mon Mar 11 22:04:20 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:997d03a2</spirit:value>
+            <spirit:value>9:1e59ce47</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -330,11 +366,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 04 19:34:43 UTC 2019</spirit:value>
+            <spirit:value>Mon Mar 11 22:04:20 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:997d03a2</spirit:value>
+            <spirit:value>9:1e59ce47</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -349,16 +385,29 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Mar 04 19:34:43 UTC 2019</spirit:value>
+            <spirit:value>Mon Mar 11 22:04:20 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c10c5282</spirit:value>
+            <spirit:value>9:37e4280a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
+      <spirit:port>
+        <spirit:name>CORTEX_RESET</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
       <spirit:port>
         <spirit:name>DIN</spirit:name>
         <spirit:wire>
@@ -610,26 +659,22 @@
         </spirit:define>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:name>../../ipshared/4442/src/cm1_engine.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:define>
           <spirit:name>processing_order</spirit:name>
           <spirit:value>early</spirit:value>
         </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
-        <spirit:define>
-          <spirit:name>processing_order</spirit:name>
-          <spirit:value>early</spirit:value>
-        </spirit:define>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/3998/src/cm1_engine.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_engine_ooc.xdc</spirit:name>
@@ -642,7 +687,132 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/3998/src/cm1_engine_wrapper.vhd</spirit:name>
+        <spirit:name>../../ipshared/4442/src/cm1_engine_wrapper.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_Cortex_M1_0_0/cm1_engine_Cortex_M1_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_Cortex_M1_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_gpio_2_0/cm1_engine_axi_gpio_2_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_gpio_2</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_iic_0_0/cm1_engine_axi_iic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_iic_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xbar_0/cm1_engine_xbar_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_timer_0_0/cm1_engine_axi_timer_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_timer_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_uartlite_0_0/cm1_engine_axi_uartlite_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_uartlite_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconcat_0_0/cm1_engine_xlconcat_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconcat_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconstant_0_0/cm1_engine_xlconstant_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconstant_1_0/cm1_engine_xlconstant_1_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_1</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/synth/cm1_engine.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/cm1_engine_ooc.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>SCOPED_TO_REF_cm1_engine</spirit:userFileType>
+        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/imports/engine/bram_a7.hex</spirit:name>
+        <spirit:userFileType>mif</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/hdl/cm1_engine_wrapper.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -738,26 +908,22 @@
         </spirit:define>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:name>../../ipshared/4442/sim/cm1_engine.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:define>
           <spirit:name>processing_order</spirit:name>
           <spirit:value>early</spirit:value>
         </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
-        <spirit:define>
-          <spirit:name>processing_order</spirit:name>
-          <spirit:value>early</spirit:value>
-        </spirit:define>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/3998/sim/cm1_engine.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>sim/cm1_engine.protoinst</spirit:name>
@@ -768,7 +934,130 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/3998/src/cm1_engine_wrapper.vhd</spirit:name>
+        <spirit:name>../../ipshared/4442/src/cm1_engine_wrapper.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_Cortex_M1_0_0/cm1_engine_Cortex_M1_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_Cortex_M1_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_gpio_2_0/cm1_engine_axi_gpio_2_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_gpio_2</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_iic_0_0/cm1_engine_axi_iic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_iic_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xbar_0/cm1_engine_xbar_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_timer_0_0/cm1_engine_axi_timer_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_timer_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_uartlite_0_0/cm1_engine_axi_uartlite_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_uartlite_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconcat_0_0/cm1_engine_xlconcat_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconcat_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconstant_0_0/cm1_engine_xlconstant_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_xlconstant_1_0/cm1_engine_xlconstant_1_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_1</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/sim/cm1_engine.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_auto_pc_0/cm1_engine_auto_pc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_pc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/sim/cm1_engine.protoinst</spirit:name>
+        <spirit:fileType>unknown</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/imports/engine/bram_a7.hex</spirit:name>
+        <spirit:userFileType>mif</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/hdl/cm1_engine_wrapper.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -813,6 +1102,38 @@
         <spirit:name>src/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_gpio_2_0/cm1_engine_axi_gpio_2_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_gpio_2</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_iic_0_0/cm1_engine_axi_iic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_iic_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_axi_uartlite_0_0/cm1_engine_axi_uartlite_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_uartlite_0</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../cm1_engine/m1_for_arty_a7.srcs/sources_1/bd/cm1_engine/ip/cm1_engine_auto_cc_0/cm1_engine_auto_cc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/m03_couplers/auto_cc</spirit:userFileType>
         <spirit:define>
           <spirit:name>processing_order</spirit:name>
           <spirit:value>early</spirit:value>
@@ -835,16 +1156,29 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f757001_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c017a03_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@f158a61_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@56ba893c_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7df537a5_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d3e8d41_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27828cfd_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42b9078_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63518ee5_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35fee94d_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31067d3f_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56a579f6_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@170f1100_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70f6f53a_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57fb95c_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@400a1e5_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f880c95_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78f21407_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e2ac34f_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c539619_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77f73bf8_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b4ffc78_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38860657_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7de3962e_ARCHIVE_LOCATION">/home/consti/2018WS/Lab_SoC/Abgabe/zedboard_cortex_m1/cores/ip_repo/cm1_engine_pkg</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CORTEX_RESET.POLARITY" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET_INTERCONNECT.POLARITY" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET_PERIPHERAL.POLARITY" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET_TIMER.POLARITY" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd_and_user"/>
@@ -858,9 +1192,9 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2e55eea3"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6042a2d1"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="8e70390c"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a0f529c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2ad81e3d"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="f121c143"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="0011df45"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

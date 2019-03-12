@@ -22,8 +22,8 @@
       "reset_impulse_1": "",
       "invert_singleValue_1": "",
       "invert_singleValue_2": "",
-      "cm1_engine_wrapper_0": "",
-      "top_0": ""
+      "top_0": "",
+      "cm1_engine_wrapper_0": ""
     },
     "ports": {
       "reset_0": {
@@ -335,10 +335,6 @@
           }
         }
       },
-      "cm1_engine_wrapper_0": {
-        "vlnv": "user.org:user:cm1_engine_wrapper:1.0",
-        "xci_name": "m1_for_arty_a7_cm1_engine_wrapper_0_0"
-      },
       "top_0": {
         "vlnv": "xilinx.com:module_ref:top:1.0",
         "xci_name": "m1_for_arty_a7_top_0_1",
@@ -405,6 +401,10 @@
             "direction": "O"
           }
         }
+      },
+      "cm1_engine_wrapper_0": {
+        "vlnv": "user.org:user:cm1_engine_wrapper:1.0",
+        "xci_name": "m1_for_arty_a7_cm1_engine_wrapper_0_0"
       }
     },
     "nets": {
@@ -412,8 +412,8 @@
         "ports": [
           "clk_wiz_0/clk_out1",
           "proc_sys_reset_5/slowest_sync_clk",
-          "cm1_engine_wrapper_0/SYS_CLOCK",
-          "top_0/CLK"
+          "top_0/CLK",
+          "cm1_engine_wrapper_0/SYS_CLOCK"
         ]
       },
       "reset_0_2": {
@@ -592,6 +592,12 @@
         "ports": [
           "cm1_engine_wrapper_0/UART_TX",
           "top_0/UART_TX_INT"
+        ]
+      },
+      "proc_sys_reset_5_mb_reset": {
+        "ports": [
+          "proc_sys_reset_5/mb_reset",
+          "cm1_engine_wrapper_0/CORTEX_RESET"
         ]
       }
     }

@@ -326,6 +326,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net invert_singleValue_5_o_signal [get_bd_pins proc_sys_reset_4/ext_reset_in] [get_bd_pins proc_sys_reset_5/ext_reset_in] [get_bd_pins reset_impulse_1/reset_out]
   connect_bd_net -net proc_sys_reset_4_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_TIMER] [get_bd_pins proc_sys_reset_4/peripheral_aresetn]
   connect_bd_net -net proc_sys_reset_5_interconnect_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_5/interconnect_aresetn]
+  connect_bd_net -net proc_sys_reset_5_mb_reset [get_bd_pins cm1_engine_wrapper_0/CORTEX_RESET] [get_bd_pins proc_sys_reset_5/mb_reset]
   connect_bd_net -net proc_sys_reset_5_peripheral_aresetn [get_bd_pins cm1_engine_wrapper_0/RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_5/peripheral_aresetn]
   connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins reset_impulse_1/rst] [get_bd_pins top_0/RST]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]

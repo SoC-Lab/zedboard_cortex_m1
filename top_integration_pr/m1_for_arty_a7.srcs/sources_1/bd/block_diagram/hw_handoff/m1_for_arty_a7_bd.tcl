@@ -37,6 +37,13 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # To test this script, run the following commands from Vivado Tcl console:
 # source m1_for_arty_a7_script.tcl
 
+
+# The design that will be created by this Tcl script contains the following 
+# module references:
+# reset_counter, top
+
+# Please add the sources of those modules before sourcing this Tcl script.
+
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
 # <./myproj/project_1.xpr> in the current working folder.
@@ -221,14 +228,6 @@ proc create_root_design { parentCell } {
    CONFIG.USE_RESET {true} \
  ] $clk_wiz_0
 
-  # Create instance: ila_0, and set properties
-  set ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0 ]
-  set_property -dict [ list \
-   CONFIG.C_ENABLE_ILA_AXI_MON {false} \
-   CONFIG.C_MONITOR_TYPE {Native} \
-   CONFIG.C_NUM_OF_PROBES {7} \
- ] $ila_0
-
   # Create instance: prc_0, and set properties
   set prc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:prc:1.3 prc_0 ]
   set_property -dict [ list \
@@ -244,7 +243,7 @@ proc create_root_design { parentCell } {
    CONFIG.GUI_RM_NEW_NAME {cortex_blank} \
    CONFIG.GUI_RM_RESET_DURATION {1} \
    CONFIG.GUI_RM_RESET_REQUIRED {no} \
-   CONFIG.GUI_SELECT_RM {3} \
+   CONFIG.GUI_SELECT_RM {0} \
    CONFIG.GUI_SELECT_TRIGGER_1 {1} \
    CONFIG.GUI_SELECT_TRIGGER_2 {2} \
    CONFIG.GUI_SELECT_TRIGGER_3 {3} \
@@ -669,6 +668,32 @@ proc create_root_design { parentCell } {
    CONFIG.preset {ZedBoard} \
  ] $processing_system7_0
 
+  # Create instance: reset_counter_0, and set properties
+  set block_name reset_counter
+  set block_cell_name reset_counter_0
+  if { [catch {set reset_counter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $reset_counter_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+    set_property -dict [ list \
+   CONFIG.DURATION_RESET {100} \
+   CONFIG.MAX_COUNTER_VALUE {100000000} \
+ ] $reset_counter_0
+
+  # Create instance: top_0, and set properties
+  set block_name top
+  set block_cell_name top_0
+  if { [catch {set top_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $top_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: util_vector_logic_0, and set properties
   set util_vector_logic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0 ]
   set_property -dict [ list \
@@ -717,6 +742,14 @@ proc create_root_design { parentCell } {
    CONFIG.LOGO_FILE {data/sym_notgate.png} \
  ] $util_vector_logic_5
 
+  # Create instance: util_vector_logic_6, and set properties
+  set util_vector_logic_6 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_6 ]
+  set_property -dict [ list \
+   CONFIG.C_OPERATION {or} \
+   CONFIG.C_SIZE {1} \
+   CONFIG.LOGO_FILE {data/sym_orgate.png} \
+ ] $util_vector_logic_6
+
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
   set_property -dict [ list \
@@ -756,7 +789,7 @@ proc create_root_design { parentCell } {
   # Create instance: xlconstant_2, and set properties
   set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
   set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
+   CONFIG.CONST_VAL {1} \
    CONFIG.CONST_WIDTH {1} \
  ] $xlconstant_2
 
@@ -782,6 +815,14 @@ proc create_root_design { parentCell } {
    CONFIG.DOUT_WIDTH {1} \
  ] $xlslice_1
 
+  # Create instance: xlslice_2, and set properties
+  set xlslice_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_2 ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {1} \
+   CONFIG.DIN_TO {1} \
+   CONFIG.DOUT_WIDTH {1} \
+ ] $xlslice_2
+
   # Create interface connections
   connect_bd_intf_net -intf_net axi_protocol_convert_0_M_AXI [get_bd_intf_pins axi_protocol_convert_0/M_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net prc_0_ICAP [get_bd_intf_ports ICAP_0] [get_bd_intf_pins prc_0/ICAP]
@@ -793,39 +834,46 @@ proc create_root_design { parentCell } {
   connect_bd_net -net M04_ACLK_1 [get_bd_ports int_TIMER_CLOCK] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
   connect_bd_net -net SW_1 [get_bd_ports SW] [get_bd_pins xlconcat_1/In1]
   connect_bd_net -net THROTTLE_1 [get_bd_ports THROTTLE] [get_bd_pins xlconcat_1/In2] [get_bd_pins xlconcat_2/In7]
-  connect_bd_net -net UART_RX_1 [get_bd_ports UART_RX] [get_bd_pins util_vector_logic_2/Op1]
+  connect_bd_net -net UART_RX_1 [get_bd_ports UART_RX] [get_bd_pins top_0/UART_RX_EXT] [get_bd_pins util_vector_logic_2/Op1]
   connect_bd_net -net btn_u_1 [get_bd_ports btn_u] [get_bd_pins util_vector_logic_3/Op1]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports int_SYS_CLOCK] [get_bd_pins axi_protocol_convert_0/aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins ila_0/clk] [get_bd_pins prc_0/clk] [get_bd_pins prc_0/icap_clk] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports int_SYS_CLOCK] [get_bd_pins axi_protocol_convert_0/aclk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins prc_0/clk] [get_bd_pins prc_0/icap_clk] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins proc_sys_reset_2/slowest_sync_clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins reset_counter_0/clock_i] [get_bd_pins top_0/CLK]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked] [get_bd_pins proc_sys_reset_1/dcm_locked] [get_bd_pins proc_sys_reset_2/dcm_locked]
-  connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_ports int_DOUT] [get_bd_pins xlslice_1/Din]
-  connect_bd_net -net prc_0_vsm_vs_cortex_rm_reset [get_bd_pins ila_0/probe3] [get_bd_pins prc_0/vsm_vs_cortex_rm_reset] [get_bd_pins util_vector_logic_1/Op1]
+  connect_bd_net -net cm1_ecu_wrapper_0_DOUT [get_bd_ports int_DOUT] [get_bd_pins xlslice_1/Din] [get_bd_pins xlslice_2/Din]
+  connect_bd_net -net int_UART_TX_INT_1 [get_bd_ports int_UART_TX_INT] [get_bd_pins top_0/UART_TX_INT]
+  connect_bd_net -net prc_0_vsm_vs_cortex_rm_reset [get_bd_pins prc_0/vsm_vs_cortex_rm_reset] [get_bd_pins util_vector_logic_1/Op1]
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_ports int_RESET_TIMER] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
-  connect_bd_net -net proc_sys_reset_1_interconnect_aresetn [get_bd_ports int_RESET_INTERCONNECT] [get_bd_pins ila_0/probe1] [get_bd_pins proc_sys_reset_1/interconnect_aresetn]
+  connect_bd_net -net proc_sys_reset_1_interconnect_aresetn [get_bd_ports int_RESET_INTERCONNECT] [get_bd_pins proc_sys_reset_1/interconnect_aresetn]
   connect_bd_net -net proc_sys_reset_1_mb_reset [get_bd_pins proc_sys_reset_1/mb_reset] [get_bd_pins util_vector_logic_5/Op1]
-  connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_ports int_RESET_PERIPHERAL] [get_bd_pins ila_0/probe2] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_ports int_RESET_PERIPHERAL] [get_bd_pins proc_sys_reset_1/peripheral_aresetn]
   connect_bd_net -net proc_sys_reset_2_interconnect_aresetn [get_bd_pins axi_protocol_convert_0/aresetn] [get_bd_pins proc_sys_reset_2/interconnect_aresetn]
-  connect_bd_net -net proc_sys_reset_2_peripheral_reset [get_bd_pins prc_0/icap_reset] [get_bd_pins prc_0/reset] [get_bd_pins proc_sys_reset_2/peripheral_reset]
-  connect_bd_net -net reset_0_2 [get_bd_ports ENGINE] [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins ila_0/probe6] [get_bd_pins util_vector_logic_0/Op1] [get_bd_pins xlconcat_2/In6]
+  connect_bd_net -net proc_sys_reset_2_peripheral_reset [get_bd_pins proc_sys_reset_2/peripheral_reset] [get_bd_pins reset_counter_0/reset_i] [get_bd_pins top_0/RST] [get_bd_pins util_vector_logic_6/Op2]
+  connect_bd_net -net reset_0_2 [get_bd_ports reset_0] [get_bd_pins clk_wiz_0/reset] [get_bd_pins util_vector_logic_0/Op1] [get_bd_pins xlconcat_2/In6]
+  connect_bd_net -net reset_counter_0_reset_o [get_bd_pins reset_counter_0/reset_o] [get_bd_pins util_vector_logic_6/Op1]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
-  connect_bd_net -net top_0_REC_ECU1 [get_bd_ports btn_d] [get_bd_pins xlconcat_0/In0] [get_bd_pins xlconcat_2/In0]
-  connect_bd_net -net top_0_REC_MCU [get_bd_ports btn_r] [get_bd_pins xlconcat_0/In2] [get_bd_pins xlconcat_2/In2]
-  connect_bd_net -net top_0_REC_THS [get_bd_ports btn_l] [get_bd_pins xlconcat_0/In1] [get_bd_pins xlconcat_2/In1]
-  connect_bd_net -net top_0_UART_TX_EXT [get_bd_ports UART_TX] [get_bd_pins util_vector_logic_4/Op1]
+  connect_bd_net -net top_0_MCU_GPIO_EXT [get_bd_ports ENGINE] [get_bd_pins top_0/MCU_GPIO_EXT]
+  connect_bd_net -net top_0_REC_BLK [get_bd_pins top_0/REC_BLK] [get_bd_pins xlconcat_0/In3]
+  connect_bd_net -net top_0_REC_ECU [get_bd_pins top_0/REC_ECU] [get_bd_pins xlconcat_0/In0] [get_bd_pins xlconcat_2/In0]
+  connect_bd_net -net top_0_REC_MCU [get_bd_pins top_0/REC_MCU] [get_bd_pins xlconcat_0/In2] [get_bd_pins xlconcat_2/In1]
+  connect_bd_net -net top_0_REC_THS [get_bd_pins top_0/REC_THS] [get_bd_pins xlconcat_0/In1] [get_bd_pins xlconcat_2/In2]
+  connect_bd_net -net top_0_UART_RX_INT [get_bd_ports int_uart_rx_int] [get_bd_pins top_0/UART_RX_INT]
+  connect_bd_net -net top_0_UART_TX_EXT [get_bd_ports UART_TX] [get_bd_pins top_0/UART_TX_EXT] [get_bd_pins util_vector_logic_4/Op1]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins proc_sys_reset_2/ext_reset_in] [get_bd_pins util_vector_logic_0/Res]
-  connect_bd_net -net util_vector_logic_1_Res [get_bd_pins ila_0/probe5] [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins util_vector_logic_1/Res]
+  connect_bd_net -net util_vector_logic_1_Res [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins util_vector_logic_1/Res]
   connect_bd_net -net util_vector_logic_2_Res [get_bd_pins util_vector_logic_2/Res] [get_bd_pins xlconcat_2/In4]
-  connect_bd_net -net util_vector_logic_3_Res [get_bd_pins ila_0/probe4] [get_bd_pins util_vector_logic_1/Op2] [get_bd_pins util_vector_logic_3/Res]
+  connect_bd_net -net util_vector_logic_3_Res [get_bd_pins util_vector_logic_1/Op2] [get_bd_pins util_vector_logic_3/Res]
   connect_bd_net -net util_vector_logic_4_Res [get_bd_pins util_vector_logic_4/Res] [get_bd_pins xlconcat_2/In5]
-  connect_bd_net -net util_vector_logic_5_Res [get_bd_ports int_CORTEX_RESET] [get_bd_pins ila_0/probe0] [get_bd_pins util_vector_logic_5/Res]
+  connect_bd_net -net util_vector_logic_5_Res [get_bd_ports int_CORTEX_RESET] [get_bd_pins util_vector_logic_5/Res]
+  connect_bd_net -net util_vector_logic_6_Res [get_bd_pins prc_0/icap_reset] [get_bd_pins prc_0/reset] [get_bd_pins util_vector_logic_6/Res]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins prc_0/vsm_vs_cortex_hw_triggers] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconcat_1_dout [get_bd_ports int_DIN] [get_bd_pins xlconcat_1/dout]
   connect_bd_net -net xlconcat_2_dout [get_bd_ports led] [get_bd_pins xlconcat_2/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins xlconcat_1/In0] [get_bd_pins xlconstant_1/dout]
-  connect_bd_net -net xlconstant_2_dout [get_bd_pins xlconcat_0/In3] [get_bd_pins xlconstant_2/dout]
+  connect_bd_net -net xlconstant_2_dout [get_bd_pins top_0/EN] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlconstant_3_dout [get_bd_pins xlconcat_1/In3] [get_bd_pins xlconstant_3/dout]
   connect_bd_net -net xlconstant_5_dout [get_bd_pins prc_0/cap_gnt] [get_bd_pins prc_0/vsm_vs_cortex_rm_shutdown_ack] [get_bd_pins xlconstant_5/dout]
   connect_bd_net -net xlconstant_6_dout [get_bd_pins prc_0/cap_rel] [get_bd_pins xlconstant_6/dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins xlconcat_2/In3] [get_bd_pins xlslice_1/Dout]
+  connect_bd_net -net xlslice_2_Dout [get_bd_pins top_0/MCU_GPIO_INT] [get_bd_pins xlslice_2/Dout]
 
   # Create address segments
 
